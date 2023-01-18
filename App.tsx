@@ -1,12 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Notifications from './src/screens/Notifications';
+import TabBarBottom from './src/components/TabBarBottom/TabBarBottom';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <>
+            <StatusBar />
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="TabBarScreen" component={TabBarBottom} options={{ headerShown: false }} />
+                    <Stack.Screen
+                        name="Notifications"
+                        component={Notifications}
+                        options={{
+                            presentation: 'modal',
+                        }}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </>
     );
 }
 
