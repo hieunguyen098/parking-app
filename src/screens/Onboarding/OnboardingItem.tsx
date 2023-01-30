@@ -8,6 +8,7 @@ type ItemProps = {
     image: any;
     description: string;
 };
+
 const OnboardingItem = ({ item }: { item: ItemProps }) => {
     const { width } = useWindowDimensions();
     return (
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         fontSize: 28,
         marginBottom: 10,
-        color: GlobalStyles.colors.primary,
+        color: GlobalStyles.colors.primaryOrange,
         textAlign: 'center',
     },
     description: {
