@@ -3,39 +3,41 @@ import React from 'react';
 import Header from './components/Header';
 import ListVehicle from './components/ListVehicle';
 import MenuBar from './components/MenuBar';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import NewOffer from './components/NewOfferList';
 
-const Home = ({ navigation }: any) => {
-    const clearViewedOnboarding = async () => {
-        try {
-            await AsyncStorage.removeItem('@viewedOnboarding');
-        } catch (err) {
-            console.log('Error @removeItem: ', err);
-        }
-    };
+const Home = () => {
     return (
-        <SafeAreaView>
-            <KeyboardAvoidingView behavior="position">
-                <ScrollView style={styles.container}>
-                    <Header />
-                    <View style={styles.content}>
-                        <MenuBar />
-                        <ListVehicle />
-                        <TouchableOpacity onPress={clearViewedOnboarding}>
-                            <Text>Clear viewedOnboarding</Text>
-                        </TouchableOpacity>
-                    </View>
+        <>
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.innerContainer}>
+                    <KeyboardAvoidingView style={styles.container}>
+                        <ScrollView style={styles.container}>
+                            <Header />
+                            <View style={styles.content}>
+                                <MenuBar />
+                                <ListVehicle />
+                                <NewOffer />
+                            </View>
+                        </ScrollView>
+                    </KeyboardAvoidingView>
                 </ScrollView>
-            </KeyboardAvoidingView>
-        </SafeAreaView>
+            </SafeAreaView>
+        </>
     );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-    container: {},
+    container: {
+        flex: 1,
+    },
+    innerContainer: {
+        flex: 1,
+        marginTop: 40,
+    },
     content: {
         marginHorizontal: 16,
+        flex: 1,
     },
 });

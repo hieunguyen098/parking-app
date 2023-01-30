@@ -18,7 +18,5 @@ const ListVehicle = () => {
 export default ListVehicle;
 
 const styles = StyleSheet.create({
-    listVehicle: {
-        marginVertical: 16,
-    },
+    listVehicle: {},
 });
