@@ -1,19 +1,27 @@
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Pressable } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import SearchInput from './SearchInput';
+import { useNavigation } from '@react-navigation/native';
+import HeaderSearchInput from './HeaderSearchInput';
 
 const Header = () => {
+    const navigation: any = useNavigation();
+
     return (
         <LinearGradient colors={['rgba(255,149,58,1)', 'rgba(255,149,58,0)']} style={styles.headerContainer}>
             <View style={styles.firstLineContainer}>
                 <Text style={styles.name}>Chào Cao Thanh Bình !</Text>
                 <View style={styles.rightHeaderContainer}>
-                    <View style={styles.iconContainer}>
+                    <Pressable
+                        style={styles.iconContainer}
+                        onPress={() => {
+                            navigation.navigate('Notifications');
+                        }}
+                    >
                         <Ionicons name="notifications-circle" size={38} color="rgba(0,0,0,0.3)" />
                         <Text style={styles.badge}>3</Text>
-                    </View>
+                    </Pressable>
                     <Image
                         source={{
                             uri: 'https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/master/pass/bieber-coverstory-square.jpg',
@@ -30,7 +38,7 @@ const Header = () => {
                     style={styles.banner}
                 />
             </View>
-            <SearchInput />
+            <HeaderSearchInput />
         </LinearGradient>
     );
 };
@@ -39,7 +47,7 @@ export default Header;
 
 const styles = StyleSheet.create({
     headerContainer: {
-        paddingTop: 40,
+        paddingTop: 8,
         paddingBottom: 32,
         paddingHorizontal: 16,
     },

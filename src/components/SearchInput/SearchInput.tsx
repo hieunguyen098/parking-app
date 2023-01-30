@@ -2,16 +2,21 @@ import { StyleSheet, View, TextInput } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { GlobalStyles } from '../../constants/style';
 
-const SearchInput = () => {
+const SearchInput = ({ placeholder, style, onSearch }: any) => {
+    const handleSearch = () => {
+        onSearch();
+    };
+
     return (
         <View style={styles.searchContainer}>
-            <Ionicons name="search" size={24} color="orange" />
+            <Ionicons name="search" size={24} color={GlobalStyles.colors.primaryOrange} onPress={handleSearch} />
             <TextInput
-                style={styles.inputSearch}
-                placeholder="Tìm kiếm bãi đỗ xe"
-                cursorColor="orange"
-                placeholderTextColor={'orange'}
+                style={[styles.inputSearch, style]}
+                placeholder={placeholder}
+                placeholderTextColor={GlobalStyles.colors.primaryOrange}
             />
         </View>
     );
@@ -21,6 +26,7 @@ export default SearchInput;
 
 const styles = StyleSheet.create({
     searchContainer: {
+        flex: 1,
         flexDirection: 'row',
         backgroundColor: 'white',
         height: 44,
@@ -34,6 +40,5 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: 20,
         marginLeft: 10,
-        color: 'orange',
     },
 });

@@ -31,9 +31,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        marginVertical: 16,
     },
     title: {
-        fontSize: 16,
+        fontSize: 24,
         fontWeight: '700',
     },
     seeMoreContainer: {
