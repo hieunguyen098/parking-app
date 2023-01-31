@@ -18,7 +18,15 @@ const BottomTabs = createBottomTabNavigator();
 
 const TabBarBottom = () => {
     return (
-        <BottomTabs.Navigator screenOptions={{ tabBarActiveTintColor: GlobalStyles.colors.primaryOrange }}>
+        <BottomTabs.Navigator
+            screenOptions={{
+                tabBarActiveTintColor: GlobalStyles.colors.primaryOrange,
+                headerStyle: {
+                    backgroundColor: GlobalStyles.colors.primaryOrange,
+                },
+                headerTintColor: 'white',
+            }}
+        >
             <BottomTabs.Screen
                 name="Home"
                 component={Home}

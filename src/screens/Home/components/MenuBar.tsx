@@ -45,5 +45,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 32,
+        zIndex: 1,
+        backgroundColor: 'white',
+        paddingHorizontal: 16,
+        paddingVertical: 8,
+        elevation: 4,
     },
 });

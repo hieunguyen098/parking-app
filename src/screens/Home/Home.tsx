@@ -9,18 +9,16 @@ const Home = () => {
     return (
         <>
             <SafeAreaView style={styles.container}>
-                <ScrollView style={styles.innerContainer}>
-                    <KeyboardAvoidingView style={styles.container}>
-                        <ScrollView style={styles.container}>
-                            <Header />
-                            <View style={styles.content}>
-                                <MenuBar />
-                                <ListVehicle />
-                                <NewOffer />
-                            </View>
-                        </ScrollView>
-                    </KeyboardAvoidingView>
-                </ScrollView>
+                <KeyboardAvoidingView style={styles.container}>
+                    <ScrollView style={styles.innerContainer} stickyHeaderIndices={[1]}>
+                        <Header />
+                        <MenuBar />
+                        <View style={styles.content}>
+                            <ListVehicle />
+                            <NewOffer />
+                        </View>
+                    </ScrollView>
+                </KeyboardAvoidingView>
             </SafeAreaView>
         </>
     );
