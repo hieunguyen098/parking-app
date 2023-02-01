@@ -22,14 +22,14 @@ const styles = StyleSheet.create({
     iconContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: 40,
+        height: 24,
     },
     icon: {
         color: GlobalStyles.colors.primaryOrange,
-        fontSize: 32,
+        fontSize: 24,
     },
     text: {
-        fontSize: 16,
+        fontSize: 12,
         fontWeight: '400',
         color: GlobalStyles.colors.primaryOrange,
     },
