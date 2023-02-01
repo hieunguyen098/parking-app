@@ -19,6 +19,12 @@ const Discover = () => {
                     iconPosition="left"
                     keyboardType="phone-pad"
                 />
+                <LargeButton
+                    onPress={() => navigation.navigate('TabBarScreen')}
+                    type="primary"
+                    title="Vào trang chủ"
+                    style={styles.continueButton}
+                />
             </View>
             <LargeButton onPress={nextStep} type="primary" title="Tiếp tục" style={styles.continueButton} />
         </View>
