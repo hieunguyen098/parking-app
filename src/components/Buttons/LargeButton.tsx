@@ -3,7 +3,6 @@ import React from 'react';
 import { GlobalStyles } from '../../constants/style';
 
 const LargeButton = ({ title, style, type, onPress = () => {} }: any) => {
-    const { width } = useWindowDimensions();
     return (
         <Pressable
             style={[

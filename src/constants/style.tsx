@@ -7,6 +7,7 @@ export const GlobalStyles = {
         secondary: '#727272',
         secondaryOrange: '#FFEBDA',
         lightGrey: '#B3B3B3',
+        veryLightGrey: '#FBFBFB',
         negative: '#959595',
         lightRed: '#FF666B',
     },

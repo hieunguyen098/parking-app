@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalStyles } from './src/constants/style';
 import SearchResults from './src/screens/SearchResults/SearchResults';
+import Authentication from './src/screens/Authentication/Authentication';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,32 +47,39 @@ export default function App() {
                 <Loading />
             ) : viewedOnboarding ? (
                 <NavigationContainer>
-                <Stack.Navigator
-                    screenOptions={{
-                        headerStyle: {
-                            backgroundColor: GlobalStyles.colors.primaryOrange,
-                        },
-                        headerTintColor: 'white',
-                    }}
-                >
-                    <Stack.Screen name="TabBarScreen" component={TabBarBottom} options={{ headerShown: false }} />
-                    <Stack.Screen
-                        name="Notifications"
-                        component={Notifications}
-                        options={{
-                            title: 'Thông báo',
-                            presentation: 'modal',
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerStyle: {
+                                backgroundColor: GlobalStyles.colors.primaryOrange,
+                            },
+                            headerTintColor: 'white',
                         }}
-                    />
-                    <Stack.Screen
-                        name="SearchResults"
-                        component={SearchResults}
-                        options={{
-                            title: 'Kết quả tìm kiếm',
-                        }}
-                    />
-                </Stack.Navigator>
-            </NavigationContainer>
+                    >
+                        <Stack.Screen
+                            name="Authentication"
+                            component={Authentication}
+                            options={{
+                                headerShown: false,
+                            }}
+                        />
+                        <Stack.Screen name="TabBarScreen" component={TabBarBottom} options={{ headerShown: false }} />
+                        <Stack.Screen
+                            name="Notifications"
+                            component={Notifications}
+                            options={{
+                                title: 'Thông báo',
+                                presentation: 'modal',
+                            }}
+                        />
+                        <Stack.Screen
+                            name="SearchResults"
+                            component={SearchResults}
+                            options={{
+                                title: 'Kết quả tìm kiếm',
+                            }}
+                        />
+                    </Stack.Navigator>
+                </NavigationContainer>
             ) : (
                 <Onboarding />
             )}
