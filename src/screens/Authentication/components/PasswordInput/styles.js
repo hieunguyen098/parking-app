@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         paddingVertical: 30,
         backgroundColor: GlobalStyles.colors.veryLightGrey,
         borderRadius: 20,
-        marginVertical: 10,
+        marginVertical: 20,
         borderWidth: 1,
         borderColor: GlobalStyles.colors.veryLightGrey,
     },

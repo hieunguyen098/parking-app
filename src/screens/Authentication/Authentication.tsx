@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './Login';
+import Login from './LoginStack/Login';
 import Discover from './Discover';
-import SignUp from './SignUp';
-import CreatePassword from './CreatePassword';
+import SignUp from './SignupStack/SignUp';
+import CreatePassword from './SignupStack/CreatePassword';
+import PhoneVerification from './LoginStack/PhoneVerification';
+import ForgotPassword from './ForgotPasswordStack/ForgotPassword';
+import SignupStack from './SignupStack/SignupStack';
+import LoginStack from './LoginStack/LoginStack';
+import ForgotPasswordStack from './ForgotPasswordStack/ForgotPasswordStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,27 +35,24 @@ const Authentication = () => {
                 }}
             />
             <Stack.Screen
-                name="SignUp"
-                component={SignUp}
+                name="SignupStack"
+                component={SignupStack}
                 options={{
-                    title: 'Tạo tài khoản',
-                    presentation: 'modal',
+                    headerShown: false,
                 }}
             />
             <Stack.Screen
-                name="CreatePassword"
-                component={CreatePassword}
+                name="LoginStack"
+                component={LoginStack}
                 options={{
-                    title: 'Thiết lập mật khẩu',
-                    presentation: 'modal',
+                    headerShown: false,
                 }}
             />
             <Stack.Screen
-                name="Login"
-                component={Login}
+                name="ForgotPasswordStack"
+                component={ForgotPasswordStack}
                 options={{
-                    title: 'Đăng nhập',
-                    presentation: 'modal',
+                    headerShown: false,
                 }}
             />
         </Stack.Navigator>

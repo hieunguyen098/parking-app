@@ -10,7 +10,7 @@ export const ACTIVE_CELL_BG_COLOR = GlobalStyles.colors.veryLightGrey;
 const styles = StyleSheet.create({
     codeFiledRoot: {
         justifyContent: 'space-between',
-        marginVertical: 10,
+        marginVertical: 20,
     },
     cell: {
         height: CELL_SIZE,
