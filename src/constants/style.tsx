@@ -9,5 +9,6 @@ export const GlobalStyles = {
         lightGrey: '#B3B3B3',
         negative: '#959595',
         lightRed: '#FF666B',
+        lightGrey100: '#E8E8E8',
     },
 };

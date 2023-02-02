@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { Ionicons } from '@expo/vector-icons';
 import { GlobalStyles } from '../../constants/style';
 
 const IconWithBottomText = ({ title, name, Icon, iconStyle, textStyle }: any) => {
