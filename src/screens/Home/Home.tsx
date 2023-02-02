@@ -1,4 +1,4 @@
-import { StyleSheet, ScrollView, SafeAreaView, KeyboardAvoidingView, View } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView, KeyboardAvoidingView, View, TouchableOpacity, Text } from 'react-native';
 import React from 'react';
 import Header from './components/Header';
 import ListVehicle from './components/ListVehicle';
