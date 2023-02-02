@@ -2,8 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import LargeButton from '../../../components/Buttons/LargeButton';
-import PinCodeInput from '../components/PinCodeInput/PinCodeInput';
 import styles from '../styles';
+import PinCodeInput from '../../../components/PinCodeInput/PinCodeInput';
 
 const PhoneVerification = () => {
     const navigation: any = useNavigation();

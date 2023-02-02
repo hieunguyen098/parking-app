@@ -2,7 +2,7 @@ import { Text, View } from 'react-native';
 import React from 'react';
 import LargeButton from '../../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
-import PasswordInput from '../components/PasswordInput/PasswordInput';
+import PasswordInput from '../../../components/PasswordInput/PasswordInput';
 import styles from '../styles';
 
 const CreatePassword = () => {

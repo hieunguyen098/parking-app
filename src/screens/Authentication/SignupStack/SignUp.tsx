@@ -2,12 +2,11 @@ import { StyleSheet, View, Image, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import LargeButton from '../../../components/Buttons/LargeButton';
-import FieldInput from '../components/FieldInput';
-import DateInput from '../components/DateInput';
-import Select from '../components/Select';
 import * as ImagePicker from 'expo-image-picker';
-import { GlobalStyles } from '../../../constants/style';
 import styles from '../styles';
+import FieldInput from '../../../components/FieldInput';
+import DateInput from '../../../components/DateInput';
+import Select from '../../../components/Select';
 
 const genders = [
     {

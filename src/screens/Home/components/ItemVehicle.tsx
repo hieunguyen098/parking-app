@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderStyle: 'solid',
         borderColor: 'rgba(255, 149, 58, 0.25)',
-        elevation: 4,
+        elevation: 2,
     },
     innerContainer: {
         flexDirection: 'row',

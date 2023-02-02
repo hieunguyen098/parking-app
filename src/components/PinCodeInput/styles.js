@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { GlobalStyles } from '../../../../constants/style';
+import { GlobalStyles } from '../../constants/style';
 
 export const CELL_SIZE = 70;
 export const CELL_BORDER_RADIUS = 20;

@@ -2,9 +2,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import LargeButton from '../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
-import FieldInput from './components/FieldInput';
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import FieldInput from '../../components/FieldInput';
 
 const Discover = () => {
     const navigation: any = useNavigation();

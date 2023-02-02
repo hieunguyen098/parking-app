@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../screens/Home/Home';
 import History from '../../screens/History/History';
 import Qr from '../../screens/Qr';
-import Parking from '../../screens/Parking';
+import Parking from '../../screens/Parking/Parking';
 import Account from '../../screens/Account';
 
 import { Ionicons } from '@expo/vector-icons';

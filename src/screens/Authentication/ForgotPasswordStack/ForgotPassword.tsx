@@ -1,9 +1,9 @@
 import { Text, View } from 'react-native';
 import React from 'react';
 import styles from '../styles';
-import FieldInput from '../components/FieldInput';
 import LargeButton from '../../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
+import FieldInput from '../../../components/FieldInput';
 
 const ForgotPassword = () => {
     const navigation: any = useNavigation();

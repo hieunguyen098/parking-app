@@ -1,14 +1,14 @@
 import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import AllNotifications from './AllNotifications';
-import ParkingNotifications from './ParkingNotifications';
-import RequestNotifications from './RequestNotifications';
-import MonthTicketNotifications from './MonthTicketNotifications';
 import { GlobalStyles } from '../../constants/style';
+import ParkingLot from './ParkingLot/ParkingLot';
+import MonthTicket from './MonthTicket/MonthTicket';
+import Vehicle from './Vehicle/Vehicle';
 
 const Tab = createMaterialTopTabNavigator();
-const Notifications = () => {
+
+const Parking = () => {
     const { width } = useWindowDimensions();
     return (
         <Tab.Navigator
@@ -17,7 +17,7 @@ const Notifications = () => {
                 tabBarInactiveTintColor: GlobalStyles.colors.secondary,
                 tabBarScrollEnabled: true,
                 tabBarItemStyle: {
-                    width: (1 / 4) * width,
+                    width: (1 / 3) * width,
                 },
                 tabBarPressColor: GlobalStyles.colors.primaryOrange,
                 lazy: true,
@@ -27,37 +27,30 @@ const Notifications = () => {
             }}
         >
             <Tab.Screen
-                name="All"
-                component={AllNotifications}
+                name="ParkingLot"
+                component={ParkingLot}
                 options={{
-                    title: 'Tất cả',
+                    title: 'Bãi đỗ xe',
                 }}
             />
             <Tab.Screen
-                name="Parking"
-                component={ParkingNotifications}
-                options={{
-                    title: 'Gửi xe',
-                }}
-            />
-            <Tab.Screen
-                name="Request"
-                component={RequestNotifications}
-                options={{
-                    title: 'Yêu cầu',
-                }}
-            />
-            <Tab.Screen
-                name="Month Ticket"
-                component={MonthTicketNotifications}
+                name="MonthTicket"
+                component={MonthTicket}
                 options={{
                     title: 'Vé tháng',
+                }}
+            />
+            <Tab.Screen
+                name="Vehicle"
+                component={Vehicle}
+                options={{
+                    title: 'Xe gửi',
                 }}
             />
         </Tab.Navigator>
     );
 };
 
-export default Notifications;
+export default Parking;
 
 const styles = StyleSheet.create({});
