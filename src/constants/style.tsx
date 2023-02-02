@@ -11,5 +11,6 @@ export const GlobalStyles = {
         veryLightGrey: '#FBFBFB',
         negative: '#959595',
         lightRed: '#FF666B',
+        lightGrey100: '#E8E8E8',
     },
 };

@@ -26,7 +26,7 @@ export default SearchInput;
 
 const styles = StyleSheet.create({
     searchContainer: {
-        flex: 1,
+        width: '100%',
         flexDirection: 'row',
         backgroundColor: 'white',
         height: 44,
