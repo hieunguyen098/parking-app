@@ -35,7 +35,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-    icon: {},
+    icon: {
+        width: 41,
+        height: 22,
+    },
     plateNumber: {
         fontSize: 16,
         fontWeight: '600',

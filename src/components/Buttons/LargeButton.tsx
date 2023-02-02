@@ -13,6 +13,7 @@ const LargeButton = ({ title, style, type, onPress = () => {} }: any) => {
                 style,
             ]}
             onPress={onPress}
+            android_ripple={{ color: 'white' }}
         >
             <Text
                 style={[

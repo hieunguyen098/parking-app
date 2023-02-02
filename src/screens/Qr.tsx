@@ -28,8 +28,8 @@ const Qr = () => {
             <View style={styles.qrContainer}>
                 {loading || value === '' ? <View></View> : <QRCode size={224} value={value} />}
                 <View style={styles.row}>
-                    <Text style={styles.description}>Tự động cập nhật sau 59s. </Text>
-                    <Pressable onPress={refreshQR}>
+                    <Text style={styles.description}>Tự động cập nhật sau 59s.</Text>
+                    <Pressable onPress={refreshQR} android_ripple={{ color: '#d3d3d3' }}>
                         <Text style={styles.refreshBtn}>Cập nhật</Text>
                     </Pressable>
                 </View>
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     refreshBtn: {
         color: GlobalStyles.colors.primaryOrange,
         fontSize: 16,
+        paddingHorizontal: 5,
     },
     row: {
         display: 'flex',
