@@ -45,7 +45,7 @@ const TabBarBottom = () => {
                 }}
             />
             <BottomTabs.Screen
-                name="Qr"
+                name="Gửi xe"
                 component={Qr}
                 options={{
                     tabBarLabel: () => {
