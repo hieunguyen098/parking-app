@@ -1,15 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './LoginStack/Login';
+import Login from './Login/Login';
 import Discover from './Discover';
-import SignUp from './SignupStack/SignUp';
-import CreatePassword from './SignupStack/CreatePassword';
-import PhoneVerification from './LoginStack/PhoneVerification';
-import ForgotPassword from './ForgotPasswordStack/ForgotPassword';
-import SignupStack from './SignupStack/SignupStack';
-import LoginStack from './LoginStack/LoginStack';
-import ForgotPasswordStack from './ForgotPasswordStack/ForgotPasswordStack';
+import SignUp from './SignUp/SignUp';
+import CreatePassword from './SignUp/CreatePassword';
+import ForgotPassword from './ForgotPassword/ForgotPassword';
+import PhoneVerification from './PhoneVerification';
+import ResetPassword from './ForgotPassword/ResetPassword';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,13 +15,7 @@ const Authentication = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle: {
-                    backgroundColor: '#fff',
-                },
-                headerTitleStyle: {
-                    color: '#000',
-                },
-                headerTintColor: '#000',
+                statusBarColor: '#fff',
             }}
         >
             <Stack.Screen
@@ -35,24 +27,51 @@ const Authentication = () => {
                 }}
             />
             <Stack.Screen
-                name="SignupStack"
-                component={SignupStack}
+                name="Login"
+                component={Login}
                 options={{
-                    headerShown: false,
+                    title: 'Đăng nhập',
+                    presentation: 'modal',
                 }}
             />
             <Stack.Screen
-                name="LoginStack"
-                component={LoginStack}
+                name="SignUp"
+                component={SignUp}
                 options={{
-                    headerShown: false,
+                    title: 'Tạo tài khoản',
+                    presentation: 'modal',
                 }}
             />
             <Stack.Screen
-                name="ForgotPasswordStack"
-                component={ForgotPasswordStack}
+                name="CreatePassword"
+                component={CreatePassword}
                 options={{
-                    headerShown: false,
+                    title: 'Thiết lập mật khẩu',
+                    presentation: 'modal',
+                }}
+            />
+            <Stack.Screen
+                name="PhoneVerification"
+                component={PhoneVerification}
+                options={{
+                    title: 'Xác thực số điện thoại',
+                    presentation: 'modal',
+                }}
+            />
+            <Stack.Screen
+                name="ForgotPassword"
+                component={ForgotPassword}
+                options={{
+                    title: 'Quên mật khẩu',
+                    presentation: 'modal',
+                }}
+            />
+            <Stack.Screen
+                name="ResetPassword"
+                component={ResetPassword}
+                options={{
+                    title: 'Thiết lập mật khẩu mới',
+                    presentation: 'modal',
                 }}
             />
         </Stack.Navigator>

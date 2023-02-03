@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import PasswordInput from '../../../components/PasswordInput/PasswordInput';
 import styles from '../styles';
 
-const CreatePassword = () => {
+const ResetPassword = () => {
     const navigation: any = useNavigation();
     const navigate = (name: string) => {
         navigation.navigate(name);
@@ -23,4 +23,4 @@ const CreatePassword = () => {
     );
 };
 
-export default CreatePassword;
+export default ResetPassword;

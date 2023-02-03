@@ -9,16 +9,22 @@ const LargeButton = ({ title, style, type, onPress = () => {} }: any) => {
                 styles.button,
                 type === 'secondary'
                     ? { backgroundColor: GlobalStyles.colors.secondaryOrange }
+                    : type === 'white'
+                    ? { backgroundColor: '#fff' }
                     : { backgroundColor: GlobalStyles.colors.primaryOrange },
                 style,
             ]}
             onPress={onPress}
-            android_ripple={{ color: 'white' }}
+            android_ripple={{ color: type === 'white' ? GlobalStyles.colors.primaryOrange50 : 'white' }}
         >
             <Text
                 style={[
                     styles.text,
-                    type === 'secondary' ? { color: GlobalStyles.colors.primaryOrange } : { color: '#fff' },
+                    type === 'secondary'
+                        ? { color: GlobalStyles.colors.primaryOrange }
+                        : type === 'white'
+                        ? { color: GlobalStyles.colors.primaryOrange }
+                        : { color: '#fff' },
                 ]}
             >
                 {title}

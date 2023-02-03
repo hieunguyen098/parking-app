@@ -30,12 +30,12 @@ const Discover = () => {
                     style={styles.continueButton}
                 />
                 <LargeButton
-                    onPress={() => navigation.navigate('LoginStack')}
+                    onPress={() => navigation.navigate('Login')}
                     title="Đăng nhập"
                     style={styles.continueButton}
                 />
                 <LargeButton
-                    onPress={() => navigation.navigate('SignupStack')}
+                    onPress={() => navigation.navigate('SignUp')}
                     title="Đăng ký"
                     style={styles.continueButton}
                 />

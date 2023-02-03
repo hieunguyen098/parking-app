@@ -10,6 +10,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalStyles } from './src/constants/style';
 import SearchResults from './src/screens/SearchResults/SearchResults';
 import Authentication from './src/screens/Authentication/Authentication';
+import VehicleDetail from './src/screens/Parking/Vehicle/VehicleDetail';
+import CheckOut from './src/screens/Parking/Vehicle/CheckOut';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +44,7 @@ export default function App() {
 
     return (
         <>
-            <StatusBar />
+            <StatusBar style="dark" />
             {loading ? (
                 <Loading />
             ) : viewedOnboarding ? (
@@ -53,6 +55,9 @@ export default function App() {
                                 backgroundColor: GlobalStyles.colors.primaryOrange,
                             },
                             headerTintColor: 'white',
+                            statusBarHidden: false,
+                            statusBarStyle: 'dark',
+                            statusBarColor: GlobalStyles.colors.primaryOrange,
                         }}
                     >
                         <Stack.Screen
@@ -62,7 +67,16 @@ export default function App() {
                                 headerShown: false,
                             }}
                         />
-                        <Stack.Screen name="TabBarScreen" component={TabBarBottom} options={{ headerShown: false }} />
+                        <Stack.Screen
+                            name="TabBarScreen"
+                            component={TabBarBottom}
+                            options={{
+                                headerShown: false,
+                                statusBarHidden: false,
+                                statusBarStyle: 'dark',
+                                statusBarColor: GlobalStyles.colors.primaryOrange,
+                            }}
+                        />
                         <Stack.Screen
                             name="Notifications"
                             component={Notifications}
@@ -76,6 +90,20 @@ export default function App() {
                             component={SearchResults}
                             options={{
                                 title: 'Kết quả tìm kiếm',
+                            }}
+                        />
+                        <Stack.Screen
+                            name="VehicleDetail"
+                            component={VehicleDetail}
+                            options={{
+                                title: 'Chi tiết xe gửi',
+                            }}
+                        />
+                        <Stack.Screen
+                            name="CheckOut"
+                            component={CheckOut}
+                            options={{
+                                headerShown: false,
                             }}
                         />
                     </Stack.Navigator>

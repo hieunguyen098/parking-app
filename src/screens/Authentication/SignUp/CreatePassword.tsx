@@ -7,8 +7,11 @@ import styles from '../styles';
 
 const CreatePassword = () => {
     const navigation: any = useNavigation();
+    const handleFunction = () => {
+        console.log('From signup');
+    };
     const navigate = (name: string) => {
-        navigation.navigate(name);
+        navigation.navigate(name, { nextScreen: 'Login', action: 'signup' });
     };
     return (
         <View style={styles.container}>

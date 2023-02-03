@@ -7,8 +7,11 @@ import styles from '../styles';
 
 const Login = () => {
     const navigation: any = useNavigation();
+    const handleFunction = () => {
+        console.log('From login');
+    };
     const navigate = (name: string) => {
-        navigation.navigate(name);
+        navigation.navigate(name, {nextScreen: 'TabBarScreen', action:'login'});
     };
     return (
         <View style={styles.container}>
@@ -16,7 +19,7 @@ const Login = () => {
                 <Text style={styles.description}>Xin chào, CAO THANH BÌNH!</Text>
                 <Text style={styles.description}>0398888888</Text>
                 <PasswordInput length={6} />
-                <Pressable onPress={() => navigate('ForgotPasswordStack')}>
+                <Pressable onPress={() => navigate('ForgotPassword')}>
                     <Text style={styles.forgotPasswordBtn}>Quên mật khẩu?</Text>
                 </Pressable>
             </View>

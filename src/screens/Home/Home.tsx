@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         flex: 1,
-        marginTop: 40,
     },
     content: {
         marginHorizontal: 16,

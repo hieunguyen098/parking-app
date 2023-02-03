@@ -7,8 +7,11 @@ import FieldInput from '../../../components/FieldInput';
 
 const ForgotPassword = () => {
     const navigation: any = useNavigation();
+    const handleFunction = () => {
+        console.log('From forgot password');
+    };
     const navigate = (name: string) => {
-        navigation.navigate(name);
+        navigation.navigate(name, { nextScreen: 'ResetPassword', action:'forgotpassword' });
     };
     return (
         <View style={styles.container}>
