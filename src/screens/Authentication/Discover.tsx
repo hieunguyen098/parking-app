@@ -9,7 +9,7 @@ import FieldInput from '../../components/FieldInput';
 const Discover = () => {
     const navigation: any = useNavigation();
     const nextStep = () => {
-        navigation.navigate('LoginStack');
+        navigation.navigate('Login');
     };
     const clearViewedOnboarding = async () => {
         await AsyncStorage.removeItem('@viewedOnboarding');

@@ -11,9 +11,9 @@ import { GlobalStyles } from './src/constants/style';
 import SearchResults from './src/screens/SearchResults/SearchResults';
 import Authentication from './src/screens/Authentication/Authentication';
 import Friends from './src/screens/Friends/Friends';
-import VehicleDetail from './src/screens/Parking/Vehicle/Vehicle';
 
 import CheckOut from './src/screens/Parking/Vehicle/CheckOut';
+import VehicleDetail from './src/screens/Parking/Vehicle/VehicleDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,6 +63,13 @@ export default function App() {
                         }}
                     >
                         <Stack.Screen
+                            name="Authentication"
+                            component={Authentication}
+                            options={{
+                                headerShown: false,
+                            }}
+                        />
+                        <Stack.Screen
                             name="TabBarScreen"
                             component={TabBarBottom}
                             options={{
@@ -72,14 +79,6 @@ export default function App() {
                                 statusBarColor: GlobalStyles.colors.primaryOrange,
                             }}
                         />
-                        <Stack.Screen
-                            name="Authentication"
-                            component={Authentication}
-                            options={{
-                                headerShown: false,
-                            }}
-                        />
-
                         <Stack.Screen
                             name="Notifications"
                             component={Notifications}
