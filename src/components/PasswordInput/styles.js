@@ -1,5 +1,5 @@
-import { StyleSheet, Platform } from 'react-native';
-import { GlobalStyles } from '../../../../constants/style';
+import { StyleSheet } from 'react-native';
+import { GlobalStyles } from '../../constants/style';
 
 export const CELL_SIZE = 10;
 export const CELL_BORDER_RADIUS = 100;
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         paddingVertical: 30,
         backgroundColor: GlobalStyles.colors.veryLightGrey,
         borderRadius: 20,
-        marginVertical: 10,
+        marginVertical: 20,
         borderWidth: 1,
         borderColor: GlobalStyles.colors.veryLightGrey,
     },

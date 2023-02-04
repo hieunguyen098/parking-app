@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, Text, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, Pressable, Text } from 'react-native';
 import React from 'react';
 import { GlobalStyles } from '../../constants/style';
 
@@ -7,17 +7,24 @@ const LargeButton = ({ title, style, type, onPress = () => {} }: any) => {
         <Pressable
             style={[
                 styles.button,
-                type === 'primary'
-                    ? { backgroundColor: GlobalStyles.colors.primaryOrange }
-                    : { backgroundColor: GlobalStyles.colors.secondaryOrange },
-                style
+                type === 'secondary'
+                    ? { backgroundColor: GlobalStyles.colors.secondaryOrange }
+                    : type === 'white'
+                    ? { backgroundColor: '#fff' }
+                    : { backgroundColor: GlobalStyles.colors.primaryOrange },
+                style,
             ]}
             onPress={onPress}
+            android_ripple={{ color: type === 'white' ? GlobalStyles.colors.primaryOrange50 : 'white' }}
         >
             <Text
                 style={[
                     styles.text,
-                    type === 'primary' ? { color: '#fff' } : { color: GlobalStyles.colors.primaryOrange },
+                    type === 'secondary'
+                        ? { color: GlobalStyles.colors.primaryOrange }
+                        : type === 'white'
+                        ? { color: GlobalStyles.colors.primaryOrange }
+                        : { color: '#fff' },
                 ]}
             >
                 {title}

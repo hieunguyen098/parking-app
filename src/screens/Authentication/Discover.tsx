@@ -2,16 +2,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import LargeButton from '../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
-import FieldInput from './components/FieldInput';
+import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import FieldInput from '../../components/FieldInput';
 
 const Discover = () => {
     const navigation: any = useNavigation();
     const nextStep = () => {
-        navigation.navigate('SignUp');
+        navigation.navigate('LoginStack');
+    };
+    const clearViewedOnboarding = async () => {
+        await AsyncStorage.removeItem('@viewedOnboarding');
     };
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.group}>
                 <Text style={styles.description}>Nhập số điện thoại để đăng ký hoặc đăng nhập</Text>
                 <FieldInput
                     placeHolder="Số điện thoại"
@@ -21,8 +26,23 @@ const Discover = () => {
                 />
                 <LargeButton
                     onPress={() => navigation.navigate('TabBarScreen')}
-                    type="primary"
                     title="Vào trang chủ"
+                    style={styles.continueButton}
+                />
+                <LargeButton
+                    onPress={() => navigation.navigate('Login')}
+                    title="Đăng nhập"
+                    style={styles.continueButton}
+                />
+                <LargeButton
+                    onPress={() => navigation.navigate('SignUp')}
+                    title="Đăng ký"
+                    style={styles.continueButton}
+                />
+                <LargeButton
+                    onPress={clearViewedOnboarding}
+                    title="clear ViewedOnboarding"
+                    type="secondary"
                     style={styles.continueButton}
                 />
             </View>
@@ -32,19 +52,3 @@ const Discover = () => {
 };
 
 export default Discover;
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#fff',
-        padding: 20,
-        flex: 1,
-        justifyContent: 'space-between',
-    },
-    description: {
-        fontSize: 16,
-    },
-    continueButton: {
-        marginBottom: 24,
-        borderRadius: 100,
-    },
-});

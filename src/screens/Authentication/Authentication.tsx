@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './Login';
+import Login from './Login/Login';
 import Discover from './Discover';
-import SignUp from './SignUp';
-import CreatePassword from './CreatePassword';
+import SignUp from './SignUp/SignUp';
+import CreatePassword from './SignUp/CreatePassword';
+import ForgotPassword from './ForgotPassword/ForgotPassword';
+import PhoneVerification from './PhoneVerification';
+import ResetPassword from './ForgotPassword/ResetPassword';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,13 +15,7 @@ const Authentication = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle: {
-                    backgroundColor: '#fff',
-                },
-                headerTitleStyle: {
-                    color: '#000',
-                },
-                headerTintColor: '#000',
+                statusBarColor: '#fff',
             }}
         >
             <Stack.Screen
@@ -26,6 +23,14 @@ const Authentication = () => {
                 component={Discover}
                 options={{
                     title: 'Khám phá ngay',
+                    presentation: 'modal',
+                }}
+            />
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{
+                    title: 'Đăng nhập',
                     presentation: 'modal',
                 }}
             />
@@ -46,10 +51,26 @@ const Authentication = () => {
                 }}
             />
             <Stack.Screen
-                name="Login"
-                component={Login}
+                name="PhoneVerification"
+                component={PhoneVerification}
                 options={{
-                    title: 'Đăng nhập',
+                    title: 'Xác thực số điện thoại',
+                    presentation: 'modal',
+                }}
+            />
+            <Stack.Screen
+                name="ForgotPassword"
+                component={ForgotPassword}
+                options={{
+                    title: 'Quên mật khẩu',
+                    presentation: 'modal',
+                }}
+            />
+            <Stack.Screen
+                name="ResetPassword"
+                component={ResetPassword}
+                options={{
+                    title: 'Thiết lập mật khẩu mới',
                     presentation: 'modal',
                 }}
             />

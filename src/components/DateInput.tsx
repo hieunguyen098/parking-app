@@ -29,6 +29,7 @@ const DateInput = ({ keyboardType, placeHolder, iconPosition, source = null }: a
                 value={isChanged ? date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() : ''}
                 keyboardType={keyboardType}
                 placeholder={placeHolder}
+                showSoftInputOnFocus={false}
             />
             {iconPosition === 'right' && <Image source={source} style={styles.icon} />}
         </View>

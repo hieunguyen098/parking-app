@@ -6,7 +6,7 @@ const FieldInput = ({ keyboardType, placeHolder, iconPosition, source = null }: 
 
     return (
         <View style={styles.container}>
-            {iconPosition === 'left' && <Image source={source} style={[styles.icon, {marginRight: 10}]} />}
+            {iconPosition === 'left' && <Image source={source} style={[styles.icon, { marginRight: 10 }]} />}
             <TextInput
                 style={styles.input}
                 value={value}
