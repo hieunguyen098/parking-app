@@ -4,34 +4,50 @@ import IconWithBottomText from '../../../components/IconWithBottomText/IconWithB
 import { Fontisto } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 const menu = [
     {
         title: 'Bãi đỗ xe',
         name: 'place',
         Icon: MaterialIcons,
+        linkTo: '',
     },
     {
         title: 'Vé tháng',
         name: 'ticket',
         Icon: Fontisto,
+        linkTo: '',
     },
     {
         title: 'Bạn bè',
         name: 'users',
         Icon: FontAwesome,
+        linkTo: 'Friends',
     },
     {
         title: 'Thanh toán',
         name: 'payment',
         Icon: MaterialIcons,
+        linkTo: '',
     },
 ];
 
 const MenuBar = () => {
+    const navigation: any = useNavigation();
     return (
         <View style={styles.container}>
             {menu.map((menuItem) => {
-                return <IconWithBottomText {...menuItem} key={menuItem.title} />;
+                return (
+                    <IconWithBottomText
+                        title={menuItem.title}
+                        name={menuItem.name}
+                        Icon={menuItem.Icon}
+                        onPress={() => {
+                            navigation.navigate(menuItem.linkTo);
+                        }}
+                        key={menuItem.title}
+                    />
+                );
             })}
         </View>
     );

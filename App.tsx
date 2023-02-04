@@ -10,7 +10,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalStyles } from './src/constants/style';
 import SearchResults from './src/screens/SearchResults/SearchResults';
 import Authentication from './src/screens/Authentication/Authentication';
-import VehicleDetail from './src/screens/Parking/Vehicle/VehicleDetail';
+import Friends from './src/screens/Friends/Friends';
+import VehicleDetail from './src/screens/Parking/Vehicle/Vehicle';
+
 import CheckOut from './src/screens/Parking/Vehicle/CheckOut';
 
 const Stack = createNativeStackNavigator();
@@ -24,8 +26,8 @@ const Loading = () => {
 };
 
 export default function App() {
-    const [loading, setLoading] = useState(true);
-    const [viewedOnboarding, setViewedOnboarding] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [viewedOnboarding, setViewedOnboarding] = useState(true);
     const checkOnboarding = async () => {
         try {
             const value = await AsyncStorage.getItem('@viewedOnboarding');
@@ -61,13 +63,6 @@ export default function App() {
                         }}
                     >
                         <Stack.Screen
-                            name="Authentication"
-                            component={Authentication}
-                            options={{
-                                headerShown: false,
-                            }}
-                        />
-                        <Stack.Screen
                             name="TabBarScreen"
                             component={TabBarBottom}
                             options={{
@@ -77,6 +72,14 @@ export default function App() {
                                 statusBarColor: GlobalStyles.colors.primaryOrange,
                             }}
                         />
+                        <Stack.Screen
+                            name="Authentication"
+                            component={Authentication}
+                            options={{
+                                headerShown: false,
+                            }}
+                        />
+
                         <Stack.Screen
                             name="Notifications"
                             component={Notifications}
@@ -92,6 +95,14 @@ export default function App() {
                                 title: 'Kết quả tìm kiếm',
                             }}
                         />
+                        <Stack.Screen
+                            name="Friends"
+                            component={Friends}
+                            options={{
+                                title: 'Bạn bè',
+                            }}
+                        />
+
                         <Stack.Screen
                             name="VehicleDetail"
                             component={VehicleDetail}
