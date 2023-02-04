@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalStyles } from './src/constants/style';
 import SearchResults from './src/screens/SearchResults/SearchResults';
 import Authentication from './src/screens/Authentication/Authentication';
+import Friends from './src/screens/Friends/Friends';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +24,7 @@ const Loading = () => {
 
 export default function App() {
     const [loading, setLoading] = useState(true);
-    const [viewedOnboarding, setViewedOnboarding] = useState(false);
+    const [viewedOnboarding, setViewedOnboarding] = useState(true);
     const checkOnboarding = async () => {
         try {
             const value = await AsyncStorage.getItem('@viewedOnboarding');
@@ -55,6 +56,7 @@ export default function App() {
                             headerTintColor: 'white',
                         }}
                     >
+                        <Stack.Screen name="TabBarScreen" component={TabBarBottom} options={{ headerShown: false }} />
                         <Stack.Screen
                             name="Authentication"
                             component={Authentication}
@@ -62,7 +64,6 @@ export default function App() {
                                 headerShown: false,
                             }}
                         />
-                        <Stack.Screen name="TabBarScreen" component={TabBarBottom} options={{ headerShown: false }} />
                         <Stack.Screen
                             name="Notifications"
                             component={Notifications}
@@ -76,6 +77,13 @@ export default function App() {
                             component={SearchResults}
                             options={{
                                 title: 'Kết quả tìm kiếm',
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Friends"
+                            component={Friends}
+                            options={{
+                                title: 'Bạn bè',
                             }}
                         />
                     </Stack.Navigator>

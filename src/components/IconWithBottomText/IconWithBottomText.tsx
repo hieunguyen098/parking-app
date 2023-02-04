@@ -1,15 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { GlobalStyles } from '../../constants/style';
 
-const IconWithBottomText = ({ title, name, Icon, iconStyle, textStyle }: any) => {
+const IconWithBottomText = ({ title, name, Icon, onPress = () => {}, iconStyle, textStyle }: any) => {
+    const handlePress = () => {
+        onPress();
+    };
     return (
-        <View style={styles.container}>
+        <Pressable
+            style={styles.container}
+            onPress={handlePress}
+            android_ripple={{ color: GlobalStyles.colors.primaryOrange }}
+        >
             <View style={styles.iconContainer}>
                 <Icon name={name} style={[styles.icon, iconStyle]} />
             </View>
             <Text style={[styles.text, textStyle]}>{title}</Text>
-        </View>
+        </Pressable>
     );
 };
 export default IconWithBottomText;
