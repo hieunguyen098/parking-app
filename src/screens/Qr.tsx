@@ -4,6 +4,7 @@ import { GlobalStyles } from '../constants/style';
 import { LinearGradient } from 'expo-linear-gradient';
 import QRCode from 'react-native-qrcode-svg';
 import Line from '../components/Line';
+import QrCode from '../components/QrCode';
 
 const Qr = () => {
     const [value, setValue] = useState('');
@@ -26,14 +27,8 @@ const Qr = () => {
             end={[0.5, 1]}
         >
             <View style={styles.qrContainer}>
-                {loading || value === '' ? <View></View> : <QRCode size={224} value={value} />}
-                <View style={styles.row}>
-                    <Text style={styles.description}>Tự động cập nhật sau 59s.</Text>
-                    <Pressable onPress={refreshQR} android_ripple={{ color: '#d3d3d3' }}>
-                        <Text style={styles.refreshBtn}>Cập nhật</Text>
-                    </Pressable>
-                </View>
-                <Line type="dashed" color={GlobalStyles.colors.lightGrey} />
+                <QrCode />
+                <Line borderStyle="dashed" color={GlobalStyles.colors.lightGrey} />
                 <Text style={styles.title}>Quét mã để gửi xe</Text>
             </View>
         </LinearGradient>
@@ -54,19 +49,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
         paddingTop: 40,
-    },
-    description: {
-        fontSize: 16,
-    },
-    refreshBtn: {
-        color: GlobalStyles.colors.primaryOrange,
-        fontSize: 16,
-        paddingHorizontal: 5,
-    },
-    row: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginTop: 20,
     },
     title: {
         fontSize: 20,

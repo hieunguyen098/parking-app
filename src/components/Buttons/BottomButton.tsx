@@ -3,12 +3,17 @@ import React from 'react';
 import LargeButton from './LargeButton';
 import { GlobalStyles } from '../../constants/style';
 
-const BottomButton = ({ onPress, title, type }: any) => {
+const BottomButton = ({ onPress, title, type, style }: any) => {
     return (
         <>
             {type === 'secondary' ? (
                 <View style={[styles.bottomButton, { backgroundColor: GlobalStyles.colors.primaryOrange }]}>
-                    <LargeButton onPress={onPress} title={title} type="white" />
+                    <LargeButton
+                        onPress={onPress}
+                        title={title}
+                        style={{ backgroundColor: '#fff' }}
+                        textStyle={{ color: GlobalStyles.colors.primaryOrange }}
+                    />
                 </View>
             ) : (
                 <View style={styles.bottomButton}>

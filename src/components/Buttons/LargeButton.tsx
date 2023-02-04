@@ -2,29 +2,24 @@ import { StyleSheet, Pressable, Text } from 'react-native';
 import React from 'react';
 import { GlobalStyles } from '../../constants/style';
 
-const LargeButton = ({ title, style, type, onPress = () => {} }: any) => {
+const LargeButton = ({ title, style, textStyle, type, onPress = () => {} }: any) => {
     return (
         <Pressable
             style={[
                 styles.button,
                 type === 'secondary'
                     ? { backgroundColor: GlobalStyles.colors.secondaryOrange }
-                    : type === 'white'
-                    ? { backgroundColor: '#fff' }
                     : { backgroundColor: GlobalStyles.colors.primaryOrange },
                 style,
             ]}
             onPress={onPress}
-            android_ripple={{ color: type === 'white' ? GlobalStyles.colors.primaryOrange50 : 'white' }}
+            android_ripple={{ color: GlobalStyles.colors.lightGrey100 }}
         >
             <Text
                 style={[
                     styles.text,
-                    type === 'secondary'
-                        ? { color: GlobalStyles.colors.primaryOrange }
-                        : type === 'white'
-                        ? { color: GlobalStyles.colors.primaryOrange }
-                        : { color: '#fff' },
+                    type === 'secondary' ? { color: GlobalStyles.colors.primaryOrange } : { color: '#fff' },
+                    textStyle,
                 ]}
             >
                 {title}
