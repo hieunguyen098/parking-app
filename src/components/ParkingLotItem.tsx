@@ -3,8 +3,10 @@ import React from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { GlobalStyles } from '../constants/style';
+import { useNavigation } from '@react-navigation/native';
 
 const ParkingLotItem = ({ item }: any) => {
+    const navigation: any = useNavigation();
     return (
         <View style={styles.container}>
             <Pressable style={styles.innerContainer} onPress={() => console.log('press')}>
@@ -24,8 +26,13 @@ const ParkingLotItem = ({ item }: any) => {
                         <Text style={[styles.desc2, styles.desc]}>{item.place}</Text>
                     </View>
                 </View>
-                <Entypo name="direction" size={28} color={GlobalStyles.colors.primaryOrange} />
             </Pressable>
+            <Entypo
+                onPress={() => navigation.navigate('Maps')}
+                name="direction"
+                size={28}
+                color={GlobalStyles.colors.primaryOrange}
+            />
         </View>
     );
 };
@@ -35,17 +42,18 @@ export default ParkingLotItem;
 const styles = StyleSheet.create({
     container: {
         marginBottom: 12,
-        overflow: 'hidden',
         borderRadius: 8,
-        backgroundColor: '#FFFFFF',
+        flexDirection: 'row',
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        padding: 10,
         borderWidth: 1,
         borderColor: GlobalStyles.colors.lightGrey100,
     },
     innerContainer: {
         flexDirection: 'row',
-        backgroundColor: '#FFFFFF',
-        padding: 10,
         alignItems: 'center',
+        flex: 1,
     },
     imageContainer: {
         marginRight: 8,
