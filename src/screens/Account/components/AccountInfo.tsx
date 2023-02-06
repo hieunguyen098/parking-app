@@ -1,10 +1,16 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { Image, StyleSheet, Text, View, Pressable } from 'react-native';
+import React, { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { GlobalStyles } from '../../../constants/style';
 
 const AccountInfo = () => {
+    const [isMasked, setIsMasked] = useState<boolean>(true);
+
+    const handleMaskPhoneNumber = () => {
+        setIsMasked((prev) => !prev);
+    };
+
     return (
         <LinearGradient colors={['rgba(255,149,58,1)', 'rgba(255,149,58,0)']} style={styles.container}>
             <View style={styles.innerContainer}>
@@ -16,10 +22,14 @@ const AccountInfo = () => {
                 />
                 <Text style={styles.name}>Cao Thanh Bình</Text>
                 <View style={styles.phoneContainer}>
-                    <Text style={styles.phone}>SĐT: 0378978978</Text>
-                    <View style={styles.iconContainer}>
-                        <Ionicons name="md-eye-outline" size={16} color="black" />
-                    </View>
+                    {isMasked === false ? (
+                        <Text style={styles.phone}>SĐT: **********</Text>
+                    ) : (
+                        <Text style={styles.phone}>SĐT: 0378978978</Text>
+                    )}
+                    <Pressable style={styles.iconContainer} onPress={handleMaskPhoneNumber}>
+                        <Ionicons name="md-eye-outline" size={24} color="black" />
+                    </Pressable>
                 </View>
             </View>
         </LinearGradient>
@@ -52,7 +62,8 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     phone: {
-        marginRight: 8,
+        width: 112,
+        marginRight: 16,
         fontSize: 16,
     },
     iconContainer: {
