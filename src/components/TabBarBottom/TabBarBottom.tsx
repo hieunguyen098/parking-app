@@ -6,7 +6,7 @@ import Home from '../../screens/Home/Home';
 import History from '../../screens/History/History';
 import Qr from '../../screens/Qr';
 import Parking from '../../screens/Parking/Parking';
-import Account from '../../screens/Account';
+import Account from '../../screens/Account/Account';
 
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';

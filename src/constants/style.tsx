@@ -12,5 +12,6 @@ export const GlobalStyles = {
         negative: '#959595',
         lightRed: '#FF666B',
         lightGrey100: '#E8E8E8',
+        primaryBlack100: '#212121',
     },
 };
