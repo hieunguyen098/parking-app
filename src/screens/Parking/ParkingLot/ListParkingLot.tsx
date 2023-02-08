@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import ParkingLotItem from '../../../components/ParkingLotItem';
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
     {
@@ -90,11 +91,20 @@ const data = [
 ];
 
 const ListParkingLot = () => {
+    const navigation: any = useNavigation();
+
     return (
         <FlatList
             data={data}
             renderItem={({ item }) => {
-                return <ParkingLotItem item={item} />;
+                return (
+                    <ParkingLotItem
+                        item={item}
+                        onPress={() => {
+                            navigation.navigate('ParkingInfo');
+                        }}
+                    />
+                );
             }}
             keyExtractor={(item) => item.key}
             style={styles.contentContainer}

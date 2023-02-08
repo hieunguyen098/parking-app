@@ -4,10 +4,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { GlobalStyles } from '../constants/style';
 
-const ParkingLotItem = ({ item }: any) => {
+const ParkingLotItem = ({ item, onPress }: any) => {
     return (
         <View style={styles.container}>
-            <Pressable style={styles.innerContainer} onPress={() => console.log('press')}>
+            <Pressable style={styles.innerContainer} onPress={onPress}>
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
