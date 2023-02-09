@@ -15,6 +15,7 @@ import Friends from './src/screens/Friends/Friends';
 import CheckOut from './src/screens/Parking/Vehicle/CheckOut';
 import VehicleDetail from './src/screens/Parking/Vehicle/VehicleDetail';
 import Maps from './src/screens/Maps/Maps';
+import ParkingInfo from './src/screens/ParkingInfo/ParkingInfo';
 
 const Stack = createNativeStackNavigator();
 
@@ -122,6 +123,13 @@ export default function App() {
                             component={Maps}
                             options={{
                                 title: 'Tìm đường đi',
+                            }}
+                        />
+                        <Stack.Screen
+                            name="ParkingInfo"
+                            component={ParkingInfo}
+                            options={{
+                                title: 'Thông tin nhà xe',
                             }}
                         />
                     </Stack.Navigator>

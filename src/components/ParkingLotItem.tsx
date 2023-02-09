@@ -5,11 +5,11 @@ import { Entypo } from '@expo/vector-icons';
 import { GlobalStyles } from '../constants/style';
 import { useNavigation } from '@react-navigation/native';
 
-const ParkingLotItem = ({ item }: any) => {
-    const navigation: any = useNavigation();
+const ParkingLotItem = ({ item, onPress }: any) => {
+    const navigation: any = useNavigation()
     return (
         <View style={styles.container}>
-            <Pressable style={styles.innerContainer} onPress={() => console.log('press')}>
+            <Pressable style={styles.innerContainer} onPress={onPress}>
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
