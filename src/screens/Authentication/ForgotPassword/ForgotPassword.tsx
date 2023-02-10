@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import styles from '../styles';
 import LargeButton from '../../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
@@ -7,6 +7,7 @@ import FieldInput from '../../../components/FieldInput';
 
 const ForgotPassword = () => {
     const navigation: any = useNavigation();
+    const [phone, setPhone] = useState('')
     const handleFunction = () => {
         console.log('From forgot password');
     };
@@ -20,6 +21,8 @@ const ForgotPassword = () => {
                 source={require('../../../../assets/images/phone-icon.png')}
                 iconPosition="left"
                 keyboardType="phone-pad"
+                value={phone}
+                setValue={setPhone}
             />
             <LargeButton title="Xác nhận" style={styles.continueButton} onPress={() => navigate('PhoneVerification')} />
         </View>

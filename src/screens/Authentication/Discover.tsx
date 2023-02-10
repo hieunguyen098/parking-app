@@ -1,16 +1,35 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { Alert, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import LargeButton from '../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FieldInput from '../../components/FieldInput';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../../store/slices/authSlice';
+import { getData } from '../../services/api';
+import { validatePhoneNumber } from '../../utils/validation';
 
 const Discover = () => {
+    const [phone, setPhone] = useState('');
+    const dispatch = useDispatch();
     const navigation: any = useNavigation();
-    const nextStep = () => {
-        navigation.navigate('Login');
+    const [invalid, setInvalid] = useState(false);
+
+    const startDiscovering = async () => {
+        if (validatePhoneNumber(phone)) {
+            dispatch(authActions.setPhone(phone));
+            const user = await getData('users', { phone });
+            if (user.length === 0) {
+                navigation.navigate('SignUp');
+            } else {
+                navigation.navigate('Login');
+            }
+        } else {
+            setInvalid(true);
+        }
     };
+
     const clearViewedOnboarding = async () => {
         await AsyncStorage.removeItem('@viewedOnboarding');
     };
@@ -19,25 +38,24 @@ const Discover = () => {
             <View style={styles.group}>
                 <Text style={styles.description}>Nhập số điện thoại để đăng ký hoặc đăng nhập</Text>
                 <FieldInput
+                    setValue={setPhone}
+                    autoFocus={true}
+                    value={phone}
                     placeHolder="Số điện thoại"
                     source={require('../../../assets/images/phone-icon.png')}
                     iconPosition="left"
                     keyboardType="phone-pad"
+                    warning={{
+                        show: invalid,
+                        message: 'Số điện thoại không hợp lệ!',
+                    }}
+                    onChange={() => setInvalid(false)}
+                    maxLength={10}
                 />
                 <LargeButton
                     onPress={() => navigation.navigate('TabBarScreen')}
                     title="Vào trang chủ"
-                    style={styles.continueButton}
-                />
-                <LargeButton
-                    onPress={() => navigation.navigate('Login')}
-                    title="Đăng nhập"
-                    style={styles.continueButton}
-                />
-                <LargeButton
-                    onPress={() => navigation.navigate('SignUp')}
-                    title="Đăng ký"
-                    style={styles.continueButton}
+                    style={[styles.continueButton, { backgroundColor: 'lightblue' }]}
                 />
                 <LargeButton
                     onPress={clearViewedOnboarding}
@@ -46,7 +64,7 @@ const Discover = () => {
                     style={styles.continueButton}
                 />
             </View>
-            <LargeButton onPress={nextStep} type="primary" title="Tiếp tục" style={styles.continueButton} />
+            <LargeButton onPress={startDiscovering} type="primary" title="Tiếp tục" style={styles.continueButton} />
         </View>
     );
 };
