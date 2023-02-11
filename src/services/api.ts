@@ -21,7 +21,6 @@ export const postData = async (endpoint: string, data: object) => {
 
 export const getData = async (endpoint: string, params?: object | null) => {
     try {
-        console.log(BACKEND_URL);
         const response = await axios.get(`/${endpoint}`, { params });
         return response.data;
     } catch (error) {
