@@ -2,8 +2,7 @@
   "name": "parking-app",
   "version": "1.0.0",
   "scripts": {
-    "start": "node getLocalIp.js & expo start",
-    "server": "json-server -p 5000 db.json --routes routes.json -H 0.0.0.0",
+    "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"

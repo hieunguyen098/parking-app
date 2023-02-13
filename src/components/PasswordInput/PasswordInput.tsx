@@ -7,11 +7,16 @@ import styles, { ACTIVE_CELL_BG_COLOR, DEFAULT_CELL_BG_COLOR, NOT_EMPTY_CELL_BG_
 
 const { Value, Text: AnimatedText } = Animated;
 
-const PasswordInput = ({ length }: any) => {
+interface PasswordInput {
+    length: number;
+    value: string;
+    setValue: any;
+}
+
+const PasswordInput = ({ length, value, setValue }: PasswordInput) => {
     const CELL_COUNT = length;
     const animationsColor = [...new Array(CELL_COUNT)].map(() => new Value(0));
     const animationsScale = [...new Array(CELL_COUNT)].map(() => new Value(1));
-    const [value, setValue] = useState('');
     const [target, setTarget] = useState(false);
 
     const onTarget = (value: boolean) => {
@@ -30,7 +35,6 @@ const PasswordInput = ({ length }: any) => {
                       outputRange: [DEFAULT_CELL_BG_COLOR, ACTIVE_CELL_BG_COLOR],
                   }),
         };
-
         return <AnimatedText key={index} style={[styles.cell, animatedCellStyle]} />;
     };
 
