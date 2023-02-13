@@ -5,7 +5,8 @@ const axios = Axios.create({
     baseURL: BACKEND_URL,
     headers: {
         Accept: 'application/json,application/x-www-form-urlencoded,text/plain,*/*',
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
+        'X-mock-match-request-body': true,
     },
 });
 

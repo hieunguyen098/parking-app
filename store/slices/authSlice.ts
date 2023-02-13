@@ -1,19 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface AuthState {
-    phone: string | undefined;
+    user?: {
+        phone?: string;
+        fullname?: string;
+    };
 }
 
 const initialState: AuthState = {
-    phone: '',
+    user: {
+        phone: '',
+        fullname: '',
+    },
 };
 
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setPhone: (state, action) => {
-            state.phone = action.payload;
+        setUser: (state, action) => {
+            state.user = { ...state.user, ...action.payload };
         },
     },
 });
