@@ -2,16 +2,21 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import React, { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 
-const Select = ({ data }: any) => {
-    const [selectedGender, setSelectedGender] = useState(null)
+interface Select {
+    data: any[];
+    value: any;
+    setValue: Function;
+}
+
+const Select = ({ data, value, setValue }: Select) => {
     return (
         <View style={styles.container}>
             <Picker
                 style={styles.select}
-                selectedValue={selectedGender}
-                onValueChange={(itemValue: any, itemIndex: any) => setSelectedGender(itemValue)}
+                selectedValue={value}
+                onValueChange={(itemValue: any, itemIndex: any) => setValue(itemValue)}
                 dropdownIconColor="#9c9c9c"
-                placeholder='Giới tính'
+                placeholder="Giới tính"
             >
                 {data.map((item: any) => {
                     return <Picker.Item key={item.id} style={styles.item} label={item.label} value={item.value} />;

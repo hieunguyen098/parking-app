@@ -5,12 +5,14 @@ import OnboardingItem from './OnboardingItem';
 import Paginator from './Paginator';
 import LargeButton from '../../components/Buttons/LargeButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const Onboarding = () => {
     const { width } = useWindowDimensions();
     const [currentIndex, setCurrentIndex] = useState(0);
     const scrollX = useRef(new Animated.Value(0)).current;
     const slidesRef = useRef<FlatList>(null);
+    const navigation: any = useNavigation();
 
     const viewableItemsChanged = useRef(({ viewableItems }: any) => {
         setCurrentIndex(viewableItems[0].index);
@@ -20,17 +22,18 @@ const Onboarding = () => {
         if (currentIndex < slides.length - 1) {
             slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
         } else {
-            skipOnboarding()
+            skipOnboarding();
         }
     };
 
     const skipOnboarding = async () => {
         try {
             await AsyncStorage.setItem('@viewedOnboarding', 'true');
+            navigation.navigate('Authentication');
         } catch (err) {
             console.log('Error @setItem: ', err);
         }
-    }
+    };
 
     const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
 
@@ -63,6 +66,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#fff',
     },
     buttons: {
         paddingHorizontal: 24,

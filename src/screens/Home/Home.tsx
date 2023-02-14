@@ -13,17 +13,16 @@ import Header from './components/Header';
 import ListVehicle from './components/ListVehicle';
 import MenuBar from './components/MenuBar';
 import NewOffer from './components/NewOfferList';
-import { getData } from '../../services/api';
 import { useFocusEffect } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Home = () => {
-    const getUsers = async () => {
-        const data = await getData('users');
-        console.log(data);
+    const getAccessToken = async () => {
+        console.log(await AsyncStorage.getItem('accessToken'));
     };
     useFocusEffect(
         React.useCallback(() => {
-            getUsers();
+            getAccessToken();
         }, []),
     );
     return (

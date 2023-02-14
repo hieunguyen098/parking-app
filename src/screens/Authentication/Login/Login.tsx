@@ -11,20 +11,33 @@ const Login = () => {
     const navigation: any = useNavigation();
     const user = useSelector((state: any) => state.auth.user);
     const [pin, setPin] = useState('');
+    const [invalid, setInvalid] = useState(false);
     const navigate = (name: string) => {
         navigation.navigate(name, { nextScreen: 'TabBarScreen', action: 'login' });
     };
     const onContinue = async () => {
         const res = await login(user.phone, pin);
-        console.log(user)
-        console.log(res);
+        if (res.status === 'success') {
+            navigation.navigate('PhoneVerification');
+        } else {
+            setInvalid(true);
+        }
     };
     return (
         <View style={styles.container}>
             <View style={styles.group}>
                 <Text style={styles.description}>Xin chào, {user.fullname}!</Text>
                 <Text style={styles.description}>{user.phone}</Text>
-                <PasswordInput length={6} value={pin} setValue={setPin} />
+                <PasswordInput
+                    length={6}
+                    value={pin}
+                    setValue={setPin}
+                    warning={{
+                        show: invalid,
+                        message: 'Số điện thoại không hợp lệ!',
+                    }}
+                    onChange={() => setInvalid(false)}
+                />
                 <Pressable onPress={() => navigate('ForgotPassword')}>
                     <Text style={styles.forgotPasswordBtn}>Quên mật khẩu?</Text>
                 </Pressable>

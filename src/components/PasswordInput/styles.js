@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         paddingVertical: 30,
         backgroundColor: GlobalStyles.colors.veryLightGrey,
         borderRadius: 20,
-        marginVertical: 20,
+        marginVertical: 10,
         borderWidth: 1,
         borderColor: GlobalStyles.colors.veryLightGrey,
     },
@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
     },
     focusCell: {
         borderColor: '#000',
+    },
+    alert: {
+        color: GlobalStyles.colors.lightRed,
+        marginBottom: 10,
     },
 });
 

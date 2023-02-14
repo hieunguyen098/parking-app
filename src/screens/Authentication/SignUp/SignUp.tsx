@@ -7,6 +7,8 @@ import styles from '../styles';
 import FieldInput from '../../../components/FieldInput';
 import DateInput from '../../../components/DateInput';
 import Select from '../../../components/Select';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../../../store/slices/authSlice';
 
 const genders = [
     {
@@ -25,12 +27,27 @@ const genders = [
         value: -1,
     },
 ];
+
 const SignUp = () => {
     const navigation: any = useNavigation();
+    const dispatch = useDispatch();
     const nextStep = () => {
+        dispatch(
+            authActions.updateSignupForm({
+                fullname,
+                birthday,
+                email,
+                image_url,
+                gender,
+            }),
+        );
         navigation.navigate('CreatePassword');
     };
-    const [image, setImage] = useState('');
+    const [fullname, setFullname] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [email, setEmail] = useState('');
+    const [image_url, setImage_url] = useState('');
+    const [gender, setGender] = useState(-1);
 
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
@@ -42,7 +59,7 @@ const SignUp = () => {
         });
 
         if (!result.canceled) {
-            setImage(result.assets[0].uri);
+            setImage_url(result.assets[0].uri);
         }
     };
 
@@ -54,7 +71,7 @@ const SignUp = () => {
         });
 
         if (!result.canceled) {
-            setImage(result.assets[0].uri);
+            setImage_url(result.assets[0].uri);
         }
     };
 
@@ -63,7 +80,7 @@ const SignUp = () => {
             <View>
                 <Pressable onPress={takePhoto}>
                     <Image
-                        source={image ? { uri: image } : require('../../../../assets/images/default-avt-0.png')}
+                        source={image_url ? { uri: image_url } : require('../../../../assets/images/default-avt-0.png')}
                         style={styles.avatar}
                     />
                 </Pressable>
@@ -75,20 +92,30 @@ const SignUp = () => {
                 </Pressable>
             </View>
             <View style={styles.form}>
-                <FieldInput placeHolder="Họ tên" iconPosition="none" keyboardType="text" />
+                <FieldInput
+                    value={fullname}
+                    setValue={setFullname}
+                    placeHolder="Họ tên"
+                    iconPosition="none"
+                    keyboardType="text"
+                />
                 <DateInput
+                    value={birthday}
+                    setValue={setBirthday}
                     placeHolder="Ngày sinh"
                     source={require('../../../../assets/images/calendar-icon.png')}
                     iconPosition="right"
                     keyboardType="text"
                 />
                 <FieldInput
+                    value={email}
+                    setValue={setEmail}
                     placeHolder="Email"
                     source={require('../../../../assets/images/mail-icon.png')}
                     iconPosition="right"
                     keyboardType="email-address"
                 />
-                <Select data={genders} />
+                <Select value={gender} setValue={setGender} data={genders} />
             </View>
             <LargeButton onPress={nextStep} title="Tiếp tục" style={styles.continueButton} />
         </View>

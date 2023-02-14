@@ -2,13 +2,23 @@ import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import React, { useState } from 'react';
 import { View, TextInput, Image, StyleSheet } from 'react-native';
 
-const DateInput = ({ keyboardType, placeHolder, iconPosition, source = null }: any) => {
+interface DateInput {
+    keyboardType?: any;
+    placeHolder?: string;
+    iconPosition?: string;
+    source?: any;
+    value: any;
+    setValue: Function;
+}
+
+const DateInput = ({ keyboardType, placeHolder, iconPosition, source, setValue }: DateInput) => {
     const [date, setDate] = useState(new Date());
     const [isChanged, setIsChanged] = useState(false);
 
     const onChange = (event: any, selectedDate: any) => {
         const currentDate = selectedDate;
         setDate(currentDate);
+        setValue(currentDate.toISOString());
         setIsChanged(true);
     };
     const showMode = () => {

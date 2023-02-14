@@ -34,17 +34,18 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     group: {
-        width: '100%'
+        width: '100%',
     },
     forgotPasswordBtn: {
         fontSize: 16,
         color: GlobalStyles.colors.primaryOrange,
         textAlign: 'center',
+        marginTop: 10,
     },
     textCenter: {
         fontSize: 16,
         textAlign: 'center',
-    }
+    },
 });
 
 export default styles;

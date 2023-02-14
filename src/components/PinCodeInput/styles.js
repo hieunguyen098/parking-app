@@ -25,6 +25,10 @@ const styles = StyleSheet.create({
     focusCell: {
         borderColor: '#000',
     },
+    alert: {
+        color: GlobalStyles.colors.lightRed,
+        marginBottom: 10,
+    },
 });
 
 export default styles;

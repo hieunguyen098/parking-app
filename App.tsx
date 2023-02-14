@@ -29,13 +29,14 @@ const Loading = () => {
 };
 
 export default function App() {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [viewedOnboarding, setViewedOnboarding] = useState(true);
+
     const checkOnboarding = async () => {
         try {
             const value = await AsyncStorage.getItem('@viewedOnboarding');
-            if (value !== null) {
-                setViewedOnboarding(true);
+            if (value === null) {
+                setViewedOnboarding(false);
             }
         } catch (err) {
             console.log('Error @checkOnboarding: ', err);
@@ -49,11 +50,11 @@ export default function App() {
 
     return (
         <>
-            <StatusBar style="dark" />
-            {loading ? (
-                <Loading />
-            ) : viewedOnboarding ? (
-                <Provider store={store}>
+            <Provider store={store}>
+                <StatusBar style="dark" />
+                {loading ? (
+                    <Loading />
+                ) : (
                     <NavigationContainer>
                         <Stack.Navigator
                             screenOptions={{
@@ -66,6 +67,16 @@ export default function App() {
                                 statusBarColor: GlobalStyles.colors.primaryOrange,
                             }}
                         >
+                            {!viewedOnboarding && (
+                                <Stack.Screen
+                                    name="Onboarding"
+                                    component={Onboarding}
+                                    options={{
+                                        headerShown: false,
+                                        statusBarColor: 'transparent',
+                                    }}
+                                />
+                            )}
                             <Stack.Screen
                                 name="Authentication"
                                 component={Authentication}
@@ -136,10 +147,8 @@ export default function App() {
                             />
                         </Stack.Navigator>
                     </NavigationContainer>
-                </Provider>
-            ) : (
-                <Onboarding />
-            )}
+                )}
+            </Provider>
         </>
     );
 }
