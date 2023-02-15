@@ -1,12 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Pressable } from 'react-native';
 import React from 'react';
+import { GlobalStyles } from '../../../constants/style';
 
 const MenuItem = ({ title, Icon, onPress = () => {}, iconName, size = 24, color = 'black' }: any) => {
     return (
-        <View style={styles.container}>
+        <Pressable
+            onPress={onPress}
+            style={styles.container}
+            android_ripple={{ color: GlobalStyles.colors.lightGrey100 }}
+        >
             <Icon name={iconName} size={size} color={color} />
             <Text style={[styles.title, { color: color }]}>{title}</Text>
-        </View>
+        </Pressable>
     );
 };
 
@@ -24,7 +29,7 @@ const styles = StyleSheet.create({
     },
     title: {
         marginLeft: 8,
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: '400',
     },
 });

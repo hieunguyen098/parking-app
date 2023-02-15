@@ -17,6 +17,11 @@ import Maps from './src/screens/Maps/Maps';
 import ParkingInfo from './src/screens/ParkingInfo/ParkingInfo';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import EditProfile from './src/screens/Account/EditProfile';
+import ManagePayment from './src/screens/Account/ManagePayment';
+import Settings from './src/screens/Account/Settings';
+import ChangePassword from './src/screens/Account/ChangePassword';
+import DetailMonthTicket from './src/screens/Parking/MonthTicket/DetailMonthTicket';
 
 const Stack = createNativeStackNavigator();
 
@@ -77,6 +82,7 @@ export default function App() {
                                     }}
                                 />
                             )}
+
                             <Stack.Screen
                                 name="Authentication"
                                 component={Authentication}
@@ -143,6 +149,41 @@ export default function App() {
                                 component={ParkingInfo}
                                 options={{
                                     title: 'Thông tin nhà xe',
+                                }}
+                            />
+                            <Stack.Screen
+                                name="EditProfile"
+                                component={EditProfile}
+                                options={{
+                                    title: 'Sửa thông tin cá nhân',
+                                }}
+                            />
+                            <Stack.Screen
+                                name="ManagePayment"
+                                component={ManagePayment}
+                                options={{
+                                    title: 'Thanh toán',
+                                }}
+                            />
+                            <Stack.Screen
+                                name="Settings"
+                                component={Settings}
+                                options={{
+                                    title: 'Cài đặt',
+                                }}
+                            />
+                            <Stack.Screen
+                                name="ChangePassword"
+                                component={ChangePassword}
+                                options={{
+                                    title: 'Đổi mật khẩu',
+                                }}
+                            />
+                            <Stack.Screen
+                                name="DetailMonthTicket"
+                                component={DetailMonthTicket}
+                                options={{
+                                    title: 'Chi tiết vé tháng',
                                 }}
                             />
                         </Stack.Navigator>

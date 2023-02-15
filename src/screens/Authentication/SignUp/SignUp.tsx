@@ -101,6 +101,7 @@ const SignUp = () => {
                 />
                 <DateInput
                     value={birthday}
+                    
                     setValue={setBirthday}
                     placeHolder="Ngày sinh"
                     source={require('../../../../assets/images/calendar-icon.png')}

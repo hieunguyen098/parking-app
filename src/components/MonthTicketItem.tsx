@@ -1,11 +1,17 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { GlobalStyles } from '../constants/style';
+import { useNavigation } from '@react-navigation/native';
 
 const MonthTicketItem = ({ item }: any) => {
+    const navigation: any = useNavigation();
     return (
         <View style={styles.container}>
-            <Pressable style={styles.innerContainer} onPress={() => console.log('press')}>
+            <Pressable
+                style={styles.innerContainer}
+                onPress={() => navigation.navigate('DetailMonthTicket')}
+                android_ripple={{ color: GlobalStyles.colors.lightGrey100 }}
+            >
                 <View style={styles.imageContainer}>
                     <Image
                         source={{

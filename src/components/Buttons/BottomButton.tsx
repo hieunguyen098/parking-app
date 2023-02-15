@@ -3,7 +3,14 @@ import React from 'react';
 import LargeButton from './LargeButton';
 import { GlobalStyles } from '../../constants/style';
 
-const BottomButton = ({ onPress, title, type, style }: any) => {
+interface BottomButton {
+    onPress: any;
+    title: string;
+    type?: string;
+    style?: any;
+}
+
+const BottomButton = ({ onPress, title, type, style }: BottomButton) => {
     return (
         <>
             {type === 'secondary' ? (

@@ -11,19 +11,14 @@ interface DateInput {
     setValue: Function;
 }
 
-const DateInput = ({ keyboardType, placeHolder, iconPosition, source, setValue }: DateInput) => {
-    const [date, setDate] = useState(new Date());
-    const [isChanged, setIsChanged] = useState(false);
-
+const DateInput = ({ keyboardType, placeHolder, iconPosition, source, value, setValue }: DateInput) => {
     const onChange = (event: any, selectedDate: any) => {
         const currentDate = selectedDate;
-        setDate(currentDate);
-        setValue(currentDate.toISOString());
-        setIsChanged(true);
+        setValue(currentDate.toISOString().slice(0, 10));
     };
     const showMode = () => {
         DateTimePickerAndroid.open({
-            value: date,
+            value: new Date(),
             onChange,
             mode: 'date',
             is24Hour: true,
@@ -36,7 +31,7 @@ const DateInput = ({ keyboardType, placeHolder, iconPosition, source, setValue }
             <TextInput
                 onPressIn={showMode}
                 style={styles.input}
-                value={isChanged ? date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() : ''}
+                value={value}
                 keyboardType={keyboardType}
                 placeholder={placeHolder}
                 showSoftInputOnFocus={false}
