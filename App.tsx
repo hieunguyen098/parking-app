@@ -22,6 +22,7 @@ import ManagePayment from './src/screens/Account/ManagePayment';
 import Settings from './src/screens/Account/Settings';
 import ChangePassword from './src/screens/Account/ChangePassword';
 import DetailMonthTicket from './src/screens/Parking/MonthTicket/DetailMonthTicket';
+import MonthTicketSubscribe from './src/screens/ParkingInfo/MonthTicketSubscribe';
 
 const Stack = createNativeStackNavigator();
 
@@ -184,6 +185,13 @@ export default function App() {
                                 component={DetailMonthTicket}
                                 options={{
                                     title: 'Chi tiết vé tháng',
+                                }}
+                            />
+                            <Stack.Screen
+                                name="MonthTicketSubscribe"
+                                component={MonthTicketSubscribe}
+                                options={{
+                                    title: 'Đăng ký vé tháng',
                                 }}
                             />
                         </Stack.Navigator>

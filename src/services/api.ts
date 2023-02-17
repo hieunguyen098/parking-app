@@ -3,7 +3,7 @@ import { BACKEND_URL } from '@env';
 import * as Device from 'expo-device';
 import Constants from 'expo-constants';
 
-const deviceInfo = () => {
+export const deviceInfo = () => {
     const info = {
         device_id: Constants.installationId,
         device_model: Device.modelName,
@@ -35,7 +35,15 @@ export const postData = async (endpoint: string, data: object) => {
 
 export const getData = async (endpoint: string, params?: object | null) => {
     try {
-        const response = await axios.get(`/${endpoint}`, { params });
+        const response = await axios.get(`/${endpoint}`, {
+            headers: {
+                Authorization: `Bearer accessToken`,
+            },
+            params: {
+                ...deviceInfo(),
+                ...params,
+            },
+        });
         return response.data;
     } catch (error) {
         console.error(error);

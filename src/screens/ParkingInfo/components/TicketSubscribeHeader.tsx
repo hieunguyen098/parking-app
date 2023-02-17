@@ -5,13 +5,7 @@ import { GlobalStyles } from '../../../constants/style';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-const ParkingInfoHeader = () => {
-    const navigate: any = useNavigation();
-
-    const handleMonthTicket = () => {
-        navigate.navigate('MonthTicketSubscribe');
-    };
-
+const TicketSubscribeHeader = () => {
     return (
         <>
             <View style={styles.container}>
@@ -19,7 +13,6 @@ const ParkingInfoHeader = () => {
                     <Text style={styles.title}>Bãi xe Hoài Bão</Text>
                     <Text style={styles.subText}>Đường số 8, Linh Trung, Thủ Đức</Text>
                 </View>
-                <SmallButton title="Vé tháng" style={styles.button1} onPress={handleMonthTicket} />
             </View>
             <View style={styles.infoContainer}>
                 <View style={styles.info}>
@@ -35,7 +28,7 @@ const ParkingInfoHeader = () => {
     );
 };
 
-export default ParkingInfoHeader;
+export default TicketSubscribeHeader;
 
 const styles = StyleSheet.create({
     container: {
