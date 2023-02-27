@@ -6,7 +6,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "barrels": "barrelsby --config .barrelsby.json"
+    "barrels": "barrelsby --config .barrelsby.json",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write"
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
@@ -27,6 +29,7 @@
     "expo-image-picker": "~14.0.2",
     "expo-linear-gradient": "~12.0.1",
     "expo-status-bar": "~1.4.2",
+    "moment": "^2.29.4",
     "prop-types": "^15.8.1",
     "react": "18.1.0",
     "react-chartjs-2": "^5.2.0",

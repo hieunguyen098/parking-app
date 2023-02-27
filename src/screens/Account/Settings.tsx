@@ -16,7 +16,7 @@ const Settings = () => {
         rnBiometrics.isSensorAvailable().then((resultObject) => {
             const { available, biometryType } = resultObject;
             console.log(biometryType);
-            
+
             if (available && biometryType === BiometryTypes.TouchID) {
                 console.log('TouchID is supported');
             } else if (available && biometryType === BiometryTypes.FaceID) {

@@ -6,7 +6,7 @@ import { GlobalStyles } from '../constants/style';
 import { useNavigation } from '@react-navigation/native';
 
 const ParkingLotItem = ({ item, onPress }: any) => {
-    const navigation: any = useNavigation()
+    const navigation: any = useNavigation();
     return (
         <View style={styles.container}>
             <Pressable style={styles.innerContainer} onPress={onPress}>

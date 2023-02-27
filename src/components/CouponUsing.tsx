@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        marginRight: 10
+        marginRight: 10,
     },
     useButton: {
         fontSize: 14,

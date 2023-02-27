@@ -9,3 +9,5 @@ export enum NotificationType {
     REQUEST = 'REQUEST',
     MONTH_TICKET = 'MONTH_TICKET',
 }
+
+export const LIMIT_NUMBER_OLD_NOTIFICATION = 15;
