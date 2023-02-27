@@ -3,11 +3,11 @@ import React from 'react';
 import ItemNotification from './ItemNotification';
 import SmallButton from '../../../components/Buttons/SmallButton';
 
-const NotificationList = ({ data }: any) => {
+const NotificationList = ({ notifications }: any) => {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={data}
+                data={notifications}
                 renderItem={({ item, index }) => {
                     if (index === 0)
                         return (
@@ -16,7 +16,7 @@ const NotificationList = ({ data }: any) => {
                                 firstItemstyle={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
                             />
                         );
-                    else if (index === data.length - 1)
+                    else if (index === notifications.length - 1)
                         return (
                             <ItemNotification
                                 item={item}

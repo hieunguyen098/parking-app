@@ -25,7 +25,15 @@ const axios = Axios.create({
 
 export const postData = async (endpoint: string, data: object) => {
     try {
-        const response = await axios.post(`/${endpoint}`, { ...deviceInfo(), ...data });
+        const response = await axios.post(
+            `/${endpoint}`,
+            { ...deviceInfo(), ...data },
+            {
+                headers: {
+                    Authorization: `Bearer accessToken`,
+                },
+            },
+        );
         return response.data;
     } catch (error) {
         console.error(error);

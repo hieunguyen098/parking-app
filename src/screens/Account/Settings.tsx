@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
 import React, { useState } from 'react';
 import { GlobalStyles } from '../../constants/style';
 import { useNavigation } from '@react-navigation/native';
+import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
 
 const Settings = () => {
     const navigation: any = useNavigation();
@@ -9,6 +10,24 @@ const Settings = () => {
     const [isEnabledFace, setIsEnabledFace] = useState(false);
     const toggleSwitchFingerprint = () => setIsEnabledFingerprint((previousState) => !previousState);
     const toggleSwitchFace = () => setIsEnabledFace((previousState) => !previousState);
+    const onFingerprint = () => {
+        const rnBiometrics = new ReactNativeBiometrics();
+
+        rnBiometrics.isSensorAvailable().then((resultObject) => {
+            const { available, biometryType } = resultObject;
+            console.log(biometryType);
+            
+            if (available && biometryType === BiometryTypes.TouchID) {
+                console.log('TouchID is supported');
+            } else if (available && biometryType === BiometryTypes.FaceID) {
+                console.log('FaceID is supported');
+            } else if (available && biometryType === BiometryTypes.Biometrics) {
+                console.log('Biometrics is supported');
+            } else {
+                console.log('Biometrics not supported');
+            }
+        });
+    };
     return (
         <View style={styles.container}>
             <View style={styles.listButton}>
@@ -29,7 +48,7 @@ const Settings = () => {
                         style={{ padding: 0 }}
                         thumbColor={isEnabledFingerprint ? '#fff' : '#f4f3f4'}
                         ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitchFingerprint}
+                        onValueChange={onFingerprint}
                         value={isEnabledFingerprint}
                     />
                 </View>

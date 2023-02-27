@@ -1,0 +1,5 @@
+{
+    "directory": ["./src/constants"],
+    "exclude": ["__mock__", "__mocks__", ".spec.ts", ".test.ts"],
+    "delete": true
+}

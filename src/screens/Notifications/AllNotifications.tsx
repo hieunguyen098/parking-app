@@ -1,7 +1,9 @@
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemNotification from './components/ItemNotification';
 import NotificationList from './components/NotificationList';
+import { getNotifications } from '../../utils/api';
+import { NotificationType } from '../../constants';
 
 const DATA = [
     {
@@ -65,9 +67,19 @@ const DATA = [
 ];
 
 const AllNotifications = () => {
+    const [notifications, setNotifications] = useState([])
+    const getAllNotification = async () => {
+        const data = await getNotifications('ALL');
+        console.log(data);
+        setNotifications(data.data)
+    };
+    useEffect(() => {
+        getAllNotification();
+    }, []);
+
     return (
         <View style={styles.container}>
-            <NotificationList data={DATA} />
+            <NotificationList data={notifications} />
         </View>
     );
 };
