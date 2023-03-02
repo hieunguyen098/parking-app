@@ -51,7 +51,7 @@ const SignUp = () => {
 
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
-        let result = await ImagePicker.launchImageLibraryAsync({
+        const result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
             aspect: [4, 4],
@@ -64,7 +64,7 @@ const SignUp = () => {
     };
 
     const takePhoto = async () => {
-        let result = await ImagePicker.launchCameraAsync({
+        const result = await ImagePicker.launchCameraAsync({
             allowsEditing: true,
             aspect: [4, 4],
             quality: 1,

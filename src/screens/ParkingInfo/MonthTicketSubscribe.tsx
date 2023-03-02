@@ -14,7 +14,7 @@ const MonthTicketSubscribe = () => {
                 <ImageCarousel />
                 <TicketSubscribeContent />
             </ScrollView>
-            <BottomButton title="Đăng ký" type="secondary" onPress={() => {}} />
+            <BottomButton title="Đăng ký" onPress={() => {}} />
         </KeyboardAvoidingView>
     );
 };

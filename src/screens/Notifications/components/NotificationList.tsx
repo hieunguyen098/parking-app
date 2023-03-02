@@ -1,33 +1,37 @@
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, SafeAreaView, ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import ItemNotification from './ItemNotification';
 import SmallButton from '../../../components/Buttons/SmallButton';
 
-const NotificationList = ({ data }: any) => {
+const NotificationList = ({ notifications, lazyLoad, loading }: any) => {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={data}
+                data={notifications}
                 renderItem={({ item, index }) => {
                     if (index === 0)
                         return (
                             <ItemNotification
+                                key={item.id}
                                 item={item}
                                 firstItemstyle={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
                             />
                         );
-                    else if (index === data.length - 1)
+                    else if (index === notifications.length - 1)
                         return (
                             <ItemNotification
+                                key={item.id}
                                 item={item}
                                 lastItemStyle={{ borderBottomLeftRadius: 8, borderBottomRightRadius: 8 }}
                             />
                         );
-                    else return <ItemNotification item={item} />;
+                    else return <ItemNotification key={item.id} item={item} />;
                 }}
                 keyExtractor={(item) => item.id}
                 style={styles.innerContainer}
                 contentContainerStyle={styles.contentContainer}
+                onEndReached={lazyLoad}
+                ListFooterComponent={loading && <ActivityIndicator size={'large'} />}
             />
         </SafeAreaView>
     );

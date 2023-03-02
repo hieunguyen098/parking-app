@@ -5,52 +5,45 @@ import SmallButton from '../../../components/Buttons/SmallButton';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { GlobalStyles } from '../../../constants/style';
+import { NotificationType } from '../../../constants';
+import moment from 'moment';
+
 const ItemNotification = ({ item, firstItemstyle = null, lastItemStyle = null }: any) => {
     return (
-        <>
-            {item.type === 'parking' && (
-                <View style={[styles.container, firstItemstyle, lastItemStyle]}>
-                    <View style={styles.iconContainer}>
-                        <FontAwesome5 name="parking" size={40} color={GlobalStyles.colors.primaryOrange} />
+        <View key={item.id} style={[styles.container, firstItemstyle, lastItemStyle]}>
+            <View style={styles.iconContainer}>
+                {item.type === NotificationType.PARKING ? (
+                    <FontAwesome5 name="parking" size={40} color={GlobalStyles.colors.primaryOrange} />
+                ) : item.type === NotificationType.REQUEST ? (
+                    <FontAwesome5 name="user-friends" size={28} color={GlobalStyles.colors.primaryOrange} />
+                ) : (
+                    <Entypo name="ticket" size={32} color={GlobalStyles.colors.lightRed} />
+                )}
+            </View>
+            <View style={styles.mainContainer}>
+                <Text style={styles.title}>{item.title}</Text>
+                {item.extra_info.is_have_api ? (
+                    <View style={styles.buttonContainer}>
+                        {item.extra_info.apiList.map((item: any) => {
+                            if (item.api === 'accept') {
+                                return <SmallButton key={item.api} title={item.title}></SmallButton>;
+                            } else {
+                                return (
+                                    <SmallButton
+                                        key={item.api}
+                                        title="Từ chối"
+                                        style={styles.negativeButton}
+                                    ></SmallButton>
+                                );
+                            }
+                        })}
                     </View>
-                    <View style={styles.mainContainer}>
-                        <Text style={styles.title}>{item.title}</Text>
-                        <Text style={styles.desc1}>{item.place}</Text>
-                        <Text style={styles.desc1}>Tổng chi phí: {item.price}</Text>
-                        <Text style={styles.update}>{item.lastUpdate}</Text>
-                    </View>
-                </View>
-            )}
-            {item.type === 'request' && (
-                <View style={[styles.container, firstItemstyle, lastItemStyle]}>
-                    <View style={styles.iconContainer}>
-                        <FontAwesome5 name="user-friends" size={28} color={GlobalStyles.colors.primaryOrange} />
-                    </View>
-                    <View style={styles.mainContainer}>
-                        <Text style={styles.title}>{item.title}</Text>
-                        <View style={styles.buttonContainer}>
-                            <SmallButton title="Đồng ý"></SmallButton>
-                            <SmallButton title="Từ chối" style={styles.negativeButton}></SmallButton>
-                        </View>
-                        <Text style={styles.update}>{item.lastUpdate}</Text>
-                    </View>
-                </View>
-            )}
-            {item.type === 'month-ticket' && (
-                <View style={[styles.container, firstItemstyle, lastItemStyle]}>
-                    <View style={styles.iconContainer}>
-                        <Entypo name="ticket" size={32} color={GlobalStyles.colors.lightRed} />
-                    </View>
-                    <View style={styles.mainContainer}>
-                        <Text style={styles.title}>{item.title}</Text>
-                        <Text style={styles.desc1}>{item.duration}</Text>
-
-                        <Text style={styles.desc1}>{item.place}</Text>
-                        <Text style={styles.update}>{item.lastUpdate}</Text>
-                    </View>
-                </View>
-            )}
-        </>
+                ) : (
+                    <Text style={styles.desc1}>{item.extra_info.description}</Text>
+                )}
+                <Text style={styles.update}>{moment(item.created_at * 1000).fromNow()}</Text>
+            </View>
+        </View>
     );
 };
 

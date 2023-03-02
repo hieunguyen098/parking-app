@@ -9,8 +9,6 @@ export const deviceInfo = () => {
         device_model: Device.modelName,
         app_version: '1.0.0',
     };
-    console.log('Gán các biến này vào environment bên Postman');
-    console.log(info);
     return info;
 };
 
@@ -41,7 +39,15 @@ axios.interceptors.request.use(
 
 export const postData = async (endpoint: string, data: object) => {
     try {
-        const response = await axios.post(`/${endpoint}`, { ...deviceInfo(), ...data });
+        const response = await axios.post(
+            `/${endpoint}`,
+            { ...deviceInfo(), ...data },
+            {
+                headers: {
+                    Authorization: `Bearer accessToken`,
+                },
+            },
+        );
         return response.data;
     } catch (error) {
         console.log(error);
