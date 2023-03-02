@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const FieldValue = ({fieldName, value}: any) => {
+const FieldValue = ({ fieldName, value }: any) => {
     return (
         <View style={styles.field}>
             <Text style={styles.fieldName}>{fieldName}</Text>

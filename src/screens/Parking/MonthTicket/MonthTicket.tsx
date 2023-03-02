@@ -15,4 +15,3 @@ const MonthTicket = () => {
 };
 
 export default MonthTicket;
-

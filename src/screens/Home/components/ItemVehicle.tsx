@@ -4,10 +4,10 @@ import SmallButton from '../../../components/Buttons/SmallButton';
 import { GlobalStyles } from '../../../constants/style';
 import { useNavigation } from '@react-navigation/native';
 
-const ItemVehicle = ({ text }: any) => {
+const ItemVehicle = ({ text, id }: any) => {
     const navigation: any = useNavigation();
     const viewDetail = () => {
-        navigation.navigate('VehicleDetail');
+        navigation.navigate('VehicleDetail', { id: id });
     };
     const checkOut = () => {
         navigation.navigate('CheckOut');

@@ -1,38 +1,78 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import { GlobalStyles } from '../../../constants/style';
 import { LinearGradient } from 'expo-linear-gradient';
 import LargeButton from '../../../components/Buttons/LargeButton';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import FieldValue from '../../../components/FieldValue';
+import { getVehicleDetail } from '../../../utils/vehicle.api';
+import moment from 'moment';
+import { useQuery } from 'react-query';
 
 const VehicleDetail = () => {
+    const route: any = useRoute();
+    const idItem = route?.params?.id;
+
+    const {
+        data: vehicleDetail,
+        isLoading,
+        error,
+    } = useQuery({
+        queryKey: ['vehicle', idItem],
+        queryFn: () => {
+            return getVehicleDetail(idItem);
+        },
+        retry: false,
+        select: (data) => data.vehicle,
+    });
+
+    console.log('lỗi', error);
+
+    const formattedDate = (dateString: string) => {
+        return moment(dateString).format('HH:mm DD/MM/YYYY ');
+    };
     const navigation: any = useNavigation();
     const checkOut = () => {
         navigation.navigate('CheckOut');
     };
+
+    if (error)
+        return (
+            <View style={styles.container}>
+                <Text>Không tìm thấy phương tiện</Text>
+            </View>
+        );
     return (
         <View style={styles.container}>
-            <View style={styles.content}>
-                <Text style={styles.title}>Thời gian đã gửi</Text>
-                <View style={styles.scarfShape}>
-                    <LinearGradient
-                        style={styles.rounded}
-                        colors={[GlobalStyles.colors.primaryOrange, GlobalStyles.colors.primaryOrange50]}
-                    >
-                        <View style={[styles.elementOne, styles.rounded]} />
-                    </LinearGradient>
-                    <View style={[styles.elementTwo, styles.rounded]} />
-                    <Text style={styles.timer}>02 : 59 : 57</Text>
+            {isLoading && (
+                <View style={{ marginTop: 8 }}>
+                    <ActivityIndicator size="large" />
                 </View>
-                <View style={styles.detailParking}>
-                    <FieldValue fieldName="Bãi đỗ xe" value="Trường đại học Bách Khoa TP. HCM" />
-                    <FieldValue fieldName="Địa chỉ" value="Dĩ An, Bình Dương" />
-                    <FieldValue fieldName="Biển số" value="60 - B6 75901" />
-                    <FieldValue fieldName="Thời gian vào" value="12:00 27/11/2022" />
+            )}
+            {!isLoading && vehicleDetail && (
+                <View style={styles.content}>
+                    <Text style={styles.title}>Thời gian đã gửi</Text>
+                    <View style={styles.scarfShape}>
+                        <LinearGradient
+                            style={styles.rounded}
+                            colors={[GlobalStyles.colors.primaryOrange, GlobalStyles.colors.primaryOrange50]}
+                        >
+                            <View style={[styles.elementOne, styles.rounded]} />
+                        </LinearGradient>
+                        <View style={[styles.elementTwo, styles.rounded]} />
+                        <Text style={styles.timer}>
+                            {vehicleDetail.time_parked.hours}h : {vehicleDetail.time_parked.minutes}p
+                        </Text>
+                    </View>
+                    <View style={styles.detailParking}>
+                        <FieldValue fieldName="Bãi đỗ xe" value={vehicleDetail.location.name} />
+                        <FieldValue fieldName="Địa chỉ" value={vehicleDetail.location.address} />
+                        <FieldValue fieldName="Biển số" value={vehicleDetail.license_plates} />
+                        <FieldValue fieldName="Thời gian vào" value={formattedDate(vehicleDetail.time_in)} />
+                    </View>
                 </View>
-            </View>
+            )}
             <BottomButton onPress={checkOut} title="Lấy xe" />
         </View>
     );

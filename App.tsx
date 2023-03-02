@@ -23,6 +23,7 @@ import Settings from './src/screens/Account/Settings';
 import ChangePassword from './src/screens/Account/ChangePassword';
 import DetailMonthTicket from './src/screens/Parking/MonthTicket/DetailMonthTicket';
 import MonthTicketSubscribe from './src/screens/ParkingInfo/MonthTicketSubscribe';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,7 @@ const Loading = () => {
 };
 
 export default function App() {
+    const queryClient = new QueryClient();
     const [loading, setLoading] = useState(true);
     const [viewedOnboarding, setViewedOnboarding] = useState(true);
 
@@ -56,148 +58,150 @@ export default function App() {
 
     return (
         <>
-            <Provider store={store}>
-                <StatusBar style="dark" />
-                {loading ? (
-                    <Loading />
-                ) : (
-                    <NavigationContainer>
-                        <Stack.Navigator
-                            screenOptions={{
-                                headerStyle: {
-                                    backgroundColor: GlobalStyles.colors.primaryOrange,
-                                },
-                                headerTintColor: 'white',
-                                statusBarHidden: false,
-                                statusBarStyle: 'dark',
-                                statusBarColor: GlobalStyles.colors.primaryOrange,
-                            }}
-                        >
-                            {!viewedOnboarding && (
-                                <Stack.Screen
-                                    name="Onboarding"
-                                    component={Onboarding}
-                                    options={{
-                                        headerShown: false,
-                                        statusBarColor: 'transparent',
-                                    }}
-                                />
-                            )}
-
-                            <Stack.Screen
-                                name="Authentication"
-                                component={Authentication}
-                                options={{
-                                    headerShown: false,
-                                }}
-                            />
-                            <Stack.Screen
-                                name="TabBarScreen"
-                                component={TabBarBottom}
-                                options={{
-                                    headerShown: false,
+            <QueryClientProvider client={queryClient}>
+                <Provider store={store}>
+                    <StatusBar style="dark" />
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        <NavigationContainer>
+                            <Stack.Navigator
+                                screenOptions={{
+                                    headerStyle: {
+                                        backgroundColor: GlobalStyles.colors.primaryOrange,
+                                    },
+                                    headerTintColor: 'white',
                                     statusBarHidden: false,
                                     statusBarStyle: 'dark',
                                     statusBarColor: GlobalStyles.colors.primaryOrange,
                                 }}
-                            />
-                            <Stack.Screen
-                                name="Notifications"
-                                component={Notifications}
-                                options={{
-                                    title: 'Thông báo',
-                                    presentation: 'modal',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="SearchResults"
-                                component={SearchResults}
-                                options={{
-                                    title: 'Kết quả tìm kiếm',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="Friends"
-                                component={Friends}
-                                options={{
-                                    title: 'Bạn bè',
-                                }}
-                            />
+                            >
+                                {!viewedOnboarding && (
+                                    <Stack.Screen
+                                        name="Onboarding"
+                                        component={Onboarding}
+                                        options={{
+                                            headerShown: false,
+                                            statusBarColor: 'transparent',
+                                        }}
+                                    />
+                                )}
 
-                            <Stack.Screen
-                                name="VehicleDetail"
-                                component={VehicleDetail}
-                                options={{
-                                    title: 'Chi tiết xe gửi',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="CheckOut"
-                                component={CheckOut}
-                                options={{
-                                    headerShown: false,
-                                }}
-                            />
-                            <Stack.Screen
-                                name="Maps"
-                                component={Maps}
-                                options={{
-                                    title: 'Tìm đường đi',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="ParkingInfo"
-                                component={ParkingInfo}
-                                options={{
-                                    title: 'Thông tin nhà xe',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="EditProfile"
-                                component={EditProfile}
-                                options={{
-                                    title: 'Sửa thông tin cá nhân',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="ManagePayment"
-                                component={ManagePayment}
-                                options={{
-                                    title: 'Thanh toán',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="Settings"
-                                component={Settings}
-                                options={{
-                                    title: 'Cài đặt',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="ChangePassword"
-                                component={ChangePassword}
-                                options={{
-                                    title: 'Đổi mật khẩu',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="DetailMonthTicket"
-                                component={DetailMonthTicket}
-                                options={{
-                                    title: 'Chi tiết vé tháng',
-                                }}
-                            />
-                            <Stack.Screen
-                                name="MonthTicketSubscribe"
-                                component={MonthTicketSubscribe}
-                                options={{
-                                    title: 'Đăng ký vé tháng',
-                                }}
-                            />
-                        </Stack.Navigator>
-                    </NavigationContainer>
-                )}
-            </Provider>
+                                <Stack.Screen
+                                    name="Authentication"
+                                    component={Authentication}
+                                    options={{
+                                        headerShown: false,
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="TabBarScreen"
+                                    component={TabBarBottom}
+                                    options={{
+                                        headerShown: false,
+                                        statusBarHidden: false,
+                                        statusBarStyle: 'dark',
+                                        statusBarColor: GlobalStyles.colors.primaryOrange,
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="Notifications"
+                                    component={Notifications}
+                                    options={{
+                                        title: 'Thông báo',
+                                        presentation: 'modal',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="SearchResults"
+                                    component={SearchResults}
+                                    options={{
+                                        title: 'Kết quả tìm kiếm',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="Friends"
+                                    component={Friends}
+                                    options={{
+                                        title: 'Bạn bè',
+                                    }}
+                                />
+
+                                <Stack.Screen
+                                    name="VehicleDetail"
+                                    component={VehicleDetail}
+                                    options={{
+                                        title: 'Chi tiết xe gửi',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="CheckOut"
+                                    component={CheckOut}
+                                    options={{
+                                        headerShown: false,
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="Maps"
+                                    component={Maps}
+                                    options={{
+                                        title: 'Tìm đường đi',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="ParkingInfo"
+                                    component={ParkingInfo}
+                                    options={{
+                                        title: 'Thông tin nhà xe',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="EditProfile"
+                                    component={EditProfile}
+                                    options={{
+                                        title: 'Sửa thông tin cá nhân',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="ManagePayment"
+                                    component={ManagePayment}
+                                    options={{
+                                        title: 'Thanh toán',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="Settings"
+                                    component={Settings}
+                                    options={{
+                                        title: 'Cài đặt',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="ChangePassword"
+                                    component={ChangePassword}
+                                    options={{
+                                        title: 'Đổi mật khẩu',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="DetailMonthTicket"
+                                    component={DetailMonthTicket}
+                                    options={{
+                                        title: 'Chi tiết vé tháng',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="MonthTicketSubscribe"
+                                    component={MonthTicketSubscribe}
+                                    options={{
+                                        title: 'Đăng ký vé tháng',
+                                    }}
+                                />
+                            </Stack.Navigator>
+                        </NavigationContainer>
+                    )}
+                </Provider>
+            </QueryClientProvider>
         </>
     );
 }

@@ -8,11 +8,11 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 16,
         fontWeight: '700',
-        marginBottom: 10
+        marginBottom: 10,
     },
     searchInput: {
-        fontSize: 14
-    }
+        fontSize: 14,
+    },
 });
 
-export default styles
+export default styles;

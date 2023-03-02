@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
     },
     bottomButton: {
         backgroundColor: '#fff',
-        borderRadius: 100
-    }
+        borderRadius: 100,
+    },
 });

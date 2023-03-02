@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from '../styles';
 import LargeButton from '../../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
@@ -7,12 +7,12 @@ import FieldInput from '../../../components/FieldInput';
 
 const ForgotPassword = () => {
     const navigation: any = useNavigation();
-    const [phone, setPhone] = useState('')
+    const [phone, setPhone] = useState('');
     const handleFunction = () => {
         console.log('From forgot password');
     };
     const navigate = (name: string) => {
-        navigation.navigate(name, { nextScreen: 'ResetPassword', action:'forgotpassword' });
+        navigation.navigate(name, { nextScreen: 'ResetPassword', action: 'forgotpassword' });
     };
     return (
         <View style={styles.container}>

@@ -1,14 +1,11 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const OfferItem = () => {
+const OfferItem = ({ item }: any) => {
     return (
         <View style={styles.container}>
-            <Image
-                style={styles.image}
-                source={{ uri: 'http://img.giftpop.vn/brand/GIFTPOP/MP1807250002_BASIC_origin.jpg' }}
-            />
-            <Text style={styles.text}>Ưu đãi 30.000 hấp dẫn!! Nhanh tay nhận voucher</Text>
+            <Image style={styles.image} source={{ uri: `${item.image}` }} />
+            <Text style={styles.text}>{item.title}</Text>
         </View>
     );
 };

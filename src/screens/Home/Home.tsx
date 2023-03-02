@@ -16,7 +16,7 @@ import NewOffer from './components/NewOfferList';
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { deviceInfo } from '../../services/api';
-import { getListVehicle } from '../../utils/api';
+import { getListVehicle } from '../../utils/vehicle.api';
 
 const Home = () => {
     const getAccessToken = async () => {

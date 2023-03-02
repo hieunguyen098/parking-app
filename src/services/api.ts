@@ -14,8 +14,10 @@ export const deviceInfo = () => {
     return info;
 };
 
+const backendUrl = process.env.BACKEND_URL;
+
 const axios = Axios.create({
-    baseURL: BACKEND_URL,
+    baseURL: backendUrl,
     headers: {
         Accept: 'application/json,application/x-www-form-urlencoded,text/plain,*/*',
         'Content-Type': 'application/json',
@@ -23,30 +25,36 @@ const axios = Axios.create({
     },
 });
 
+axios.interceptors.request.use(
+    function (config) {
+        if (config.headers) {
+            config.headers.authorization = `Bearer accessToken`;
+            return config;
+        }
+        return config;
+    },
+    function (error) {
+        // Làm gì đó với lỗi request
+        return Promise.reject(error);
+    },
+);
+
 export const postData = async (endpoint: string, data: object) => {
     try {
         const response = await axios.post(`/${endpoint}`, { ...deviceInfo(), ...data });
         return response.data;
     } catch (error) {
-        console.error(error);
+        console.log(error);
         throw error;
     }
 };
 
 export const getData = async (endpoint: string, params?: object | null) => {
     try {
-        const response = await axios.get(`/${endpoint}`, {
-            headers: {
-                Authorization: `Bearer accessToken`,
-            },
-            params: {
-                ...deviceInfo(),
-                ...params,
-            },
-        });
-        return response.data;
+        const response = await axios.get(`/${endpoint}`);
+        return response;
     } catch (error) {
-        console.error(error);
+        console.error('lỗi', error);
         throw error;
     }
 };
