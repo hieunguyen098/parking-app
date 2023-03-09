@@ -7,7 +7,7 @@ import ParkingContent from './components/ParkingContent';
 
 const ParkingInfo = () => {
     return (
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={styles.container}>
             <ImageCarousel />
             <ParkingContent />
         </ScrollView>
@@ -16,4 +16,9 @@ const ParkingInfo = () => {
 
 export default ParkingInfo;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#fff"
+    }
+});

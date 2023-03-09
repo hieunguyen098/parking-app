@@ -1,15 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import ParkingInfoHeader from './ParkingInfoHeader';
 import ParkingInfoDetail from './ParkingInfoDetail';
+import ParkingTicketPrice from './ParkingTicketPrice';
+import ExpandableItem from './ExpandableItem';
 import ParkingWorking from './ParkingWorking';
 
 const ParkingContent = () => {
     return (
         <View style={styles.container}>
             <ParkingInfoHeader />
-            <ParkingInfoDetail />
-            <ParkingWorking />
+            <ExpandableItem title='Thông tin chi tiết'>
+                <ParkingInfoDetail />
+            </ExpandableItem>
+            <ExpandableItem title={"Giá vé"}>
+                <ParkingTicketPrice />
+            </ExpandableItem>
+            <ExpandableItem title={"Biểu đồ hoạt động theo giờ"}>
+                <ParkingWorking />
+            </ExpandableItem>
         </View>
     );
 };
