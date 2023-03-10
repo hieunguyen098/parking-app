@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
         marginBottom: 32,
         zIndex: 1,
         backgroundColor: 'white',
-        paddingHorizontal: 16,
+        paddingHorizontal: 24,
         paddingVertical: 8,
-        elevation: 4,
     },
 });
