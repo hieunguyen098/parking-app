@@ -1,18 +1,17 @@
-import { getData, postData } from '../services/api';
+import { VehicleMethodId } from '../constants';
+import { postData } from '../services/api';
 
 export const getListVehicle = async () => {
     const response = await postData('parking', {
-        methodId: 1,
+        methodId: VehicleMethodId.GET_LIST_VEHICLES,
     });
-    console.log('getList', response);
     return response;
 };
 
 export const getVehicleDetail = async (id: number | string) => {
     const response = await postData(`parking`, {
-        methodId: 2,
+        methodId: VehicleMethodId.GET_VEHICLE,
         id: id,
     });
-    console.log('getVehicleDetail', response);
     return response;
 };

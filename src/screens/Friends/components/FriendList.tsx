@@ -1,6 +1,9 @@
 import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import FriendItem from './FriendItem';
+import { useQuery, useQueryClient } from 'react-query';
+import { getListFriends } from '../../../utils/friends.api';
+import { useFocusEffect } from '@react-navigation/native';
 
 const FriendList = () => {
     const result = {
@@ -111,12 +114,31 @@ const FriendList = () => {
         },
     ]);
 
+    const queryClient = useQueryClient();
+    const { data, isLoading } = useQuery({
+        queryKey: ['friends'],
+        queryFn: () => {
+            return getListFriends();
+        },
+        onSuccess: (data) => {
+            setData((prev) => {
+                return [prev[0], { title: 'Bạn bè', data: data.friends }];
+            });
+        },
+    });
+
+    useFocusEffect(
+        useCallback(() => {
+            queryClient.invalidateQueries('friends');
+        }, []),
+    );
+
     return (
         <View style={styles.container}>
             <SectionList
                 sections={DATA}
                 keyExtractor={(item) => item.id}
-                renderItem={({ item }) => <FriendItem item={item} />}
+                renderItem={({ item, section }) => <FriendItem item={item} section={section.title} />}
                 renderSectionHeader={({ section: { title } }) => <Text style={styles.header}>{title}</Text>}
             ></SectionList>
         </View>
