@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from '../../screens/Home/Home';
 import History from '../../screens/History/History';
-import Qr from '../../screens/Qr';
+import Qr from '../../screens/CheckinQR';
 import Parking from '../../screens/Parking/Parking';
 import Account from '../../screens/Account/Account';
 

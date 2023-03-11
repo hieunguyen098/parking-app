@@ -12,6 +12,7 @@ function ParkingWorking() {
 export default ParkingWorking;
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFFFFF', marginTop: 8
+        backgroundColor: '#FFFFFF',
+        marginTop: 8,
     },
 });

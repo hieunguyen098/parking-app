@@ -10,13 +10,13 @@ const ParkingContent = () => {
     return (
         <View style={styles.container}>
             <ParkingInfoHeader />
-            <ExpandableItem title='Thông tin chi tiết'>
+            <ExpandableItem title="Thông tin chi tiết">
                 <ParkingInfoDetail />
             </ExpandableItem>
-            <ExpandableItem title={"Giá vé"}>
+            <ExpandableItem title={'Giá vé'}>
                 <ParkingTicketPrice />
             </ExpandableItem>
-            <ExpandableItem title={"Biểu đồ hoạt động theo giờ"}>
+            <ExpandableItem title={'Biểu đồ hoạt động theo giờ'}>
                 <ParkingWorking />
             </ExpandableItem>
         </View>

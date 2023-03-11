@@ -1,7 +1,11 @@
 import Axios from 'axios';
-import { BACKEND_URL } from '@env';
 import * as Device from 'expo-device';
 import Constants from 'expo-constants';
+
+interface BodyData {
+    method: string;
+    params?: object;
+}
 
 export const deviceInfo = () => {
     const info = {
@@ -12,10 +16,8 @@ export const deviceInfo = () => {
     return info;
 };
 
-const backendUrl = process.env.BACKEND_URL;
-
 const axios = Axios.create({
-    baseURL: backendUrl,
+    baseURL: process.env.BACKEND_URL,
     headers: {
         Accept: 'application/json,application/x-www-form-urlencoded,text/plain,*/*',
         'Content-Type': 'application/json',
@@ -37,17 +39,14 @@ axios.interceptors.request.use(
     },
 );
 
-export const postData = async (endpoint: string, data: object) => {
+export const postData = async (endpoint: string, data: BodyData) => {
+    data.params = { ...data.params, ...deviceInfo() };
     try {
-        const response = await axios.post(
-            `/${endpoint}`,
-            { ...deviceInfo(), ...data },
-            {
-                headers: {
-                    Authorization: `Bearer accessToken`,
-                },
+        const response = await axios.post(`/${endpoint}`, data, {
+            headers: {
+                Authorization: `Bearer accessToken`,
             },
-        );
+        });
         return response.data;
     } catch (error) {
         console.log(error);

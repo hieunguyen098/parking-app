@@ -1,11 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { GlobalStyles } from '../../../constants';
 
 interface ExpandableItem {
-    children: any,
-    title: string
+    children: any;
+    title: string;
 }
 
 const ExpandableItem = ({ children, title }: ExpandableItem) => {
@@ -24,14 +24,12 @@ const ExpandableItem = ({ children, title }: ExpandableItem) => {
                 </View>
             </TouchableOpacity>
 
-            {expanded && (
-                children
-            )}
+            {expanded && children}
         </View>
     );
-}
+};
 
-export default ExpandableItem
+export default ExpandableItem;
 
 const styles = StyleSheet.create({
     container: {

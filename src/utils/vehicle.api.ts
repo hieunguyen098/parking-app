@@ -1,18 +1,26 @@
-import { getData, postData } from '../services/api';
+import { ParkingMethodId } from '../constants';
+import { postData } from '../services/api';
 
 export const getListVehicle = async () => {
     const response = await postData('parking', {
-        methodId: 1,
+        method: ParkingMethodId.GET_VEHICLE_IS_PARKING,
     });
-    console.log('getList', response);
     return response;
 };
 
 export const getVehicleDetail = async (id: number | string) => {
     const response = await postData(`parking`, {
-        methodId: 2,
-        id: id,
+        method: ParkingMethodId.GET_VEHICLE_DETAIL,
+        params: {
+            id: id,
+        },
     });
-    console.log('getVehicleDetail', response);
+    return response;
+};
+
+export const getCheckinParkingQr = async () => {
+    const response = await postData('parking', {
+        method: ParkingMethodId.GET_CHECKIN_PARKING_QR,
+    });
     return response;
 };

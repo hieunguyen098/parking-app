@@ -2,23 +2,11 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { GlobalStyles } from '../constants/style';
 import { LinearGradient } from 'expo-linear-gradient';
-import QRCode from 'react-native-qrcode-svg';
 import Line from '../components/Line';
 import QrCode from '../components/QrCode';
+import { QRType } from '../constants';
 
 const Qr = () => {
-    const [value, setValue] = useState('');
-    const [loading, setLoading] = useState(false);
-    const refreshQR = () => {
-        setLoading(true);
-        const today = new Date();
-        setValue(today.toISOString());
-        setLoading(false);
-    };
-    useEffect(() => {
-        refreshQR();
-    }, []);
-
     return (
         <LinearGradient
             colors={[GlobalStyles.colors.primaryOrange, GlobalStyles.colors.primaryOrange50]}
@@ -27,7 +15,7 @@ const Qr = () => {
             end={[0.5, 1]}
         >
             <View style={styles.qrContainer}>
-                <QrCode />
+                <QrCode qrType={QRType.CHECK_IN} />
                 <Line borderStyle="dashed" color={GlobalStyles.colors.lightGrey} />
                 <Text style={styles.title}>Quét mã để gửi xe</Text>
             </View>

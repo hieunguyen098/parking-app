@@ -1,6 +1,6 @@
 export enum NotificationMethodId {
-    GET_NEW_NOTIFICATIONS = 0,
-    GET_OLD_NOTIFICATIONS = 1,
+    GET_NEW_NOTIFICATIONS = 'get_new_notifications',
+    GET_OLD_NOTIFICATIONS = 'get_old_notifications',
 }
 
 export enum NotificationType {

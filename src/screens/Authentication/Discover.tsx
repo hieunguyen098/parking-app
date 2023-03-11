@@ -7,8 +7,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import FieldInput from '../../components/FieldInput';
 import { useDispatch } from 'react-redux';
 import { authActions } from '../../../store/slices/authSlice';
-import { getData, postData } from '../../services/api';
 import { validatePhoneNumber } from '../../utils/validation';
+import { discover } from '../../services/auth';
 
 const Discover = () => {
     const [phone, setPhone] = useState('');
@@ -19,10 +19,7 @@ const Discover = () => {
     const startDiscovering = async () => {
         if (validatePhoneNumber(phone)) {
             dispatch(authActions.setUser({ phone }));
-            const data = await postData('user/auth', {
-                methodId: 0,
-                phone: phone,
-            });
+            const data = await discover(phone);
             if (data.status === 'success') {
                 dispatch(authActions.setUser(data.user));
                 navigation.navigate('Login');

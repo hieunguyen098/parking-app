@@ -4,11 +4,11 @@ import BottomButton from '../../../components/Buttons/BottomButton';
 import { useNavigation } from '@react-navigation/native';
 import { GlobalStyles } from '../../../constants/style';
 import { LinearGradient } from 'expo-linear-gradient';
-import QRCode from 'react-native-qrcode-svg';
 import Line from '../../../components/Line';
 import QrCode from '../../../components/QrCode';
 import FieldValue from '../../../components/FieldValue';
 import CouponUsing from '../../../components/CouponUsing';
+import { QRType } from '../../../constants';
 
 const CheckOut = () => {
     const navigation = useNavigation();
@@ -36,7 +36,7 @@ const CheckOut = () => {
             >
                 <Text style={styles.title}>Quét mã để lấy xe</Text>
                 <View style={styles.qrContainer}>
-                    <QrCode />
+                    <QrCode qrType={QRType.CHECK_OUT} />
                     <Line borderStyle="dashed" color={GlobalStyles.colors.lightGrey} />
                     <FieldValue fieldName="Biển số" value="60 - B6 75901" />
                     <FieldValue fieldName="Tổng thời gian" value="04 giờ 05 phút" />
