@@ -4,13 +4,13 @@ import { GlobalStyles } from '../../../constants/style';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import { AntDesign } from '@expo/vector-icons';
 
-const FriendItem = ({ item }: any) => {
+const FriendItem = ({ item, section }: any) => {
     return (
         <View style={styles.container}>
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
-                        uri: 'https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/master/pass/bieber-coverstory-square.jpg',
+                        uri: `${item.avatar}`,
                     }}
                     style={styles.avatar}
                 />
@@ -18,14 +18,15 @@ const FriendItem = ({ item }: any) => {
             <View style={styles.contentContainer}>
                 <Text style={styles.name}>{item.name}</Text>
             </View>
-            {!item.isFriend && <SmallButton title="Kết bạn" />}
-            {item.isFriend && (
+            {section === 'Bạn bè' ? (
                 <AntDesign
                     name="doubleright"
                     size={12}
                     color={GlobalStyles.colors.primaryOrange}
                     style={styles.seeMoreIcon}
                 />
+            ) : (
+                <SmallButton title="Kết bạn" />
             )}
         </View>
     );

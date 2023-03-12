@@ -22,8 +22,8 @@ const ParkingLotItem = ({ item, onPress }: any) => {
                     <Text style={styles.title}>{item.name}</Text>
                     <View style={styles.descContainer}>
                         <MaterialIcons name="place" size={16} style={styles.icon} />
-                        <Text style={[styles.desc1, styles.desc]}>{item.distance}</Text>
-                        <Text style={[styles.desc2, styles.desc]}>{item.place}</Text>
+                        {/* <Text style={[styles.desc1, styles.desc]}>{item.distance}</Text> */}
+                        <Text style={[styles.desc2, styles.desc]}>{item.address}</Text>
                     </View>
                 </View>
             </Pressable>

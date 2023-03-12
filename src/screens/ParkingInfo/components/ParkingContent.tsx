@@ -6,18 +6,18 @@ import ParkingTicketPrice from './ParkingTicketPrice';
 import ExpandableItem from './ExpandableItem';
 import ParkingWorking from './ParkingWorking';
 
-const ParkingContent = () => {
+const ParkingContent = ({ locationDetail }: any) => {
     return (
         <View style={styles.container}>
-            <ParkingInfoHeader />
-            <ExpandableItem title="Thông tin chi tiết">
-                <ParkingInfoDetail />
+            {/* <ParkingInfoHeader title={locationDetail.name} address={locationDetail.address} timeStart={locationDetail.timeStart} timeEnd={locationDetail.timeEnd} /> */}
+            <ExpandableItem title='Thông tin chi tiết'>
+                {/* <ParkingInfoDetail description={locationDetail.description as string} /> */}
             </ExpandableItem>
             <ExpandableItem title={'Giá vé'}>
                 <ParkingTicketPrice />
             </ExpandableItem>
-            <ExpandableItem title={'Biểu đồ hoạt động theo giờ'}>
-                <ParkingWorking />
+            <ExpandableItem title={"Biểu đồ hoạt động theo giờ"}>
+                {/* <ParkingWorking dataChart={locationDetail.hourChart} /> */}
             </ExpandableItem>
         </View>
     );

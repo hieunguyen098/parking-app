@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import FieldValue from '../../../components/FieldValue';
