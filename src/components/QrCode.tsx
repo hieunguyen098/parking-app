@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import QRCode from 'react-native-qrcode-svg';
 import { GlobalStyles } from '../constants/style';
 import { useCountDown } from '../hooks/useCountDown';
-import { getCheckinParkingQr } from '../utils/vehicle.api';
+import { getCheckinParkingQr, getCheckoutParkingQr } from '../utils/vehicle.api';
 import { QRType, TIMEOUT_REFRESH_QR } from '../constants';
+import { useFocusEffect } from '@react-navigation/native';
 
 const QrCode = ({ qrType }: { qrType: QRType }) => {
     const [value, setValue] = useState('');
@@ -17,7 +18,7 @@ const QrCode = ({ qrType }: { qrType: QRType }) => {
         if (qrType === QRType.CHECK_IN) {
             response = await getCheckinParkingQr();
         } else if (qrType === QRType.CHECK_OUT) {
-            response = await getCheckinParkingQr();
+            response = await getCheckoutParkingQr();
         }
         setRemainingTime(getRemainingSeconds(response.data.expire_time));
         setValue(response.data.qr_token);
@@ -29,16 +30,18 @@ const QrCode = ({ qrType }: { qrType: QRType }) => {
         const remainingSeconds = Math.floor((timestamp - currentTime) / 1000);
         return remainingSeconds >= 0 ? remainingSeconds : 0;
     }
-    useEffect(() => {
-        refreshQR();
-        const timeoutId = setTimeout(() => {
+    useFocusEffect(
+        React.useCallback(() => {
             refreshQR();
-            setRefresh(!refresh);
-        }, TIMEOUT_REFRESH_QR);
-        return () => {
-            clearTimeout(timeoutId);
-        };
-    }, [refresh]);
+            const timeoutId = setTimeout(() => {
+                refreshQR();
+                setRefresh(!refresh);
+            }, TIMEOUT_REFRESH_QR);
+            return () => {
+                clearTimeout(timeoutId);
+            };
+        }, [refresh])
+    );
     return (
         <View style={styles.container}>
             <View style={styles.qr}>

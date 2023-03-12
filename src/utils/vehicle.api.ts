@@ -24,3 +24,13 @@ export const getCheckinParkingQr = async () => {
     });
     return response;
 };
+
+export const getCheckoutParkingQr = async () => {
+    const response = await postData('parking', {
+        method: ParkingMethodId.GET_CHECKOUT_PARKING_QR,
+        params: {
+            vehicle_id: "001"
+        }
+    });
+    return response;
+};

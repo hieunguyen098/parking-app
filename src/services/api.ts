@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import * as Device from 'expo-device';
 import Constants from 'expo-constants';
+import { BACKEND_URL } from '@env';
 
 interface BodyData {
     method: string;
@@ -17,7 +18,7 @@ export const deviceInfo = () => {
 };
 
 const axios = Axios.create({
-    baseURL: process.env.BACKEND_URL,
+    baseURL: BACKEND_URL,
     headers: {
         Accept: 'application/json,application/x-www-form-urlencoded,text/plain,*/*',
         'Content-Type': 'application/json',
