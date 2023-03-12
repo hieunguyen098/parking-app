@@ -8,7 +8,7 @@ import { useFocusEffect } from '@react-navigation/native';
 
 const NewOffer = () => {
     const queryClient = useQueryClient();
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, error } = useQuery({
         queryKey: ['vouchers'],
         queryFn: () => {
             return getListVouchers();
@@ -26,7 +26,7 @@ const NewOffer = () => {
             <Title title="Ưu đãi mới"></Title>
             {isLoading ? (
                 <Text>Loading</Text>
-            ) : (
+            ) : (error ? <Text>Lỗi</Text> :
                 data.vouchers.map((item: any) => {
                     return <OfferItem key={item.id} item={item} />;
                 })

@@ -5,7 +5,7 @@ import { GlobalStyles } from '../../../constants/style';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-const ParkingInfoHeader = () => {
+const ParkingInfoHeader = ({ title, address, timeStart, timeEnd }: any) => {
     const navigate: any = useNavigation();
 
     const handleMonthTicket = () => {
@@ -16,19 +16,19 @@ const ParkingInfoHeader = () => {
         <>
             <View style={styles.container}>
                 <View style={styles.leftContainer}>
-                    <Text style={styles.title}>Bãi xe Hoài Bão</Text>
-                    <Text style={styles.subText}>Đường số 8, Linh Trung, Thủ Đức</Text>
+                    <Text style={styles.title}>{title}</Text>
+                    <Text style={styles.subText}>{address}</Text>
                 </View>
                 <SmallButton title="Vé tháng" style={styles.button1} onPress={handleMonthTicket} />
             </View>
             <View style={styles.infoContainer}>
-                <View style={styles.info}>
+                {/* <View style={styles.info}>
                     <MaterialIcons name="place" size={16} color={GlobalStyles.colors.primaryOrange} />
                     <Text style={styles.infoText}>500m</Text>
-                </View>
+                </View> */}
                 <View style={styles.info}>
                     <Ionicons name="time-sharp" size={16} color={GlobalStyles.colors.primaryOrange} />
-                    <Text style={styles.infoText}>8 AM - 10 PM</Text>
+                    <Text style={styles.infoText}>{timeStart} - {timeEnd}</Text>
                 </View>
             </View>
         </>

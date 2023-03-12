@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { VictoryChart, VictoryArea, VictoryTheme, VictoryLabel } from 'victory-native';
 import { GlobalStyles } from '../../../constants/style';
 
-const ParkingWorkingChart = () => {
+const ParkingWorkingChart = ({ dataChart }: any) => {
     const [selectedValue, setSelectedValue] = useState(0);
 
     return (
@@ -22,24 +22,10 @@ const ParkingWorkingChart = () => {
                             duration: 500,
                             onLoad: { duration: 500 },
                         }}
-                        interpolation="stepBefore"
+                        interpolation="linear"
                         style={{ data: { fill: GlobalStyles.colors.primaryOrange } }}
-                        domain={{ x: [6, 18], y: [0, 100] }}
-                        data={[
-                            { x: 6, y: 60 },
-                            { x: 7, y: 80 },
-                            { x: 8, y: 77 },
-                            { x: 9, y: 60 },
-                            { x: 10, y: 92 },
-                            { x: 11, y: 88 },
-                            { x: 12, y: 50 },
-                            { x: 13, y: 40 },
-                            { x: 14, y: 60 },
-                            { x: 15, y: 50 },
-                            { x: 16, y: 55 },
-                            { x: 17, y: 60 },
-                            { x: 18, y: 40 },
-                        ]}
+                        // domain={{ x: [0, 24], y: [0, 100] }}
+                        data={dataChart}
                     />
                 </VictoryChart>
             </View>
@@ -59,3 +45,4 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 });
+

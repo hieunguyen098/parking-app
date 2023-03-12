@@ -27,7 +27,6 @@ const VehicleDetail = () => {
         select: (data) => data.vehicle,
     });
 
-    console.log('lỗi', error);
 
     const formattedDate = (dateString: string) => {
         return moment(dateString).format('HH:mm DD/MM/YYYY ');

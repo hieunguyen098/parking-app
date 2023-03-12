@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native';
 import ParkingWorkingChart from './ParkingWorkingChart';
-function ParkingWorking() {
+function ParkingWorking({ dataChart }: any) {
     return (
         <View style={styles.container}>
-            <ParkingWorkingChart />
+            <ParkingWorkingChart dataChart={dataChart} />
         </View>
     );
 }
