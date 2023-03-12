@@ -9,7 +9,11 @@ import { useQuery, useQueryClient } from 'react-query';
 const ListVehicle = () => {
     const queryClient = useQueryClient();
 
-    const { data: parkingVehicles, isLoading, error } = useQuery({
+    const {
+        data: parkingVehicles,
+        isLoading,
+        error,
+    } = useQuery({
         queryKey: ['vehicles'],
         queryFn: () => {
             return getListVehicle();
@@ -29,7 +33,9 @@ const ListVehicle = () => {
             <Title title="Danh sách xe gửi" />
             {isLoading ? (
                 <ActivityIndicator size="large" />
-            ) : (error ? <Text>Lôĩ</Text> :
+            ) : error ? (
+                <Text>Lôĩ</Text>
+            ) : (
                 <View style={styles.listVehicle}>
                     {parkingVehicles.length > 0 &&
                         parkingVehicles.map((item: any) => {

@@ -28,7 +28,9 @@ const ParkingInfoHeader = ({ title, address, timeStart, timeEnd }: any) => {
                 </View> */}
                 <View style={styles.info}>
                     <Ionicons name="time-sharp" size={16} color={GlobalStyles.colors.primaryOrange} />
-                    <Text style={styles.infoText}>{timeStart} - {timeEnd}</Text>
+                    <Text style={styles.infoText}>
+                        {timeStart} - {timeEnd}
+                    </Text>
                 </View>
             </View>
         </>

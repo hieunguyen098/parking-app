@@ -26,9 +26,11 @@ const ParkingInfo = () => {
 
     return (
         <ScrollView style={styles.container}>
-            {isLoading && <View style={{ marginTop: 8 }}>
-                <ActivityIndicator size="large" />
-            </View>}
+            {isLoading && (
+                <View style={{ marginTop: 8 }}>
+                    <ActivityIndicator size="large" />
+                </View>
+            )}
             {/* {!isLoading && locationDetail.images.length > 0 && <ImageCarousel images={locationDetail.images} />} */}
             <ParkingContent locationDetail={locationDetail} />
         </ScrollView>

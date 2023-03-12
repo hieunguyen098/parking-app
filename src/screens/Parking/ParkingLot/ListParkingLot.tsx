@@ -97,7 +97,11 @@ const ListParkingLot = () => {
 
     const queryClient = useQueryClient();
 
-    const { data: parkingLocations, isLoading, error } = useQuery({
+    const {
+        data: parkingLocations,
+        isLoading,
+        error,
+    } = useQuery({
         queryKey: ['locations'],
         queryFn: () => {
             return getLocations();
@@ -114,24 +118,27 @@ const ListParkingLot = () => {
 
     return (
         <>
-            {isLoading ? <View style={{ marginTop: 8 }}>
-                <ActivityIndicator size="large" />
-            </View> : <FlatList
-                data={data}
-                renderItem={({ item }) => {
-                    return (
-                        <ParkingLotItem
-                            item={item}
-                            onPress={() => {
-                                navigation.navigate('ParkingInfo');
-                            }}
-                        />
-                    );
-                }}
-                keyExtractor={(item) => item.key}
-                style={styles.contentContainer}
-            />}
-
+            {isLoading ? (
+                <View style={{ marginTop: 8 }}>
+                    <ActivityIndicator size="large" />
+                </View>
+            ) : (
+                <FlatList
+                    data={data}
+                    renderItem={({ item }) => {
+                        return (
+                            <ParkingLotItem
+                                item={item}
+                                onPress={() => {
+                                    navigation.navigate('ParkingInfo');
+                                }}
+                            />
+                        );
+                    }}
+                    keyExtractor={(item) => item.key}
+                    style={styles.contentContainer}
+                />
+            )}
         </>
     );
 };

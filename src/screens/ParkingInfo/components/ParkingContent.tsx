@@ -10,13 +10,13 @@ const ParkingContent = ({ locationDetail }: any) => {
     return (
         <View style={styles.container}>
             {/* <ParkingInfoHeader title={locationDetail.name} address={locationDetail.address} timeStart={locationDetail.timeStart} timeEnd={locationDetail.timeEnd} /> */}
-            <ExpandableItem title='Thông tin chi tiết'>
+            <ExpandableItem title="Thông tin chi tiết">
                 {/* <ParkingInfoDetail description={locationDetail.description as string} /> */}
             </ExpandableItem>
             <ExpandableItem title={'Giá vé'}>
                 <ParkingTicketPrice />
             </ExpandableItem>
-            <ExpandableItem title={"Biểu đồ hoạt động theo giờ"}>
+            <ExpandableItem title={'Biểu đồ hoạt động theo giờ'}>
                 {/* <ParkingWorking dataChart={locationDetail.hourChart} /> */}
             </ExpandableItem>
         </View>

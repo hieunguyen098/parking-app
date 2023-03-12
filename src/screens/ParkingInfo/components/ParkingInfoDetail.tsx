@@ -2,20 +2,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
 
 interface IProps {
-    description: string
+    description: string;
 }
 
 const ParkingInfoDetail = ({ description }: IProps) => {
-
-    useEffect(() => {
-
-    }, [])
+    useEffect(() => {}, []);
 
     return (
         <View style={styles.container}>
-            <Text>
-                {description}
-            </Text>
+            <Text>{description}</Text>
         </View>
     );
 };

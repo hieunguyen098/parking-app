@@ -40,7 +40,7 @@ const QrCode = ({ qrType }: { qrType: QRType }) => {
             return () => {
                 clearTimeout(timeoutId);
             };
-        }, [refresh])
+        }, [refresh]),
     );
     return (
         <View style={styles.container}>

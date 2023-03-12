@@ -26,7 +26,9 @@ const NewOffer = () => {
             <Title title="Ưu đãi mới"></Title>
             {isLoading ? (
                 <Text>Loading</Text>
-            ) : (error ? <Text>Lỗi</Text> :
+            ) : error ? (
+                <Text>Lỗi</Text>
+            ) : (
                 data.vouchers.map((item: any) => {
                     return <OfferItem key={item.id} item={item} />;
                 })
