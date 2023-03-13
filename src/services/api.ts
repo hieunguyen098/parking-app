@@ -17,6 +17,8 @@ export const deviceInfo = () => {
     return info;
 };
 
+
+
 const axios = Axios.create({
     baseURL: BACKEND_URL,
     headers: {

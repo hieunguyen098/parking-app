@@ -124,18 +124,18 @@ const ListParkingLot = () => {
                 </View>
             ) : (
                 <FlatList
-                    data={data}
+                    data={parkingLocations}
                     renderItem={({ item }) => {
                         return (
                             <ParkingLotItem
                                 item={item}
                                 onPress={() => {
-                                    navigation.navigate('ParkingInfo');
+                                    navigation.navigate('ParkingInfo', { id: item.id });
                                 }}
                             />
                         );
                     }}
-                    keyExtractor={(item) => item.key}
+                    keyExtractor={(item) => item.id}
                     style={styles.contentContainer}
                 />
             )}

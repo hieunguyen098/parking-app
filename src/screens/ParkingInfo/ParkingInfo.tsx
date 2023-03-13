@@ -31,8 +31,8 @@ const ParkingInfo = () => {
                     <ActivityIndicator size="large" />
                 </View>
             )}
-            {/* {!isLoading && locationDetail.images.length > 0 && <ImageCarousel images={locationDetail.images} />} */}
-            <ParkingContent locationDetail={locationDetail} />
+            {!isLoading && locationDetail.images.length > 0 && <ImageCarousel images={locationDetail.images} />}
+            {!isLoading && locationDetail && <ParkingContent locationDetail={locationDetail} />}
         </ScrollView>
     );
 };

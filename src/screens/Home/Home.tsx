@@ -28,7 +28,7 @@ const Home = () => {
                         <MenuBar />
                         <View style={styles.content}>
                             <ListVehicle />
-                            {/* <NewOffer /> */}
+                            <NewOffer />
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>
