@@ -7,10 +7,14 @@ import ExpandableItem from './ExpandableItem';
 import ParkingWorking from './ParkingWorking';
 
 const ParkingContent = ({ locationDetail }: any) => {
-
     return (
         <View style={styles.container}>
-            <ParkingInfoHeader title={locationDetail.name} address={locationDetail.address} timeStart={locationDetail.timeStart} timeEnd={locationDetail.timeEnd} />
+            <ParkingInfoHeader
+                title={locationDetail.name}
+                address={locationDetail.address}
+                timeStart={locationDetail.timeStart}
+                timeEnd={locationDetail.timeEnd}
+            />
             <ExpandableItem title="Thông tin chi tiết">
                 <ParkingInfoDetail description={locationDetail.description as string} />
             </ExpandableItem>

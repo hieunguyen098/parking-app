@@ -14,25 +14,27 @@ const ParkingTicketPrice = ({ priceTicket }: any) => {
                     <Text style={styles.labelText}>Giá phụ thu</Text>
                 </View>
             </View>
-            {priceTicket.length > 0 && priceTicket.map((item: any) => {
-                return (<View style={styles.dayContainer} key={item.day}>
-                    <View style={styles.emptyItem}>
-                        <Text>{item.day === "8" ? "CN" : `T${item.day}`}</Text>
-                    </View>
-                    <View style={styles.dayItem}>
-                        <Text style={styles.itemText}>
-                            Trong {item.startEndIn} đầu: <Text style={styles.priceText}>{item.startPrice}</Text>{' '}
-                        </Text>
-                    </View>
-                    <View style={styles.dayItem}>
-                        <Text style={styles.itemText}>
-                            Sau {item.startEndIn} đầu: <Text style={styles.additionalPriceText}>{item.afterPrice} </Text>
-                        </Text>
-                    </View>
-                </View>)
-            })}
-
-
+            {priceTicket.length > 0 &&
+                priceTicket.map((item: any) => {
+                    return (
+                        <View style={styles.dayContainer} key={item.day}>
+                            <View style={styles.emptyItem}>
+                                <Text>{item.day === '8' ? 'CN' : `T${item.day}`}</Text>
+                            </View>
+                            <View style={styles.dayItem}>
+                                <Text style={styles.itemText}>
+                                    Trong {item.startEndIn} đầu: <Text style={styles.priceText}>{item.startPrice}</Text>{' '}
+                                </Text>
+                            </View>
+                            <View style={styles.dayItem}>
+                                <Text style={styles.itemText}>
+                                    Sau {item.startEndIn} đầu:{' '}
+                                    <Text style={styles.additionalPriceText}>{item.afterPrice} </Text>
+                                </Text>
+                            </View>
+                        </View>
+                    );
+                })}
         </View>
     );
 };
@@ -41,7 +43,7 @@ export default ParkingTicketPrice;
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 12
+        marginTop: 12,
     },
     labelContainer: {
         flexDirection: 'row',
