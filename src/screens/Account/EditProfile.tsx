@@ -44,12 +44,11 @@ const EditProfile = () => {
         retry: false,
         select: (data) => data.data,
         onSuccess: (data) => {
-            setFullname(data.name)
-            setBirthday(data.birthDay)
-            setEmail(data.email)
-            setGender(data.gender)
-
-        }
+            setFullname(data.name);
+            setBirthday(data.birthDay);
+            setEmail(data.email);
+            setGender(data.gender);
+        },
     });
     useFocusEffect(
         React.useCallback(() => {

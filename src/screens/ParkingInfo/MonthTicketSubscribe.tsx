@@ -34,7 +34,7 @@ const MonthTicketSubscribe = () => {
                     <TicketSubscribeContent locationDetail={locationDetail} />
                 </ScrollView>
             )}
-            <BottomButton title="Đăng ký" onPress={() => { }} />
+            <BottomButton title="Đăng ký" onPress={() => {}} />
         </KeyboardAvoidingView>
     );
 };
