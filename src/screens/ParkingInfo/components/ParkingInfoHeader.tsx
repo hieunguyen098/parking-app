@@ -5,11 +5,11 @@ import { GlobalStyles } from '../../../constants/style';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-const ParkingInfoHeader = ({ title, address, timeStart, timeEnd }: any) => {
+const ParkingInfoHeader = ({ title, address, timeStart, timeEnd, id }: any) => {
     const navigate: any = useNavigation();
 
     const handleMonthTicket = () => {
-        navigate.navigate('MonthTicketSubscribe');
+        navigate.navigate('MonthTicketSubscribe', { id: id });
     };
 
     return (

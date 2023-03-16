@@ -10,3 +10,5 @@ export * from './style';
 export * from './Vehicle';
 export * from './Location';
 export * from './Voucher';
+export * from './User';
+

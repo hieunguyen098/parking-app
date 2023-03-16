@@ -5,13 +5,13 @@ import { GlobalStyles } from '../../../constants/style';
 import FieldInput from '../../../components/FieldInput';
 import BottomButton from '../../../components/Buttons/BottomButton';
 
-const TicketSubscribeDetails = () => {
+const TicketSubscribeDetails = ({ locationDetail }: any) => {
     const [number, setNumber] = React.useState('');
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
-                Giá vé : <Text style={styles.price}>200.000đ/tháng </Text>
+                Giá vé : <Text style={styles.price}>{locationDetail.monthTicket}</Text>
             </Text>
             <Text style={styles.title}>Số tháng đăng ký:</Text>
             <FieldInput
