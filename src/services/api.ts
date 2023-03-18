@@ -9,12 +9,12 @@ interface BodyData {
 }
 
 interface Response {
-    returnCode: number,
-    returnMessage: string,
-    data: null | any[]
+    returnCode: number;
+    returnMessage: string;
+    data: null | any[];
 }
 
-console.log(BACKEND_URL)
+console.log(BACKEND_URL);
 export const deviceInfo = () => {
     const info = {
         device_id: Constants.installationId,

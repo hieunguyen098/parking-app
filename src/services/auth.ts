@@ -23,11 +23,11 @@ export const login = async (phone: string, pin: string) => {
 };
 
 export const signup = async (signupForm: any) => {
-    console.log(signupForm)
+    console.log(signupForm);
     const data = await postData('um/user/auth', {
         method: AuthMethodId.SIGNUP,
         params: {
-            ...signupForm
+            ...signupForm,
         },
     });
     return data;

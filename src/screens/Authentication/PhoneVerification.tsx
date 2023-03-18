@@ -13,14 +13,14 @@ const PhoneVerification = ({ navigation }: any) => {
     const [otp, setOtp] = useState('');
     const [invalid, setInvalid] = useState(false);
     const user = useSelector((state: any) => state.auth.user);
-    const { remainingTime, setRemainingTime } = useCountDown()
+    const { remainingTime, setRemainingTime } = useCountDown();
 
     const nextStep = async () => {
         const data = await verifyPhoneNumber(user.phone, otp);
-        console.log(data)
+        console.log(data);
         if (data.returnCode > 0) {
             if (!data.data) {
-                return
+                return;
             }
             AsyncStorage.setItem('accessToken', data.data[0].accessToken);
             navigation.navigate('TabBarScreen');

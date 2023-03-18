@@ -14,17 +14,17 @@ const genders = [
     {
         id: 0,
         label: 'Nam',
-        value: "Male",
+        value: 'Male',
     },
     {
         id: 1,
         label: 'Nữ',
-        value: "Female",
+        value: 'Female',
     },
     {
         id: 2,
         label: 'Khác',
-        value: "Indefinite",
+        value: 'Indefinite',
     },
 ];
 

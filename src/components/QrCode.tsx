@@ -20,8 +20,8 @@ const QrCode = ({ qrType }: { qrType: QRType }) => {
         } else if (qrType === QRType.CHECK_OUT) {
             response = await getCheckoutParkingQr();
         }
-        if(!response?.data) {
-            return
+        if (!response?.data) {
+            return;
         }
         setRemainingTime(getRemainingSeconds(response.data[0].expiredTime));
         setValue(response.data[0].qrToken);

@@ -24,7 +24,7 @@ const Discover = () => {
                 dispatch(authActions.setUser(data.data[0]));
                 navigation.navigate('Login');
             } else {
-                dispatch(authActions.setUser({phone}));
+                dispatch(authActions.setUser({ phone }));
                 navigation.navigate('SignUp');
             }
         } else {
