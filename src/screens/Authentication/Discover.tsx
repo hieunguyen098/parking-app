@@ -20,11 +20,11 @@ const Discover = () => {
         if (validatePhoneNumber(phone)) {
             dispatch(authActions.setUser({ phone }));
             const data = await discover(phone);
-            if (data.status === 'success') {
-                dispatch(authActions.setUser(data.user));
+            if (data.data && data.data.length > 0) {
+                dispatch(authActions.setUser(data.data[0]));
                 navigation.navigate('Login');
             } else {
-                dispatch(authActions.setUser(data.user));
+                dispatch(authActions.setUser({phone}));
                 navigation.navigate('SignUp');
             }
         } else {

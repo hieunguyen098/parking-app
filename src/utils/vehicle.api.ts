@@ -19,14 +19,14 @@ export const getVehicleDetail = async (id: number | string) => {
 };
 
 export const getCheckinParkingQr = async () => {
-    const response = await postData('parking', {
+    const response = await postData('prc/gen-qr', {
         method: ParkingMethodId.GET_CHECKIN_PARKING_QR,
     });
     return response;
 };
 
 export const getCheckoutParkingQr = async () => {
-    const response = await postData('parking', {
+    const response = await postData('prc/gen-qr', {
         method: ParkingMethodId.GET_CHECKOUT_PARKING_QR,
         params: {
             vehicle_id: '001',

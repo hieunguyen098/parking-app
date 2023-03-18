@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import styles from '../styles';
 import { useSelector } from 'react-redux';
 import { login } from '../../../services/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
     const navigation: any = useNavigation();
@@ -16,9 +17,19 @@ const Login = () => {
         navigation.navigate(name, { nextScreen: 'TabBarScreen', action: 'login' });
     };
     const onContinue = async () => {
-        const res = await login(user.phone, pin);
-        if (res.status === 'success') {
-            navigation.navigate('PhoneVerification');
+        const response = await login(user.phone, pin);
+        console.log(response)
+        if (response.returnCode > 0) {
+            if(!response.data) {
+                return
+            }
+            if(response.data[0].needOtp) {
+                navigation.navigate('PhoneVerification');
+            }
+            else {
+                AsyncStorage.setItem('accessToken', response.data[0].accessToken);
+                navigation.navigate('TabBarScreen');
+            }
         } else {
             setInvalid(true);
         }

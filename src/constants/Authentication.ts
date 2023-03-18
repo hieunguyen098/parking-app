@@ -1,6 +1,6 @@
 export enum AuthMethodId {
-    CHECK_PHONE = 'check_phone',
+    CHECK_PHONE = 'check-phone',
     LOGIN = 'login',
-    SIGNUP = 'signup',
-    VERIFY_PHONE = 'verify_phone',
+    SIGNUP = 'sign-up',
+    VERIFY_PHONE = 'verify-phone',
 }

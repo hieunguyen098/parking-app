@@ -14,24 +14,24 @@ const genders = [
     {
         id: 0,
         label: 'Nam',
-        value: 1,
+        value: "Male",
     },
     {
         id: 1,
         label: 'Nữ',
-        value: 0,
+        value: "Female",
     },
     {
         id: 2,
         label: 'Khác',
-        value: -1,
+        value: "Indefinite",
     },
 ];
 
 const SignUp = () => {
     const navigation: any = useNavigation();
     const dispatch = useDispatch();
-    const nextStep = () => {
+    const nextStep = async () => {
         dispatch(
             authActions.updateSignupForm({
                 fullname,
@@ -47,7 +47,7 @@ const SignUp = () => {
     const [birthday, setBirthday] = useState('');
     const [email, setEmail] = useState('');
     const [image_url, setImage_url] = useState('');
-    const [gender, setGender] = useState(-1);
+    const [gender, setGender] = useState(genders[0].value);
 
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library

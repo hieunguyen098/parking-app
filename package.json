@@ -9,7 +9,8 @@
         "barrels": "barrelsby --config .barrelsby.json",
         "prettier": "npx prettier src --check",
         "format": "npm run prettier -- --write",
-        "commit": "cz"
+        "commit": "cz",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@expo/webpack-config": "^0.17.2",
@@ -74,6 +75,8 @@
         "cz-conventional-changelog": "^3.3.0",
         "eslint-plugin-react": "^7.32.2",
         "faker": "^6.6.6",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.0",
         "lodash": "^4.17.21",
         "typescript": "^4.9.5"
     },

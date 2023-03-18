@@ -12,13 +12,18 @@ interface DateInput {
 }
 
 const DateInput = ({ keyboardType, placeHolder, iconPosition, source, value, setValue }: DateInput) => {
-    const onChange = (event: any, selectedDate: any) => {
-        const currentDate = selectedDate;
-        setValue(currentDate.toISOString().slice(0, 10));
+    const onChange = (event: any, selectedDate: Date|undefined) => {
+        const currentDate: Date|undefined = selectedDate;
+        if(!currentDate) return
+        const day = currentDate.getDate().toString().padStart(2, '0');
+        const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        const year = currentDate.getFullYear().toString();
+        const dateString = `${day}/${month}/${year}`;
+        setValue(dateString);
     };
     const showMode = () => {
         DateTimePickerAndroid.open({
-            value: new Date(value),
+            value: new Date(),
             onChange,
             mode: 'date',
             is24Hour: true,

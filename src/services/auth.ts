@@ -2,7 +2,7 @@ import { AuthMethodId } from '../constants';
 import { postData } from './api';
 
 export const discover = async (phone: string) => {
-    const data = await postData('user/auth', {
+    const data = await postData('um/user/auth', {
         method: AuthMethodId.CHECK_PHONE,
         params: {
             phone: phone,
@@ -12,7 +12,7 @@ export const discover = async (phone: string) => {
 };
 
 export const login = async (phone: string, pin: string) => {
-    const data = await postData('user/auth', {
+    const data = await postData('um/user/auth', {
         method: AuthMethodId.LOGIN,
         params: {
             phone: phone,
@@ -23,23 +23,18 @@ export const login = async (phone: string, pin: string) => {
 };
 
 export const signup = async (signupForm: any) => {
-    const data = await postData('user/auth', {
+    console.log(signupForm)
+    const data = await postData('um/user/auth', {
         method: AuthMethodId.SIGNUP,
         params: {
-            phone: '0372358494',
-            fullname: 'a',
-            image_url: 'a',
-            gender: 1,
-            birthday: '17/12/2001',
-            email: 'a',
-            pin: '000000',
+            ...signupForm
         },
     });
     return data;
 };
 
 export const verifyPhoneNumber = async (phone: string, otp: string) => {
-    const data = await postData('user/auth', {
+    const data = await postData('um/user/auth', {
         method: AuthMethodId.VERIFY_PHONE,
         params: {
             phone: phone,

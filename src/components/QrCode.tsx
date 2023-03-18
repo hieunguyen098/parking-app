@@ -20,14 +20,17 @@ const QrCode = ({ qrType }: { qrType: QRType }) => {
         } else if (qrType === QRType.CHECK_OUT) {
             response = await getCheckoutParkingQr();
         }
-        setRemainingTime(getRemainingSeconds(response.data.expire_time));
-        setValue(response.data.qr_token);
+        if(!response?.data) {
+            return
+        }
+        setRemainingTime(getRemainingSeconds(response.data[0].expiredTime));
+        setValue(response.data[0].qrToken);
         setLoading(false);
-        return response.data.expire_time;
+        return response.data[0].expiredTime;
     };
-    function getRemainingSeconds(timestamp: number) {
+    function getRemainingSeconds(expiredTime: number) {
         const currentTime = new Date().getTime();
-        const remainingSeconds = Math.floor((timestamp - currentTime) / 1000);
+        const remainingSeconds = Math.floor((expiredTime - currentTime) / 1000);
         return remainingSeconds >= 0 ? remainingSeconds : 0;
     }
     useFocusEffect(
