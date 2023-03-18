@@ -16,7 +16,7 @@ const PhoneVerification = ({ navigation }: any) => {
     const { remainingTime, setRemainingTime } = useCountDown();
 
     const nextStep = async () => {
-        const data = await verifyPhoneNumber(user.phone, otp);
+    const data = await verifyPhoneNumber(user.phone, otp);
         console.log(data);
         if (data.returnCode > 0) {
             if (!data.data) {
