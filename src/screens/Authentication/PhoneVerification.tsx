@@ -34,6 +34,7 @@ const PhoneVerification = ({ navigation }: any) => {
                 <Text style={styles.description}>
                     Mã xác thực được gửi đến {user.phone.slice(0, 3)}****{user.phone.slice(7, 10)}
                 </Text>
+
                 <PinCodeInput
                     warning={{ show: invalid, message: 'Mã OTP không hợp lệ.' }}
                     value={otp}
