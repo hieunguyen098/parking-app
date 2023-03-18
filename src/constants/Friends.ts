@@ -1,3 +1,3 @@
 export enum FriendsMethodId {
-    GET_LIST_FRIENDS = 0,
+    GET_LIST_FRIENDS = 'get_friends',
 }

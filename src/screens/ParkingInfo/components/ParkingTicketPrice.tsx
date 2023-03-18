@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { GlobalStyles } from '../../../constants';
 
-const ParkingTicketPrice = () => {
+const ParkingTicketPrice = ({ priceTicket }: any) => {
     return (
         <View style={styles.container}>
             <View style={styles.labelContainer}>
@@ -13,111 +14,27 @@ const ParkingTicketPrice = () => {
                     <Text style={styles.labelText}>Giá phụ thu</Text>
                 </View>
             </View>
-            <View style={styles.dayContainer}>
-                <View style={styles.emptyItem}>
-                    <Text>T2</Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Trong 4h đầu: <Text style={styles.priceText}>2.000 VND</Text>{' '}
-                    </Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Sau 4h đầu: <Text style={styles.additionalPriceText}>2.000 VND/h </Text>
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.dayContainer}>
-                <View style={styles.emptyItem}>
-                    <Text>T3</Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Trong 4h đầu: <Text style={styles.priceText}>2.000 VND</Text>{' '}
-                    </Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Sau 4h đầu : <Text style={styles.additionalPriceText}>2.000 VND/h </Text>{' '}
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.dayContainer}>
-                <View style={styles.emptyItem}>
-                    <Text>T4</Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Trong 4h đầu: <Text style={styles.priceText}>2.000 VND</Text>{' '}
-                    </Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Sau 4h đầu : <Text style={styles.additionalPriceText}>2.000 VND/h </Text>{' '}
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.dayContainer}>
-                <View style={styles.emptyItem}>
-                    <Text>T5</Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Trong 4h đầu: <Text style={styles.priceText}>2.000 VND</Text>{' '}
-                    </Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Sau 4h đầu: <Text style={styles.additionalPriceText}>2.000 VND/h </Text>{' '}
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.dayContainer}>
-                <View style={styles.emptyItem}>
-                    <Text>T6</Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Trong 4h đầu: <Text style={styles.priceText}>2.000 VND</Text>{' '}
-                    </Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Sau 4h đầu: <Text style={styles.additionalPriceText}>2.000 VND/h </Text>{' '}
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.dayContainer}>
-                <View style={styles.emptyItem}>
-                    <Text>T7</Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Trong 4h đầu: <Text style={styles.priceText}>2.000 VND</Text>{' '}
-                    </Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Sau 4h đầu: <Text style={styles.additionalPriceText}>2.000 VND/h </Text>{' '}
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.dayContainer}>
-                <View style={styles.emptyItem}>
-                    <Text>CN</Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Trong 4h đầu: <Text style={styles.priceText}>2.000 VND</Text>{' '}
-                    </Text>
-                </View>
-                <View style={styles.dayItem}>
-                    <Text style={styles.itemText}>
-                        Sau 4h đầu: <Text style={styles.additionalPriceText}>2.000 VND/h </Text>{' '}
-                    </Text>
-                </View>
-            </View>
+            {priceTicket.length > 0 &&
+                priceTicket.map((item: any) => {
+                    return (
+                        <View style={styles.dayContainer} key={item.day}>
+                            <View style={styles.emptyItem}>
+                                <Text>{item.day === '8' ? 'CN' : `T${item.day}`}</Text>
+                            </View>
+                            <View style={styles.dayItem}>
+                                <Text style={styles.itemText}>
+                                    Trong {item.startEndIn} đầu: <Text style={styles.priceText}>{item.startPrice}</Text>{' '}
+                                </Text>
+                            </View>
+                            <View style={styles.dayItem}>
+                                <Text style={styles.itemText}>
+                                    Sau {item.startEndIn} đầu:{' '}
+                                    <Text style={styles.additionalPriceText}>{item.afterPrice} </Text>
+                                </Text>
+                            </View>
+                        </View>
+                    );
+                })}
         </View>
     );
 };
@@ -125,7 +42,9 @@ const ParkingTicketPrice = () => {
 export default ParkingTicketPrice;
 
 const styles = StyleSheet.create({
-    container: {},
+    container: {
+        marginTop: 12,
+    },
     labelContainer: {
         flexDirection: 'row',
         paddingVertical: 8,
@@ -143,7 +62,7 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         alignItems: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: 'black',
+        borderBottomColor: GlobalStyles.colors.lightGrey100,
     },
     dayItem: {
         width: '45%',

@@ -13,7 +13,7 @@ const ParkingLotItem = ({ item, onPress }: any) => {
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: `${item.imageUrl}`,
+                            uri: `${item.image}`,
                         }}
                         style={styles.image}
                     />

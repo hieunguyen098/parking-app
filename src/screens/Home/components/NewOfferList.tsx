@@ -33,10 +33,6 @@ const NewOffer = () => {
                     return <OfferItem key={item.id} item={item} />;
                 })
             )}
-            {/* <OfferItem /> */}
-            {/* <OfferItem />
-            <OfferItem />
-            <OfferItem /> */}
         </View>
     );
 };

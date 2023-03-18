@@ -18,7 +18,7 @@ const DateInput = ({ keyboardType, placeHolder, iconPosition, source, value, set
     };
     const showMode = () => {
         DateTimePickerAndroid.open({
-            value: new Date(),
+            value: new Date(value),
             onChange,
             mode: 'date',
             is24Hour: true,
