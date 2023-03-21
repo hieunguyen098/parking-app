@@ -1,33 +1,90 @@
-import { StyleSheet, Text, View, Pressable, Switch } from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, View, Pressable, Switch, Alert } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { GlobalStyles } from '../../constants/style';
 import { useNavigation } from '@react-navigation/native';
-import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 const Settings = () => {
+    const [isBiometricSupported, setIsBiometricSupported] = useState(false);
     const navigation: any = useNavigation();
     const [isEnabledFingerprint, setIsEnabledFingerprint] = useState(false);
     const [isEnabledFace, setIsEnabledFace] = useState(false);
     const toggleSwitchFingerprint = () => setIsEnabledFingerprint((previousState) => !previousState);
     const toggleSwitchFace = () => setIsEnabledFace((previousState) => !previousState);
-    const onFingerprint = () => {
-        const rnBiometrics = new ReactNativeBiometrics();
 
-        rnBiometrics.isSensorAvailable().then((resultObject) => {
-            const { available, biometryType } = resultObject;
-            console.log(biometryType);
+    useEffect(() => {
+        (async () => {
+            const compatible = await LocalAuthentication.hasHardwareAsync();
+            setIsBiometricSupported(compatible);
+        })();
+    });
 
-            if (available && biometryType === BiometryTypes.TouchID) {
-                console.log('TouchID is supported');
-            } else if (available && biometryType === BiometryTypes.FaceID) {
-                console.log('FaceID is supported');
-            } else if (available && biometryType === BiometryTypes.Biometrics) {
-                console.log('Biometrics is supported');
-            } else {
-                console.log('Biometrics not supported');
-            }
-        });
+    const fallBackToDefaultAuth = () => {
+        console.log('fall back to password authentication');
     };
+
+    const alertComponent = (title: any, mess: any, btnTxt: any, btnFunc: any) => {
+        return Alert.alert(title, mess, [
+            {
+                text: btnTxt,
+                onPress: btnFunc,
+            },
+        ]);
+    };
+
+    const handleBiometricAuth = async () => {
+        const isBiometricAvailable = await LocalAuthentication.hasHardwareAsync();
+        if (!isBiometricAvailable)
+            return alertComponent('Please enter your password', 'Biometric Authentication not supported', 'OK', () =>
+                fallBackToDefaultAuth(),
+            );
+
+        // Check Biometrics types available (Fingerprint, Facial recognition, Iris recognition)
+        let supportedBiometrics;
+        if (isBiometricAvailable) supportedBiometrics = await LocalAuthentication.supportedAuthenticationTypesAsync();
+
+        // Check Biometrics are saved locally in user's device
+        const savedBiometrics = await LocalAuthentication.isEnrolledAsync();
+        if (!savedBiometrics)
+            return alertComponent('Biometric record not found', 'Please login with your password', 'OK', () =>
+                fallBackToDefaultAuth(),
+            );
+
+        // Authenticate use with Biometrics (Fingerprint, Facial recognition, Iris recognition)
+
+        const biometricAuth = await LocalAuthentication.authenticateAsync({
+            promptMessage: 'Login with Biometrics',
+            cancelLabel: 'Cancel',
+            disableDeviceFallback: true,
+        });
+
+        if (biometricAuth.success) console.log('success');
+        else if (biometricAuth.error) console.log('error', biometricAuth.error);
+
+        console.log({ isBiometricAvailable });
+        console.log({ supportedBiometrics });
+        console.log({ savedBiometrics });
+        console.log({ biometricAuth });
+    };
+
+    // const onFingerprint = () => {
+    // const rnBiometrics = new ReactNativeBiometrics();
+
+    // rnBiometrics.isSensorAvailable().then((resultObject) => {
+    //     const { available, biometryType } = resultObject;
+    //     console.log(biometryType);
+
+    //     if (available && biometryType === BiometryTypes.TouchID) {
+    //         console.log('TouchID is supported');
+    //     } else if (available && biometryType === BiometryTypes.FaceID) {
+    //         console.log('FaceID is supported');
+    //     } else if (available && biometryType === BiometryTypes.Biometrics) {
+    //         console.log('Biometrics is supported');
+    //     } else {
+    //         console.log('Biometrics not supported');
+    //     }
+    // });
+    // };
     return (
         <View style={styles.container}>
             <View style={styles.listButton}>
@@ -48,8 +105,8 @@ const Settings = () => {
                         style={{ padding: 0 }}
                         thumbColor={isEnabledFingerprint ? '#fff' : '#f4f3f4'}
                         ios_backgroundColor="#3e3e3e"
-                        onValueChange={onFingerprint}
-                        value={isEnabledFingerprint}
+                        onValueChange={handleBiometricAuth}
+                        value={isBiometricSupported}
                     />
                 </View>
                 <View style={styles.toggleButton}>
@@ -65,6 +122,12 @@ const Settings = () => {
                         value={!isEnabledFace}
                     />
                 </View>
+                <Text>
+                    {' '}
+                    {isBiometricSupported
+                        ? 'Your device is compatible with Biometrics'
+                        : 'Face or Fingerprint scanner is not available on this device'}
+                </Text>
             </View>
         </View>
     );
