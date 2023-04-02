@@ -53,6 +53,9 @@ export const authSlice = createSlice({
         updateSignupForm: (state, action) => {
             state.signupForm = { ...state.signupForm, ...action.payload };
         },
+        reset: () => {
+            return initialState;
+        },
     },
 });
 

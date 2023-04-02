@@ -5,9 +5,20 @@ import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { onAlert } from '../../../utils/ui';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as SecureStore from 'expo-secure-store';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../../../store/slices/authSlice';
 const MenuAccount = () => {
+    const dispatch = useDispatch();
     const navigation: any = useNavigation();
-    const onSignout = () => {
+    const onSignout = async () => {
+        try {
+            dispatch(authActions.reset());
+            navigation.navigate('Discover');
+        } catch (e) {
+            // remove error
+        }
         console.log('signed out');
     };
     return (

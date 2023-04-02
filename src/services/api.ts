@@ -14,7 +14,6 @@ interface Response {
     data: null | any[];
 }
 
-console.log(BACKEND_URL);
 export const deviceInfo = () => {
     const info = {
         device_id: Constants.installationId,
@@ -49,6 +48,7 @@ axios.interceptors.request.use(
 
 export const postData = async (endpoint: string, data: BodyData): Promise<Response> => {
     data.params = { ...data.params, ...deviceInfo() };
+
     try {
         const response = await axios.post(`/${endpoint}`, data, {
             headers: {

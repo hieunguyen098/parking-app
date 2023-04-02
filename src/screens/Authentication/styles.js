@@ -46,6 +46,17 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textAlign: 'center',
     },
+    bottomContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    fingerprintContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 16,
+    },
+    fingerprintBtn: { fontSize: 16, paddingLeft: 8 },
 });
 
 export default styles;
