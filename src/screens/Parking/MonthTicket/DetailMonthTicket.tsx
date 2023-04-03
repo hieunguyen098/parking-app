@@ -1,17 +1,29 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View, Image, Modal, TouchableOpacity, Button, TextInput } from 'react-native';
+import React, { useState } from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import FieldValue from '../../../components/FieldValue';
 import Line from '../../../components/Line';
 import { GlobalStyles } from '../../../constants/style';
 import SmallButton from '../../../components/Buttons/SmallButton';
+import ModalExtendMonthTicket from './ModalExtendMonthTicket';
+import ModalGiveTicket from './ModalGiveTicket';
 
 const DetailMonthTicket = () => {
-    const expandTicket = () => {
+    const [expandTicket, setExpandTicket] = useState(false);
+    const [giveTicket, setGiveTicket] = useState(false);
+
+    const handleGiveTicket = () => {
+        setGiveTicket(true);
+    };
+
+    const handleExpandTicket = () => {
+        setExpandTicket(true);
         console.log('Expand ticket');
     };
     return (
         <>
+            <ModalExtendMonthTicket expandTicket={expandTicket} setExpandTicket={setExpandTicket} />
+            <ModalGiveTicket giveTicket={giveTicket} setGiveTicket={setGiveTicket} />
             <View style={styles.container}>
                 <View style={styles.boxContent}>
                     <View style={styles.top}>
@@ -25,7 +37,11 @@ const DetailMonthTicket = () => {
                         </View>
                         <View style={styles.content}>
                             <Text style={styles.title}>{'Nhà xe trường đại học Bách Khoa TP. HCM'}</Text>
-                            <SmallButton title={'Tặng'} style={{ width: 80, marginLeft: 'auto' }} />
+                            <SmallButton
+                                title={'Tặng'}
+                                style={{ width: 80, marginLeft: 'auto' }}
+                                onPress={handleGiveTicket}
+                            />
                         </View>
                     </View>
                     <FieldValue fieldName="Địa chỉ" value="Dĩ An, Bình Dương" />
@@ -33,7 +49,7 @@ const DetailMonthTicket = () => {
                     <FieldValue fieldName="Có giá trị đến hết ngày" value="30/11/2022" />
                 </View>
             </View>
-            <BottomButton title="Gia hạn" onPress={expandTicket} />
+            <BottomButton title="Gia hạn" onPress={handleExpandTicket} />
         </>
     );
 };
