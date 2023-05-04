@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Pressable } from 'react-native';
+import { View, Image, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import LargeButton from '../../../components/Buttons/LargeButton';
@@ -7,11 +7,10 @@ import styles from '../styles';
 import FieldInput from '../../../components/FieldInput';
 import DateInput from '../../../components/DateInput';
 import Select from '../../../components/Select';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../../../../store/slices/authSlice';
-
-import { storageRef } from '../../../firebase';
-import { uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../../firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const genders = [
     {
@@ -46,6 +45,7 @@ const SignUp = () => {
         );
         navigation.navigate('CreatePassword');
     };
+    const user = useSelector((state: any) => state.auth.user);
     const [fullname, setFullname] = useState('');
     const [birthday, setBirthday] = useState('');
     const [email, setEmail] = useState('');
@@ -82,7 +82,7 @@ const SignUp = () => {
             }
         } catch (e) {
             console.log(e);
-            alert('Upload failed, sorry 🙁');
+            alert('Upload failed, sorry :(');
         } finally {
             console.log('Uploaded');
         }
@@ -105,13 +105,13 @@ const SignUp = () => {
             xhr.send(null);
         });
 
+        const fileRef = ref(storage, `avatar/${Date.now()}-${user.phone}`);
         // @ts-ignore
-        await uploadBytes(storageRef, blob).then(async (snapshot) => {
+        await uploadBytes(fileRef, blob).then(async (snapshot) => {
             console.log('Uploaded a blob or file!');
             await getDownloadURL(snapshot.ref).then((downloadURL) => {
                 console.log('File available at', downloadURL);
                 setImageUrl(downloadURL);
-                console.log(downloadURL);
             });
         });
 
