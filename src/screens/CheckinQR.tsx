@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import { GlobalStyles } from '../constants/style';
+import { GlobalStyles } from '../constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import Line from '../components/Line';
 import QrCode from '../components/QrCode';

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import SmallButton from '../../../components/Buttons/SmallButton';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';

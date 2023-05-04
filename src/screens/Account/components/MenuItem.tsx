@@ -1,6 +1,6 @@
 import { StyleSheet, Text, Pressable } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 
 const MenuItem = ({ title, Icon, onPress = () => {}, iconName, size = 24, color = 'black' }: any) => {
     return (

@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, View, Pressable, ActivityIndicator } from 'rea
 import React, { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import { useQuery, useQueryClient } from 'react-query';
 import { getUser } from '../../../services/user.api';
 import { useFocusEffect } from '@react-navigation/native';

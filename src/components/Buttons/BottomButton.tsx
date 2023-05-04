@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import LargeButton from './LargeButton';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 interface BottomButton {
     onPress: any;

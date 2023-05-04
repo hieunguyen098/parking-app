@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../constants/style';
+import { GlobalStyles } from '../constants';
 import { useNavigation } from '@react-navigation/native';
 
 const MonthTicketItem = ({ item }: any) => {

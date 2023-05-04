@@ -10,7 +10,7 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import PasswordInput from '../../components/PasswordInput/PasswordInput';

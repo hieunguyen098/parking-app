@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { StyleSheet, View } from 'react-native';
 import { VictoryChart, VictoryArea, VictoryTheme, VictoryLabel } from 'victory-native';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 
 const ParkingWorkingChart = ({ dataChart }: any) => {
     const [selectedValue, setSelectedValue] = useState(0);

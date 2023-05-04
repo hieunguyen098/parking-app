@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Image, StyleSheet, Text } from 'react-native';
-import { GlobalStyles } from '../constants/style';
+import { GlobalStyles } from '../constants';
 
 interface FieldInput {
     keyboardType?: any;

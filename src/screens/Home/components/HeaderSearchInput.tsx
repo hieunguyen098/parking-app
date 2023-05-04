@@ -3,7 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import SearchInput from '../../../components/SearchInput/SearchInput';
 
 const HeaderSearchInput = () => {

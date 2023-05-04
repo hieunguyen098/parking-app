@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const Title = ({ title, style, seeMore = true, onSeeMore = () => {} }: any) => {
     return (

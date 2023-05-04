@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Animated, useWindowDimensions } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const Paginator = ({ data, scrollX }: any) => {
     const { width } = useWindowDimensions();

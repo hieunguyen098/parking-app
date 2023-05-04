@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import SearchResultList from './components/SearchResultList';
 
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 import SearchInput from '../../components/SearchInput/SearchInput';
 
 const SearchResults = () => {

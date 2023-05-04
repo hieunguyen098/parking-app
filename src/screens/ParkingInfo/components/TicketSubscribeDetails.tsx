@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import FieldInput from '../../../components/FieldInput';
 import BottomButton from '../../../components/Buttons/BottomButton';
 

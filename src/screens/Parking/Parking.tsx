@@ -1,7 +1,7 @@
 import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 import ParkingLot from './ParkingLot/ParkingLot';
 import MonthTicket from './MonthTicket/MonthTicket';
 import Vehicle from './Vehicle/Vehicle';

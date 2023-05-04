@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { CodeField } from 'react-native-confirmation-code-field';
 
 import styles, { ACTIVE_CELL_BG_COLOR, DEFAULT_CELL_BG_COLOR, NOT_EMPTY_CELL_BG_COLOR } from './styles';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const { Value, Text: AnimatedText } = Animated;
 

@@ -1,6 +1,6 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import LargeButton from '../../../components/Buttons/LargeButton';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';

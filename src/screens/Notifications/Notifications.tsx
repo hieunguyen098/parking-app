@@ -5,7 +5,7 @@ import AllNotifications from './AllNotifications';
 import ParkingNotifications from './ParkingNotifications';
 import RequestNotifications from './RequestNotifications';
 import MonthTicketNotifications from './MonthTicketNotifications';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const Tab = createMaterialTopTabNavigator();
 const Notifications = () => {

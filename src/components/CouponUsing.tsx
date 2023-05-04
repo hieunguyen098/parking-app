@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../constants/style';
+import { GlobalStyles } from '../constants';
 import Line from './Line';
 
 const CouponUsing = () => {

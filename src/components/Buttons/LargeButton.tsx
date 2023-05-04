@@ -1,6 +1,6 @@
 import { StyleSheet, Pressable, Text } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const LargeButton = ({ title, style, textStyle, type, onPress = () => {} }: any) => {
     return (

@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const IconWithBottomText = ({ title, name, Icon, onPress = () => {}, iconStyle, textStyle }: any) => {
     const handlePress = () => {

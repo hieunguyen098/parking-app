@@ -1,6 +1,6 @@
 import { Button, Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const SmallButton = ({ title, style, textStyle, onPress = () => {} }: any) => {
     return (

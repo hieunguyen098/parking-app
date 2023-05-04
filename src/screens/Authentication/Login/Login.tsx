@@ -19,7 +19,7 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('');
     const [fingerprint, setFingerprint] = useState(false);
     const navigate = (name: string) => {
-        navigation.navigate(name, { nextScreen: 'TabBarScreen', action: 'login' });
+        navigation.navigate(name);
     };
     const onContinue = async () => {
         setIsLoading(true);

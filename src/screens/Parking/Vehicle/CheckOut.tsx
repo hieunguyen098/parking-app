@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import { useNavigation } from '@react-navigation/native';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import Line from '../../../components/Line';
 import QrCode from '../../../components/QrCode';

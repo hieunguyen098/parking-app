@@ -4,10 +4,10 @@
 
 export * from './Authentication';
 export * from './Friends';
+export * from './Location';
 export * from './Notification';
 export * from './Parking';
 export * from './style';
-export * from './Vehicle';
-export * from './Location';
-export * from './Voucher';
 export * from './User';
+export * from './Vehicle';
+export * from './Voucher';

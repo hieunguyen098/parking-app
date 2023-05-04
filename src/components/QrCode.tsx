@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Pressable, ActivityIndicator } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import QRCode from 'react-native-qrcode-svg';
-import { GlobalStyles } from '../constants/style';
-import { useCountDown } from '../hooks/useCountDown';
+import { GlobalStyles } from '../constants';
+import { useCountDown } from '../hooks';
 import { QRType, TIMEOUT_REFRESH_QR } from '../constants';
 import { useFocusEffect } from '@react-navigation/native';
 import { getCheckinParkingQr, getCheckoutParkingQr } from '../services/vehicle.api';

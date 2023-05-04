@@ -7,7 +7,6 @@ import TabBarBottom from './src/components/TabBarBottom/TabBarBottom';
 import Onboarding from './src/screens/Onboarding/Onboarding';
 import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GlobalStyles } from './src/constants/style';
 import SearchResults from './src/screens/SearchResults/SearchResults';
 import Authentication from './src/screens/Authentication/Authentication';
 import Friends from './src/screens/Friends/Friends';
@@ -24,6 +23,7 @@ import ChangePassword from './src/screens/Account/ChangePassword';
 import DetailMonthTicket from './src/screens/Parking/MonthTicket/DetailMonthTicket';
 import MonthTicketSubscribe from './src/screens/ParkingInfo/MonthTicketSubscribe';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { GlobalStyles } from './src/constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -205,12 +205,3 @@ export default function App() {
         </>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});

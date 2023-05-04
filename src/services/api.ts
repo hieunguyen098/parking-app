@@ -62,25 +62,6 @@ export const postData = async (endpoint: string, data: BodyData): Promise<Respon
     }
 };
 
-export const postDataV2 = async (endpoint: string, data: any) => {
-    const { method, ...rest } = data;
-    try {
-        const response = await axios.post(
-            `/${endpoint}`,
-            { params: { ...deviceInfo(), ...rest }, method: method },
-            {
-                headers: {
-                    Authorization: `Bearer accessToken`,
-                },
-            },
-        );
-        return response.data;
-    } catch (error) {
-        console.log(error);
-        throw error;
-    }
-};
-
 export const getData = async (endpoint: string, params?: object | null) => {
     try {
         const response = await axios.get(`/${endpoint}`);

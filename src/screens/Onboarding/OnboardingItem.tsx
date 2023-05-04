@@ -1,6 +1,6 @@
 import { View, Text, useWindowDimensions, StyleSheet, Image, StatusBar } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 type ItemProps = {
     id: string;

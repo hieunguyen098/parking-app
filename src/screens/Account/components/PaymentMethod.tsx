@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import React from 'react';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import { MaterialIcons } from '@expo/vector-icons';
 import { color } from 'react-native-reanimated';
 

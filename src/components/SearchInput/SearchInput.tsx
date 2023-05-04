@@ -2,8 +2,7 @@ import { StyleSheet, View, TextInput } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { GlobalStyles } from '../../constants/style';
+import { GlobalStyles } from '../../constants';
 
 const SearchInput = ({ placeholder, style, onSearch }: any) => {
     const handleSearch = () => {

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import FieldValue from '../../../components/FieldValue';
 import Line from '../../../components/Line';
-import { GlobalStyles } from '../../../constants/style';
+import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import ModalExtendMonthTicket from './ModalExtendMonthTicket';
 import ModalGiveTicket from './ModalGiveTicket';
