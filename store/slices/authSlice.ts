@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 interface AuthState {
     user?: {
         phone?: string;
-        fullname?: string;
+        fullName?: string;
     };
     signupForm: {
         fullname: string;
@@ -17,7 +17,7 @@ interface AuthState {
 const initialState: AuthState = {
     user: {
         phone: '',
-        fullname: '',
+        fullName: '',
     },
     signupForm: {
         fullname: '',

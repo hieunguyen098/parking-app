@@ -4,14 +4,16 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import HeaderSearchInput from './HeaderSearchInput';
+import {useSelector} from "react-redux";
 
 const Header = () => {
     const navigation: any = useNavigation();
+    const user = useSelector((state: any) => state.auth.user);
 
     return (
         <LinearGradient colors={['rgba(255,149,58,1)', 'rgba(255,149,58,0)']} style={styles.headerContainer}>
             <View style={styles.firstLineContainer}>
-                <Text style={styles.name}>Chào Cao Thanh Bình !</Text>
+                <Text style={styles.name}>Chào, {user.fullName} !</Text>
                 <View style={styles.rightHeaderContainer}>
                     <Pressable
                         style={styles.iconContainer}
