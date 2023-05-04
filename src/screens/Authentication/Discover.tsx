@@ -55,12 +55,12 @@ const Discover = () => {
                 await removeAccount();
                 await SecureStore.deleteItemAsync('password');
             }
-            const data = await discover(phone);
+            const response = await discover(phone);
 
-            if (data.data && data.data.length > 0) {
-                dispatch(authActions.setUser(data.data[0]));
+            if (response.data && response.data.length > 0) {
+                dispatch(authActions.setUser(response.data[0]));
                 if (account === null || account.phoneNumber !== phone) {
-                    const jsonValue = JSON.stringify({ phoneNumber: data.data[0]?.phoneNumber });
+                    const jsonValue = JSON.stringify({ phoneNumber: response.data[0]?.phoneNumber });
                     await AsyncStorage.setItem('account', jsonValue)
                         .then(() => console.log('Data saved successfully!'))
                         .catch((error) => console.log(`Error saving data: ${error}`));

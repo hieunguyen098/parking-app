@@ -8,6 +8,7 @@ import FieldInput from '../../../components/FieldInput';
 const ForgotPassword = () => {
     const navigation: any = useNavigation();
     const [phone, setPhone] = useState('');
+    const [invalid, setInvalid] = useState(false);
     const handleFunction = () => {
         console.log('From forgot password');
     };
@@ -16,14 +17,23 @@ const ForgotPassword = () => {
     };
     return (
         <View style={styles.container}>
-            <FieldInput
-                placeHolder="Số điện thoại"
-                source={require('../../../../assets/images/phone-icon.png')}
-                iconPosition="left"
-                keyboardType="phone-pad"
-                value={phone}
-                setValue={setPhone}
-            />
+            <View style={styles.group}>
+                <FieldInput
+                    setValue={setPhone}
+                    autoFocus={true}
+                    value={phone}
+                    placeHolder="Số điện thoại"
+                    source={require('../../../../assets/images/phone-icon.png')}
+                    iconPosition="left"
+                    keyboardType="phone-pad"
+                    warning={{
+                        show: invalid,
+                        message: 'Số điện thoại không hợp lệ!',
+                    }}
+                    onChange={() => setInvalid(false)}
+                    maxLength={10}
+                />
+            </View>
             <LargeButton title="Xác nhận" style={styles.continueButton} onPress={() => navigate('PhoneVerification')} />
         </View>
     );

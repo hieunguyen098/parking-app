@@ -2,13 +2,13 @@ import { AuthMethodId } from '../constants';
 import { postData } from './api';
 
 export const discover = async (phone: string) => {
-    const data = await postData('um/user/auth', {
+    const response = await postData('um/user/auth', {
         method: AuthMethodId.CHECK_PHONE,
         params: {
             phone: phone,
         },
     });
-    return data;
+    return response;
 };
 
 export const login = async (phone: string, pin: string) => {

@@ -77,7 +77,7 @@ const Login = () => {
                 </View>
             </Modal>
             <View style={styles.group}>
-                <Text style={styles.description}>Xin chào, {user.fullname}!</Text>
+                <Text style={styles.description}>Xin chào, {user.fullName}!</Text>
                 <Text style={styles.description}>{user.phone}</Text>
                 <PasswordInput
                     length={6}
