@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 16,
+        fontWeight: 'bold',
     },
     continueButton: {
         marginBottom: 24,
@@ -57,6 +58,10 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     fingerprintBtn: { fontSize: 16, paddingLeft: 8 },
+    resendBtn: {
+        fontSize: 16,
+        color: GlobalStyles.colors.primaryOrange50,
+    },
 });
 
 export default styles;

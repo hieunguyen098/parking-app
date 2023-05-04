@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import LargeButton from '../../components/Buttons/LargeButton';
 import styles from './styles';
 import PinCodeInput from '../../components/PinCodeInput/PinCodeInput';
@@ -12,6 +12,7 @@ import { useCountDown } from '../../hooks';
 const PhoneVerification = ({ navigation }: any) => {
     const [otp, setOtp] = useState('');
     const [invalid, setInvalid] = useState(false);
+    const [errMsg, setErrMsg] = useState('');
     const user = useSelector((state: any) => state.auth.user);
     const { remainingTime, setRemainingTime } = useCountDown();
 
@@ -26,8 +27,18 @@ const PhoneVerification = ({ navigation }: any) => {
             navigation.navigate('TabBarScreen');
         } else {
             setInvalid(true);
+            setErrMsg(data.returnMessage);
         }
     };
+    const resend = () => {
+        setRemainingTime(30);
+    };
+
+    useFocusEffect(
+        React.useCallback(() => {
+            setRemainingTime(30);
+        }, []),
+    );
     return (
         <View style={styles.container}>
             <View style={styles.group}>
@@ -35,13 +46,15 @@ const PhoneVerification = ({ navigation }: any) => {
                     Mã xác thực được gửi đến {user.phone.slice(0, 3)}****{user.phone.slice(7, 10)}
                 </Text>
 
-                <PinCodeInput
-                    warning={{ show: invalid, message: 'Mã OTP không hợp lệ.' }}
-                    value={otp}
-                    setValue={setOtp}
-                    length={6}
-                />
-                <Text style={styles.textCenter}>Gửi lại mã sau {remainingTime}s</Text>
+                <PinCodeInput warning={{ show: invalid, message: errMsg }} value={otp} setValue={setOtp} length={6} />
+                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                    <Text style={styles.textCenter}>Gửi lại mã sau {remainingTime}s.</Text>
+                    {!remainingTime && (
+                        <Pressable onPress={resend}>
+                            <Text style={styles.resendBtn}> Gửi lại</Text>
+                        </Pressable>
+                    )}
+                </View>
             </View>
             <LargeButton onPress={nextStep} title="Tiếp tục" style={styles.continueButton} />
         </View>

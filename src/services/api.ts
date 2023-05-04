@@ -24,7 +24,7 @@ export const deviceInfo = () => {
 };
 
 const axios = Axios.create({
-    baseURL: BACKEND_URL,
+    baseURL: 'https://sparking.ngrok.app',
     headers: {
         Accept: 'application/json,application/x-www-form-urlencoded,text/plain,*/*',
         'Content-Type': 'application/json',

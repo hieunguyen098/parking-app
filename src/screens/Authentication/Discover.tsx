@@ -1,15 +1,5 @@
-import {
-    ActivityIndicator,
-    Alert,
-    Keyboard,
-    KeyboardAvoidingView,
-    Modal,
-    Text,
-    TouchableOpacity,
-    TouchableWithoutFeedback,
-    View,
-} from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Keyboard, Modal, Text, TouchableWithoutFeedback, View } from 'react-native';
+import React, { useState } from 'react';
 import LargeButton from '../../components/Buttons/LargeButton';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import styles from './styles';
@@ -19,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../../../store/slices/authSlice';
 import { validatePhoneNumber } from '../../utils/validation';
 import { discover } from '../../services/auth';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import * as SecureStore from 'expo-secure-store';
 import { getAccount, removeAccount } from '../../utils/account.helper';
 
@@ -122,17 +111,6 @@ const Discover = () => {
                         }}
                         onChange={() => setInvalid(false)}
                         maxLength={10}
-                    />
-                    <LargeButton
-                        onPress={() => navigation.navigate('TabBarScreen')}
-                        title="Vào trang chủ"
-                        style={[styles.continueButton, { backgroundColor: 'lightblue' }]}
-                    />
-                    <LargeButton
-                        onPress={clearViewedOnboarding}
-                        title="clear ViewedOnboarding"
-                        type="secondary"
-                        style={styles.continueButton}
                     />
                 </View>
                 <LargeButton onPress={startDiscovering} type="primary" title="Tiếp tục" style={styles.continueButton} />

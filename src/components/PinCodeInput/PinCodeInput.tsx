@@ -1,5 +1,5 @@
 import { Animated, Text } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
 
@@ -23,12 +23,6 @@ const PinCodeInput = ({ length, value, setValue, warning }: PinCodeInput) => {
     const CELL_COUNT = length;
     const animationsColor = [...new Array(CELL_COUNT)].map(() => new Value(0));
     const animationsScale = [...new Array(CELL_COUNT)].map(() => new Value(1));
-
-    // const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
-    // const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-    //     value,
-    //     setValue,
-    // });
 
     const renderCell = ({ index, symbol, isFocused }: any) => {
         const hasValue = Boolean(symbol);
