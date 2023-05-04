@@ -1,9 +1,9 @@
-import { AuthMethodId } from '../constants';
+import { AuthMethod } from '../constants';
 import { postData } from './api';
 
 export const discover = async (phone: string) => {
     const response = await postData('um/user/auth', {
-        method: AuthMethodId.CHECK_PHONE,
+        method: AuthMethod.CHECK_PHONE,
         params: {
             phone: phone,
         },
@@ -13,7 +13,7 @@ export const discover = async (phone: string) => {
 
 export const login = async (phone: string, pin: string) => {
     const data = await postData('um/user/auth', {
-        method: AuthMethodId.LOGIN,
+        method: AuthMethod.LOGIN,
         params: {
             phone: phone,
             pin: pin,
@@ -25,7 +25,7 @@ export const login = async (phone: string, pin: string) => {
 export const signup = async (signupForm: any) => {
     console.log(signupForm);
     const data = await postData('um/user/auth', {
-        method: AuthMethodId.SIGNUP,
+        method: AuthMethod.SIGNUP,
         params: {
             ...signupForm,
         },
@@ -35,7 +35,7 @@ export const signup = async (signupForm: any) => {
 
 export const verifyPhoneNumber = async (phone: string, otp: string) => {
     const data = await postData('um/user/auth', {
-        method: AuthMethodId.VERIFY_PHONE,
+        method: AuthMethod.VERIFY_PHONE,
         params: {
             phone: phone,
             OTP: otp,

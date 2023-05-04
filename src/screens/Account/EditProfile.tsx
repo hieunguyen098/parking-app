@@ -5,8 +5,8 @@ import DateInput from '../../components/DateInput';
 import Select from '../../components/Select';
 import BottomButton from '../../components/Buttons/BottomButton';
 import { useQuery, useQueryClient } from 'react-query';
-import { getUser } from '../../utils/user.api';
 import { useFocusEffect } from '@react-navigation/native';
+import { getUser } from '../../services/user.api';
 
 const genders = [
     {
@@ -42,7 +42,7 @@ const EditProfile = () => {
             return getUser();
         },
         retry: false,
-        select: (data) => data.data,
+        select: (data) => (data.data ? data.data[0] : null),
         onSuccess: (data) => {
             setFullname(data.name);
             setBirthday(data.birthDay);

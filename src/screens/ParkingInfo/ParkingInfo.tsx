@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import ParkingContent from './components/ParkingContent';
 import { useRoute } from '@react-navigation/native';
 import { useQuery } from 'react-query';
-import { getLocationDetail } from '../../utils/location.api';
+import { getLocationDetail } from '../../services/location.api';
 
 const ParkingInfo = () => {
     const route: any = useRoute();

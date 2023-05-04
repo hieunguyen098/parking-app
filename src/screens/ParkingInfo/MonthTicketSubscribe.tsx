@@ -8,7 +8,7 @@ import TicketSubscribeContent from './components/TicketSubscribeContent';
 import BottomButton from '../../components/Buttons/BottomButton';
 import { useRoute } from '@react-navigation/native';
 import { useQuery } from 'react-query';
-import { getLocationDetail } from '../../utils/location.api';
+import { getLocationDetail } from '../../services/location.api';
 
 const MonthTicketSubscribe = () => {
     const route: any = useRoute();

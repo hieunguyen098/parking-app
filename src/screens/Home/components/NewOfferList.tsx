@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import Title from '../../../components/Title/Title';
 import OfferItem from './OfferItem';
 import { useQuery, useQueryClient } from 'react-query';
-import { getListVouchers } from '../../../utils/voucher.api';
+import { getListVouchers } from '../../../services/voucher.api';
 import { useFocusEffect } from '@react-navigation/native';
 
 const NewOffer = () => {
@@ -29,7 +29,8 @@ const NewOffer = () => {
             ) : error ? (
                 <Text>Lỗi</Text>
             ) : (
-                data.vouchers.map((item: any) => {
+                data?.data &&
+                data.data[0].vouchers.map((item: any) => {
                     return <OfferItem key={item.id} item={item} />;
                 })
             )}

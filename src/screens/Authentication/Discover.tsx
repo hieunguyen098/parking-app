@@ -8,7 +8,7 @@ import FieldInput from '../../components/FieldInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../../../store/slices/authSlice';
 import { validatePhoneNumber } from '../../utils/validation';
-import { discover } from '../../services/auth';
+import { discover } from '../../services/auth.api';
 import * as SecureStore from 'expo-secure-store';
 import { getAccount, removeAccount } from '../../utils/account.helper';
 

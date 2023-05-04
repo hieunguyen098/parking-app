@@ -1,5 +1,5 @@
 import { FriendsMethodId } from '../constants';
-import { postData } from '../services/api';
+import { postData } from './api';
 
 export const getListFriends = async () => {
     const response = await postData('friends', {

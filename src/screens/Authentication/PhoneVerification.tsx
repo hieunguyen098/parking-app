@@ -4,7 +4,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import LargeButton from '../../components/Buttons/LargeButton';
 import styles from './styles';
 import PinCodeInput from '../../components/PinCodeInput/PinCodeInput';
-import { verifyPhoneNumber } from '../../services/auth';
+import { verifyPhoneNumber } from '../../services/auth.api';
 import { useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCountDown } from '../../hooks';

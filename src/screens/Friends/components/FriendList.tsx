@@ -2,7 +2,7 @@ import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import FriendItem from './FriendItem';
 import { useQuery, useQueryClient } from 'react-query';
-import { getListFriends } from '../../../utils/friends.api';
+import { getListFriends } from '../../../services/friends.api';
 import { useFocusEffect } from '@react-navigation/native';
 
 const FriendList = () => {

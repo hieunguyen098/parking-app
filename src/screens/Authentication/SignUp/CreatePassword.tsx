@@ -4,7 +4,7 @@ import LargeButton from '../../../components/Buttons/LargeButton';
 import { useNavigation } from '@react-navigation/native';
 import PasswordInput from '../../../components/PasswordInput/PasswordInput';
 import styles from '../styles';
-import { signup } from '../../../services/auth';
+import { signup } from '../../../services/auth.api';
 import { useSelector } from 'react-redux';
 
 const CreatePassword = () => {

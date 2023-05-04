@@ -5,7 +5,7 @@ import LargeButton from '../../../components/Buttons/LargeButton';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import styles from '../styles';
 import { useSelector } from 'react-redux';
-import { login } from '../../../services/auth';
+import { login } from '../../../services/auth.api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesome5 } from '@expo/vector-icons';
 import FingerprintLogin from './FingerprintLogin';
@@ -16,7 +16,7 @@ const Login = () => {
     const [pin, setPin] = useState('');
     const [invalid, setInvalid] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-
+    const [errMsg, setErrMsg] = useState('');
     const [fingerprint, setFingerprint] = useState(false);
     const navigate = (name: string) => {
         navigation.navigate(name, { nextScreen: 'TabBarScreen', action: 'login' });
@@ -37,6 +37,7 @@ const Login = () => {
             }
         } else {
             setInvalid(true);
+            setErrMsg(response.returnMessage);
         }
         setIsLoading(false);
     };
@@ -85,7 +86,7 @@ const Login = () => {
                     setValue={setPin}
                     warning={{
                         show: invalid,
-                        message: 'Số điện thoại không hợp lệ!',
+                        message: errMsg,
                     }}
                     onChange={() => setInvalid(false)}
                 />

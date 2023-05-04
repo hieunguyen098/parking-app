@@ -1,3 +1,4 @@
 export enum UserMethod {
-    GET_USER = 'get_user',
+    GET_USER = 'get-user',
+    SET_NEW_PASSWORD = 'set-new-password',
 }

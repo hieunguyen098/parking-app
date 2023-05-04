@@ -5,7 +5,7 @@ import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
 import { FontAwesome5 } from '@expo/vector-icons';
 import styles from '../styles';
-import { login } from '../../../services/auth';
+import { login } from '../../../services/auth.api';
 import { useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 function FingerprintLogin({ handleFingerprint, setIsLoading }: any) {

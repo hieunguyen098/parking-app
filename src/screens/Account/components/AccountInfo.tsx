@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { GlobalStyles } from '../../../constants/style';
 import { useQuery, useQueryClient } from 'react-query';
-import { getUser } from '../../../utils/user.api';
+import { getUser } from '../../../services/user.api';
 import { useFocusEffect } from '@react-navigation/native';
 
 const AccountInfo = () => {
@@ -43,12 +43,12 @@ const AccountInfo = () => {
                         }}
                         style={styles.avatar}
                     />
-                    <Text style={styles.name}>{userInfo.name}</Text>
+                    <Text style={styles.name}>{userInfo[0].name}</Text>
                     <View style={styles.phoneContainer}>
                         {isMasked === false ? (
                             <Text style={styles.phone}>SĐT: **********</Text>
                         ) : (
-                            <Text style={styles.phone}>SĐT: {userInfo.phone}</Text>
+                            <Text style={styles.phone}>SĐT: {userInfo[0].phone}</Text>
                         )}
                         <Pressable style={styles.iconContainer} onPress={handleMaskPhoneNumber}>
                             <Ionicons name="md-eye-outline" size={24} color="black" />

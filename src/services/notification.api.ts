@@ -1,5 +1,5 @@
 import { LIMIT_NUMBER_OLD_NOTIFICATION, NotificationMethodId } from '../constants';
-import { postData } from '../services/api';
+import { postData } from './api';
 
 export const getNotifications = async (type: string) => {
     const newest_id = 'abc';

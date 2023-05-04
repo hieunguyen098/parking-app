@@ -6,9 +6,9 @@ import LargeButton from '../../../components/Buttons/LargeButton';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import FieldValue from '../../../components/FieldValue';
-import { getVehicleDetail } from '../../../utils/vehicle.api';
 import moment from 'moment';
 import { useQuery } from 'react-query';
+import { getVehicleDetail } from '../../../services/vehicle.api';
 
 const VehicleDetail = () => {
     const route: any = useRoute();
@@ -24,7 +24,7 @@ const VehicleDetail = () => {
             return getVehicleDetail(idItem);
         },
         retry: false,
-        select: (data) => data.vehicle,
+        select: (data) => (data.data ? data.data[0] : null),
     });
 
     const formattedDate = (dateString: string) => {

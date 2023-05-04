@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getNotifications, getOldNotifications } from '../utils/api';
+import { getNotifications, getOldNotifications } from '../services/notification.api';
 
 export function useFetchNotification(type: string) {
     const [loading, setLoading] = useState(false);

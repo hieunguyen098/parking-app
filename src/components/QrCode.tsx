@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import QRCode from 'react-native-qrcode-svg';
 import { GlobalStyles } from '../constants/style';
 import { useCountDown } from '../hooks/useCountDown';
-import { getCheckinParkingQr, getCheckoutParkingQr } from '../utils/vehicle.api';
 import { QRType, TIMEOUT_REFRESH_QR } from '../constants';
 import { useFocusEffect } from '@react-navigation/native';
+import { getCheckinParkingQr, getCheckoutParkingQr } from '../services/vehicle.api';
 
 const QrCode = ({ qrType }: { qrType: QRType }) => {
     const [value, setValue] = useState('');

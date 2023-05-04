@@ -14,7 +14,7 @@ import { GlobalStyles } from '../../constants/style';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import PasswordInput from '../../components/PasswordInput/PasswordInput';
-import { login } from '../../services/auth';
+import { login } from '../../services/auth.api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as SecureStore from 'expo-secure-store';
 import { useSelector } from 'react-redux';

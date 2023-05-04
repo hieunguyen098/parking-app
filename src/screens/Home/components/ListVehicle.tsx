@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Title from '../../../components/Title/Title';
 import ItemVehicle from './ItemVehicle';
 import { useFocusEffect } from '@react-navigation/native';
-import { getListVehicle } from '../../../utils/vehicle.api';
+import { getListVehicle } from '../../../services/vehicle.api';
 import { useQuery, useQueryClient } from 'react-query';
 
 const ListVehicle = () => {
@@ -18,7 +18,7 @@ const ListVehicle = () => {
         queryFn: () => {
             return getListVehicle();
         },
-        select: (data) => data.vehicles,
+        select: (data) => (data.data ? data.data[0] : null),
         keepPreviousData: true,
     });
 
