@@ -10,6 +10,9 @@ import Select from '../../../components/Select';
 import { useDispatch } from 'react-redux';
 import { authActions } from '../../../../store/slices/authSlice';
 
+import { storageRef } from '../../../firebase';
+import { uploadBytes, getDownloadURL } from 'firebase/storage';
+
 const genders = [
     {
         id: 0,
@@ -46,7 +49,7 @@ const SignUp = () => {
     const [fullname, setFullname] = useState('');
     const [birthday, setBirthday] = useState('');
     const [email, setEmail] = useState('');
-    const [image_url, setImage_url] = useState('');
+    const [image_url, setImageUrl] = useState('');
     const [gender, setGender] = useState(genders[0].value);
 
     const pickImage = async () => {
@@ -58,9 +61,7 @@ const SignUp = () => {
             quality: 1,
         });
 
-        if (!result.canceled) {
-            setImage_url(result.assets[0].uri);
-        }
+        await handleImagePicked(result);
     };
 
     const takePhoto = async () => {
@@ -70,10 +71,54 @@ const SignUp = () => {
             quality: 1,
         });
 
-        if (!result.canceled) {
-            setImage_url(result.assets[0].uri);
+        await handleImagePicked(result);
+    };
+
+    const handleImagePicked = async (pickerResult: any) => {
+        try {
+            console.log('Uploading');
+            if (!pickerResult.canceled) {
+                await uploadImageAsync(pickerResult.assets[0].uri);
+            }
+        } catch (e) {
+            console.log(e);
+            alert('Upload failed, sorry 🙁');
+        } finally {
+            console.log('Uploaded');
         }
     };
+
+    async function uploadImageAsync(uri: string) {
+        // Why are we using XMLHttpRequest? See:
+        // https://github.com/expo/expo/issues/2402#issuecomment-443726662
+        const blob = await new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                resolve(xhr.response);
+            };
+            xhr.onerror = function (e) {
+                console.log(e);
+                reject(new TypeError('Network request failed'));
+            };
+            xhr.responseType = 'blob';
+            xhr.open('GET', uri, true);
+            xhr.send(null);
+        });
+
+        // @ts-ignore
+        await uploadBytes(storageRef, blob).then(async (snapshot) => {
+            console.log('Uploaded a blob or file!');
+            await getDownloadURL(snapshot.ref).then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                setImageUrl(downloadURL);
+                console.log(downloadURL);
+            });
+        });
+
+        // We're done with the blob, close and release it
+        // @ts-ignore
+        blob.close();
+    }
 
     return (
         <View style={styles.container}>
