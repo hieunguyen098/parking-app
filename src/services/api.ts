@@ -2,6 +2,7 @@ import Axios from 'axios';
 import * as Device from 'expo-device';
 import Constants from 'expo-constants';
 import { BACKEND_URL } from '@env';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface BodyData {
     method: string;
@@ -35,7 +36,7 @@ const axios = Axios.create({
 axios.interceptors.request.use(
     function (config) {
         if (config.headers) {
-            config.headers.authorization = `Bearer accessToken`;
+            config.headers.authorization = `Bearer ${AsyncStorage.getItem('accessToken')}`;
             return config;
         }
         return config;
@@ -50,11 +51,7 @@ export const postData = async (endpoint: string, data: BodyData): Promise<Respon
     data.params = { ...data.params, ...deviceInfo() };
 
     try {
-        const response = await axios.post(`/${endpoint}`, data, {
-            headers: {
-                Authorization: `Bearer accessToken`,
-            },
-        });
+        const response = await axios.post(`/${endpoint}`, data);
         return response.data;
     } catch (error) {
         console.log(error);
