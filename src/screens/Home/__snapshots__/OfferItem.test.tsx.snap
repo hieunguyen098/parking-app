@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test offer item 1`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "https://hostingviet.vn/data/tinymce/tin%20tuc%202019/voucher-la-gi.jpg",
+      }
+    }
+    style={
+      Object {
+        "borderRadius": 8,
+        "height": 200,
+        "marginVertical": 8,
+        "width": "100%",
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#404040",
+        "fontSize": 20,
+        "fontWeight": "400",
+      }
+    }
+  >
+    Nhận ngay vouher giảm giá lên tới 50%
+  </Text>
+</View>
+`;

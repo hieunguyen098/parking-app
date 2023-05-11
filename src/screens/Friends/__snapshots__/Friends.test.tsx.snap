@@ -1,0 +1,1068 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test friends 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "marginHorizontal": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "borderRadius": 10,
+          "elevation": 2,
+          "flexDirection": "row",
+          "height": 44,
+          "marginVertical": 10,
+          "paddingHorizontal": 10,
+          "width": "100%",
+        }
+      }
+    >
+      <Text />
+      <TextInput
+        placeholder="Tìm kiếm người dùng"
+        placeholderTextColor="#FF953A"
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "fontSize": 20,
+              "marginLeft": 10,
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "paddingTop": 8,
+        }
+      }
+    >
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "data": Array [
+                Object {
+                  "id": "1",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+                Object {
+                  "id": "2",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+                Object {
+                  "id": "3",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+                Object {
+                  "id": "4",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+                Object {
+                  "id": "5",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+                Object {
+                  "id": "6",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+                Object {
+                  "id": "7",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+                Object {
+                  "id": "8",
+                  "isFriend": false,
+                  "name": "Thanh Bình",
+                },
+              ],
+              "title": "Kết quả tìm kiếm",
+            },
+            Object {
+              "data": Array [
+                Object {
+                  "id": "3",
+                  "isFriend": true,
+                  "name": "Nguyễn Xuân Hiếu",
+                },
+                Object {
+                  "id": "4",
+                  "isFriend": true,
+                  "name": "Đặng Hoài Bão",
+                },
+                Object {
+                  "id": "5",
+                  "isFriend": true,
+                  "name": "Nguyễn Xuân Hiếu",
+                },
+                Object {
+                  "id": "6",
+                  "isFriend": true,
+                  "name": "Đặng Hoài Bão",
+                },
+                Object {
+                  "id": "7",
+                  "isFriend": true,
+                  "name": "Nguyễn Xuân Hiếu",
+                },
+                Object {
+                  "id": "8",
+                  "isFriend": true,
+                  "name": "Đặng Hoài Bão",
+                },
+                Object {
+                  "id": "9",
+                  "isFriend": true,
+                  "name": "Nguyễn Xuân Hiếu",
+                },
+                Object {
+                  "id": "10",
+                  "isFriend": true,
+                  "name": "Đặng Hoài Bão",
+                },
+              ],
+              "title": "Bạn bè",
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={
+          Array [
+            0,
+          ]
+        }
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "600",
+                  "marginBottom": 8,
+                }
+              }
+            >
+              Kết quả tìm kiếm
+            </Text>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#FBFBFB",
+                  "borderRadius": 12,
+                  "borderWidth": 1,
+                  "elevation": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "marginBottom": 12,
+                  "marginHorizontal": 1,
+                  "padding": 8,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "marginRight": 8,
+                    "width": 40,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "undefined",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#727272",
+                      "fontSize": 16,
+                    }
+                  }
+                >
+                  Thanh Bình
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FF953A",
+                      "borderRadius": 8,
+                      "justifyContent": "center",
+                      "minWidth": 40,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 6,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "white",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Kết bạn
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          />
+          <View
+            style={
+              Object {
+                "height": 0,
+              }
+            }
+          />
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

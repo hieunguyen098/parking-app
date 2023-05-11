@@ -1,0 +1,592 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test notifications 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "description": "Sử dụng QR code giúp việc ra vào trở nên thuận tiệnSử dụng QR code giúp việc ra vào trở nên thuận tiệnSử dụng QR code giúp việc ra vào trở nên thuận tiện",
+          "id": "1",
+          "image": 1,
+          "title": "Gửi xe nhanh chóng",
+        },
+        Object {
+          "description": "Sử dụng QR code giúp việc ra vào trở nên thuận tiện",
+          "id": "2",
+          "image": 1,
+          "title": "Gửi xe nhanh chóng",
+        },
+        Object {
+          "description": "Sử dụng QR code giúp việc ra vào trở nên thuận tiện",
+          "id": "3",
+          "image": 1,
+          "title": "Gửi xe nhanh chóng",
+        },
+        Object {
+          "description": "Sử dụng QR code giúp việc ra vào trở nên thuận tiện",
+          "id": "4",
+          "image": 1,
+          "title": "Gửi xe nhanh chóng",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={true}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onViewableItemsChanged={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsHorizontalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    viewabilityConfig={
+      Object {
+        "viewAreaCoveragePercentThreshold": 50,
+      }
+    }
+    viewabilityConfigCallbackPairs={
+      Array [
+        Object {
+          "onViewableItemsChanged": [Function],
+          "viewabilityConfig": Object {
+            "viewAreaCoveragePercentThreshold": 50,
+          },
+        },
+      ]
+    }
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+                "marginTop": null,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 0.7,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 750,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 0.3,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FF953A",
+                  "fontSize": 28,
+                  "fontWeight": "800",
+                  "marginBottom": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Gửi xe nhanh chóng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#727272",
+                  "fontWeight": "300",
+                  "paddingHorizontal": 64,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Sử dụng QR code giúp việc ra vào trở nên thuận tiệnSử dụng QR code giúp việc ra vào trở nên thuận tiệnSử dụng QR code giúp việc ra vào trở nên thuận tiện
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+                "marginTop": null,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 0.7,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 750,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 0.3,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FF953A",
+                  "fontSize": 28,
+                  "fontWeight": "800",
+                  "marginBottom": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Gửi xe nhanh chóng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#727272",
+                  "fontWeight": "300",
+                  "paddingHorizontal": 64,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Sử dụng QR code giúp việc ra vào trở nên thuận tiện
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+                "marginTop": null,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 0.7,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 750,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 0.3,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FF953A",
+                  "fontSize": 28,
+                  "fontWeight": "800",
+                  "marginBottom": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Gửi xe nhanh chóng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#727272",
+                  "fontWeight": "300",
+                  "paddingHorizontal": 64,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Sử dụng QR code giúp việc ra vào trở nên thuận tiện
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+                "marginTop": null,
+              },
+              Object {
+                "width": 750,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flex": 0.7,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "width": 750,
+                },
+              ]
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "resizeMode": "contain",
+                  "width": 750,
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 0.3,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FF953A",
+                  "fontSize": 28,
+                  "fontWeight": "800",
+                  "marginBottom": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Gửi xe nhanh chóng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#727272",
+                  "fontWeight": "300",
+                  "paddingHorizontal": 64,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Sử dụng QR code giúp việc ra vào trở nên thuận tiện
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 64,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "#FF953A",
+          "borderRadius": 50,
+          "height": 10,
+          "marginHorizontal": 8,
+          "opacity": 1,
+          "width": 20,
+        }
+      }
+    />
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "#FF953A",
+          "borderRadius": 50,
+          "height": 10,
+          "marginHorizontal": 8,
+          "opacity": 0.3,
+          "width": 10,
+        }
+      }
+    />
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "#FF953A",
+          "borderRadius": 50,
+          "height": 10,
+          "marginHorizontal": 8,
+          "opacity": 0.3,
+          "width": 10,
+        }
+      }
+    />
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "#FF953A",
+          "borderRadius": 50,
+          "height": 10,
+          "marginHorizontal": 8,
+          "opacity": 0.3,
+          "width": 10,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 64,
+          "paddingHorizontal": 24,
+        },
+        Object {
+          "width": 750,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF953A",
+            "borderRadius": 8,
+            "paddingHorizontal": 12,
+            "paddingVertical": 18,
+            "width": "100%",
+          },
+          Object {
+            "backgroundColor": "#FF953A",
+          },
+          Object {
+            "marginBottom": 12,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "600",
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#fff",
+            },
+            undefined,
+          ]
+        }
+      >
+        Tiếp tục
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF953A",
+            "borderRadius": 8,
+            "paddingHorizontal": 12,
+            "paddingVertical": 18,
+            "width": "100%",
+          },
+          Object {
+            "backgroundColor": "#FFEBDA",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "600",
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#FF953A",
+            },
+            undefined,
+          ]
+        }
+      >
+        Bỏ qua
+      </Text>
+    </View>
+  </View>
+</View>
+`;

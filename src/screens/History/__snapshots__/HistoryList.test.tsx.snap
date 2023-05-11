@@ -1,0 +1,1058 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test histoy item 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": 8,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": "0",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "1",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+        Object {
+          "id": "2",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "3",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+        Object {
+          "id": "4",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "5",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+        Object {
+          "id": "6",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "7",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+        Object {
+          "id": "8",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "9",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+        Object {
+          "id": "10",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "11",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+        Object {
+          "id": "12",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "13",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+        Object {
+          "id": "14",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-50.000đ",
+          "time": "20:20 - 28/11/2022",
+          "title": "Mua vé tháng",
+          "type": "month-ticket",
+        },
+        Object {
+          "id": "15",
+          "place": "Nhà xe Trường Đại học Bách Khoa Tp.HCM",
+          "price": "-2.000đ",
+          "time": "17:05 - 27/11/2022",
+          "title": "Thanh toán phí gửi xe",
+          "type": "parking",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "marginBottom": 8,
+        "paddingHorizontal": 16,
+      }
+    }
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Mua vé tháng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              20:20 - 28/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -50.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Thanh toán phí gửi xe
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              17:05 - 27/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -2.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Mua vé tháng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              20:20 - 28/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -50.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Thanh toán phí gửi xe
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              17:05 - 27/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -2.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Mua vé tháng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              20:20 - 28/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -50.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Thanh toán phí gửi xe
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              17:05 - 27/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -2.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Mua vé tháng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              20:20 - 28/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -50.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Thanh toán phí gửi xe
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              17:05 - 27/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -2.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Mua vé tháng
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              20:20 - 28/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -50.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#E8E8E8",
+                "borderBottomWidth": 1,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 100,
+                "paddingBottom": 16,
+                "paddingTop": 16,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginRight": 12,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Thanh toán phí gửi xe
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                }
+              }
+            >
+              Nhà xe Trường Đại học Bách Khoa Tp.HCM
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#B3B3B3",
+                  "fontSize": 12,
+                }
+              }
+            >
+              17:05 - 27/11/2022
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "justifyContent": "flex-end",
+                "marginLeft": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 20,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              -2.000đ
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</View>
+`;

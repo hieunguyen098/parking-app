@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test discover 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "space-between",
+      "padding": 20,
+    }
+  }
+>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  />
+  <View
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Nhập số điện thoại để đăng ký hoặc đăng nhập
+    </Text>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FBFBFB",
+              "borderColor": "transparent",
+              "borderRadius": 20,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "marginVertical": 10,
+              "paddingHorizontal": 20,
+            },
+            false,
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 25,
+                "width": 25,
+              },
+              Object {
+                "marginRight": 10,
+              },
+            ]
+          }
+        />
+        <TextInput
+          autoFocus={true}
+          keyboardType="phone-pad"
+          maxLength={10}
+          onChange={[Function]}
+          onChangeText={[Function]}
+          placeholder="Số điện thoại"
+          style={
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 20,
+            }
+          }
+          value=""
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FF953A",
+          "borderRadius": 8,
+          "paddingHorizontal": 12,
+          "paddingVertical": 18,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#FF953A",
+        },
+        Object {
+          "borderRadius": 100,
+          "marginBottom": 24,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 18,
+            "fontWeight": "600",
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#fff",
+          },
+          undefined,
+        ]
+      }
+    >
+      Tiếp tục
+    </Text>
+  </View>
+</View>
+`;

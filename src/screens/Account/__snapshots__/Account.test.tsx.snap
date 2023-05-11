@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test account 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          4294939962,
+          16749882,
+        ],
+        "endPoint": undefined,
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={Object {}}
+  >
+    <ActivityIndicator
+      size="large"
+    />
+  </ViewManagerAdapter_ExpoLinearGradient>
+  <View
+    style={
+      Object {
+        "marginTop": 12,
+        "paddingHorizontal": 16,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 8,
+          "flexDirection": "row",
+          "marginBottom": 8,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "400",
+              "marginLeft": 8,
+            },
+            Object {
+              "color": "black",
+            },
+          ]
+        }
+      >
+        Sửa thông tin cá nhân
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 8,
+          "flexDirection": "row",
+          "marginBottom": 8,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "400",
+              "marginLeft": 8,
+            },
+            Object {
+              "color": "black",
+            },
+          ]
+        }
+      >
+        Thanh toán
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 8,
+          "flexDirection": "row",
+          "marginBottom": 8,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "400",
+              "marginLeft": 8,
+            },
+            Object {
+              "color": "black",
+            },
+          ]
+        }
+      >
+        Cài đặt
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 8,
+          "flexDirection": "row",
+          "marginBottom": 8,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "400",
+              "marginLeft": 8,
+            },
+            Object {
+              "color": "red",
+            },
+          ]
+        }
+      >
+        Đăng xuất
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

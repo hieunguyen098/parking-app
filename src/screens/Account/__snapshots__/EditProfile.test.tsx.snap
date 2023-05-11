@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test edit profile 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "padding": 20,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FBFBFB",
+              "borderColor": "transparent",
+              "borderRadius": 20,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "marginVertical": 10,
+              "paddingHorizontal": 20,
+            },
+            undefined,
+          ]
+        }
+      >
+        <TextInput
+          keyboardType="text"
+          onChangeText={[Function]}
+          placeholder="Họ tên"
+          style={
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 20,
+            }
+          }
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FBFBFB",
+          "borderRadius": 20,
+          "flexDirection": "row",
+          "marginVertical": 10,
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <TextInput
+        keyboardType="text"
+        onPressIn={[Function]}
+        placeholder="Ngày sinh"
+        showSoftInputOnFocus={false}
+        style={
+          Object {
+            "flex": 1,
+            "fontSize": 16,
+            "paddingVertical": 20,
+          }
+        }
+        value=""
+      />
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": 25,
+            "width": 25,
+          }
+        }
+      />
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FBFBFB",
+              "borderColor": "transparent",
+              "borderRadius": 20,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "marginVertical": 10,
+              "paddingHorizontal": 20,
+            },
+            undefined,
+          ]
+        }
+      >
+        <TextInput
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          placeholder="Email"
+          style={
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 20,
+            }
+          }
+          value=""
+        />
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 25,
+              "width": 25,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FBFBFB",
+          "borderRadius": 20,
+          "flexDirection": "row",
+          "marginVertical": 10,
+          "paddingLeft": 15,
+          "paddingRight": 12,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "fontSize": 16,
+            "paddingVertical": 35,
+          }
+        }
+      >
+        <RNCPicker
+          items={
+            Array [
+              Object {
+                "label": "Nam",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 1,
+              },
+              Object {
+                "label": "Nữ",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 0,
+              },
+              Object {
+                "label": "Khác",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": -1,
+              },
+            ]
+          }
+          numberOfLines={1}
+          onChange={[Function]}
+          selectedIndex={2}
+          style={
+            Array [
+              Object {
+                "height": 216,
+              },
+              undefined,
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "borderTopLeftRadius": 24,
+        "borderTopRightRadius": 24,
+        "bottom": 0,
+        "elevation": 1,
+        "padding": 20,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF953A",
+            "borderRadius": 8,
+            "paddingHorizontal": 12,
+            "paddingVertical": 18,
+            "width": "100%",
+          },
+          Object {
+            "backgroundColor": "#FF953A",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "600",
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#fff",
+            },
+            undefined,
+          ]
+        }
+      >
+        Cập nhật
+      </Text>
+    </View>
+  </View>,
+]
+`;

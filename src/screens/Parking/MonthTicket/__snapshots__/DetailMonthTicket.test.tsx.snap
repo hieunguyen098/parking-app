@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    transparent={true}
+    visible={false}
+  />,
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    transparent={true}
+    visible={false}
+  />,
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "padding": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "borderRadius": 20,
+          "padding": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "borderBottomWidth": 1,
+            "borderColor": "#E8E8E8",
+            "flexDirection": "row",
+            "paddingBottom": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginRight": 8,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+              }
+            }
+            style={
+              Object {
+                "borderRadius": 8,
+                "height": 70,
+                "width": 70,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "fontWeight": "500",
+              }
+            }
+          >
+            Nhà xe trường đại học Bách Khoa TP. HCM
+          </Text>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FF953A",
+                  "borderRadius": 8,
+                  "justifyContent": "center",
+                  "minWidth": 40,
+                  "paddingHorizontal": 12,
+                  "paddingVertical": 6,
+                },
+                Object {
+                  "marginLeft": "auto",
+                  "width": 80,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 16,
+                    "fontWeight": "600",
+                    "textAlign": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Tặng
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "gray",
+              "fontSize": 16,
+              "fontWeight": "500",
+              "width": "30%",
+            }
+          }
+        >
+          Địa chỉ
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "textAlign": "right",
+              "width": "70%",
+            }
+          }
+        >
+          Dĩ An, Bình Dương
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "gray",
+              "fontSize": 16,
+              "fontWeight": "500",
+              "width": "30%",
+            }
+          }
+        >
+          Ngày mua
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "textAlign": "right",
+              "width": "70%",
+            }
+          }
+        >
+          01/09/2022
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "gray",
+              "fontSize": 16,
+              "fontWeight": "500",
+              "width": "30%",
+            }
+          }
+        >
+          Có giá trị đến hết ngày
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "textAlign": "right",
+              "width": "70%",
+            }
+          }
+        >
+          30/11/2022
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "borderTopLeftRadius": 24,
+        "borderTopRightRadius": 24,
+        "bottom": 0,
+        "elevation": 1,
+        "padding": 20,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF953A",
+            "borderRadius": 8,
+            "paddingHorizontal": 12,
+            "paddingVertical": 18,
+            "width": "100%",
+          },
+          Object {
+            "backgroundColor": "#FF953A",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+              "fontWeight": "600",
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#fff",
+            },
+            undefined,
+          ]
+        }
+      >
+        Gia hạn
+      </Text>
+    </View>
+  </View>,
+]
+`;

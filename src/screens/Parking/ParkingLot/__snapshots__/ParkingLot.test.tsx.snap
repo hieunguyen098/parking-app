@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test parking lot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingHorizontal": 20,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 10,
+        "elevation": 2,
+        "flexDirection": "row",
+        "height": 44,
+        "marginVertical": 10,
+        "paddingHorizontal": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <Text />
+    <TextInput
+      placeholder="Tìm kiếm bãi đỗ xe"
+      placeholderTextColor="#FF953A"
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "fontSize": 20,
+            "marginLeft": 10,
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "700",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Nhà xe đã gửi
+  </Text>
+  <View
+    style={
+      Object {
+        "marginTop": 8,
+      }
+    }
+  >
+    <ActivityIndicator
+      size="large"
+    />
+  </View>
+</View>
+`;

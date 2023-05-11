@@ -1,0 +1,307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test sign up 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "space-between",
+      "padding": 20,
+    }
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <Image
+        source={1}
+        style={
+          Object {
+            "borderRadius": 100,
+            "height": 150,
+            "width": 150,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#FF953A",
+          "borderRadius": 5,
+          "bottom": 0,
+          "height": 30,
+          "padding": 5,
+          "position": "absolute",
+          "right": 0,
+          "width": 30,
+        }
+      }
+    >
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": "100%",
+            "width": "100%",
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FBFBFB",
+              "borderColor": "transparent",
+              "borderRadius": 20,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "marginVertical": 10,
+              "paddingHorizontal": 20,
+            },
+            undefined,
+          ]
+        }
+      >
+        <TextInput
+          keyboardType="text"
+          onChangeText={[Function]}
+          placeholder="Họ tên"
+          style={
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 20,
+            }
+          }
+          value=""
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FBFBFB",
+          "borderRadius": 20,
+          "flexDirection": "row",
+          "marginVertical": 10,
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <TextInput
+        keyboardType="text"
+        onPressIn={[Function]}
+        placeholder="Ngày sinh"
+        showSoftInputOnFocus={false}
+        style={
+          Object {
+            "flex": 1,
+            "fontSize": 16,
+            "paddingVertical": 20,
+          }
+        }
+        value=""
+      />
+      <Image
+        source={1}
+        style={
+          Object {
+            "height": 25,
+            "width": 25,
+          }
+        }
+      />
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FBFBFB",
+              "borderColor": "transparent",
+              "borderRadius": 20,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "marginVertical": 10,
+              "paddingHorizontal": 20,
+            },
+            undefined,
+          ]
+        }
+      >
+        <TextInput
+          keyboardType="email-address"
+          onChangeText={[Function]}
+          placeholder="Email"
+          style={
+            Object {
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 20,
+            }
+          }
+          value=""
+        />
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 25,
+              "width": 25,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FBFBFB",
+          "borderRadius": 20,
+          "flexDirection": "row",
+          "marginVertical": 10,
+          "paddingLeft": 15,
+          "paddingRight": 12,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "fontSize": 16,
+            "paddingVertical": 35,
+          }
+        }
+      >
+        <RNCPicker
+          items={
+            Array [
+              Object {
+                "label": "Nam",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": "Male",
+              },
+              Object {
+                "label": "Nữ",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": "Female",
+              },
+              Object {
+                "label": "Khác",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": "Indefinite",
+              },
+            ]
+          }
+          numberOfLines={1}
+          onChange={[Function]}
+          selectedIndex={0}
+          style={
+            Array [
+              Object {
+                "height": 216,
+              },
+              undefined,
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FF953A",
+          "borderRadius": 8,
+          "paddingHorizontal": 12,
+          "paddingVertical": 18,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#FF953A",
+        },
+        Object {
+          "borderRadius": 100,
+          "marginBottom": 24,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 18,
+            "fontWeight": "600",
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#fff",
+          },
+          undefined,
+        ]
+      }
+    >
+      Tiếp tục
+    </Text>
+  </View>
+</View>
+`;

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test histoy item 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderBottomColor": "#E8E8E8",
+        "borderBottomWidth": 1,
+        "flex": 1,
+        "flexDirection": "row",
+        "minHeight": 100,
+        "paddingBottom": 16,
+        "paddingTop": 16,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "marginRight": 12,
+      }
+    }
+  >
+    <Text />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "500",
+        }
+      }
+    >
+      Thanh toán phí gửi xe
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#B3B3B3",
+        }
+      }
+    >
+      Nhà xe Trường Đại học Bách Khoa Tp.HCM
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#B3B3B3",
+          "fontSize": 12,
+        }
+      }
+    >
+      17:05 - 27/11/2022
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "justifyContent": "flex-end",
+        "marginLeft": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "500",
+        }
+      }
+    >
+      -2.000đ
+    </Text>
+  </View>
+</View>
+`;

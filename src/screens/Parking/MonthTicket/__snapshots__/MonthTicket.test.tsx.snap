@@ -1,0 +1,1165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test month ticket 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingHorizontal": 20,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 10,
+        "elevation": 2,
+        "flexDirection": "row",
+        "height": 44,
+        "marginVertical": 10,
+        "paddingHorizontal": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <Text />
+    <TextInput
+      placeholder="Tìm kiếm vé tháng"
+      placeholderTextColor="#FF953A"
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "fontSize": 20,
+            "marginLeft": 10,
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "700",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Vé tháng của bạn
+  </Text>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "0",
+          "name": "Nhà xe Trường Đại học Bách Khoa TP.HCM",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "1",
+          "name": "Nhà xe Hoài Bão 2",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "2",
+          "name": "Nhà xe Hoài Bão",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "3",
+          "name": "Nhà xe Hoài Bão 2",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "4",
+          "name": "Nhà xe Hoài Bão",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "5",
+          "name": "Nhà xe Hoài Bão 2",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "6",
+          "name": "Nhà xe Hoài Bão",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "7",
+          "name": "Nhà xe Hoài Bão 2",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "8",
+          "name": "Nhà xe Hoài Bão",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "9",
+          "name": "Nhà xe Hoài Bão 2",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "10",
+          "name": "Nhà xe Hoài Bão",
+        },
+        Object {
+          "duedate": "31/12/2023",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+          "key": "11",
+          "name": "Nhà xe Hoài Bão 2",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Trường Đại học Bách Khoa TP.HCM
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão 2
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão 2
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão 2
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão 2
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#E8E8E8",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "marginBottom": 12,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "flexDirection": "row",
+                "padding": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 8,
+                    "height": 70,
+                    "width": 70,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "500",
+                    "marginBottom": 8,
+                  }
+                }
+              >
+                Nhà xe Hoài Bão 2
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#B3B3B3",
+                      "fontStyle": "italic",
+                      "marginRight": 8,
+                      "textAlign": "right",
+                    },
+                    Object {
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                Có giá trị đến hết ngày 
+                31/12/2023
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</View>
+`;
