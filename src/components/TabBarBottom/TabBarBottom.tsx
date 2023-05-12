@@ -48,6 +48,7 @@ const TabBarBottom = () => {
                 name="Gửi xe"
                 component={Qr}
                 options={{
+                    unmountOnBlur: true,
                     tabBarLabel: () => {
                         return null;
                     },

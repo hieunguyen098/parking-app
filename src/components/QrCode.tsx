@@ -4,9 +4,10 @@ import QRCode from 'react-native-qrcode-svg';
 import { GlobalStyles } from '../constants';
 import { useCountDown } from '../hooks';
 import { QRType, TIMEOUT_REFRESH_QR } from '../constants';
-import { useFocusEffect } from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import { getCheckinParkingQr, getCheckoutParkingQr } from '../services/vehicle.api';
 import {useSelector} from "react-redux";
+import qrStatusSocket from "../services/socket/qr_status_socket";
 
 const QrCode = ({ qrType, vehicleId = "", voucherApplying = "", callback = () => {} }: { qrType: QRType, vehicleId?: string, voucherApplying?: string, callback?: (...arg: any[]) => void }) => {
     const user = useSelector((state: any) => state.auth.user);
@@ -46,8 +47,27 @@ const QrCode = ({ qrType, vehicleId = "", voucherApplying = "", callback = () =>
         return remainingSeconds >= 0 ? remainingSeconds : 0;
     }
 
+    // const navigation = useNavigation();
+    //
+    // useFocusEffect(
+    //     useCallback(() => {
+    //         if (!value.loading) {
+    //             if (value.token != "") {
+    //                 // connect
+    //                 qrStatusSocket.connect()
+    //                 qrStatusSocket.emit()
+    //                 nav
+    //             }
+    //         } else {
+    //             if (value.token != "") {
+    //                 // disconnect
+    //             }
+    //         }
+    //     }, [value])
+    // )
+
     useFocusEffect(
-        React.useCallback(() => {
+        useCallback(() => {
             refreshQR().then();
             const timeoutId = setTimeout(() => {
                 setRefresh(!refresh);

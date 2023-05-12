@@ -37,7 +37,7 @@ const PhoneVerification = ({ navigation }: any) => {
         setTimeout(() => {
             otpSMS(
                 "OTP Message",
-                "Mock tin nhắn OTP được gửi qua SMS là 11111",
+                "Mock tin nhắn OTP được gửi qua SMS là 111111",
                 () => {}
             )
         },3000);
