@@ -1,16 +1,17 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { GlobalStyles } from '../../constants';
 
 const Title = ({ title, style, seeMore = true, onSeeMore = () => {} }: any) => {
+    const [expend, setExpend] = useState(seeMore)
     return (
         <View style={styles.titleContainer}>
             <Text style={[styles.title, style]}>{title}</Text>
             {seeMore && (
                 <View>
-                    <Pressable style={styles.seeMoreContainer} onPress={onSeeMore}>
-                        <Text style={styles.seeMoreTitle}>Xem thêm</Text>
+                    <Pressable style={styles.seeMoreContainer} onPress={() => {onSeeMore(); setExpend(!expend);}}>
+                        <Text style={styles.seeMoreTitle}>{expend ? "Xem thêm" : "Thu gọn"}</Text>
                         <AntDesign
                             name="doubleright"
                             size={12}

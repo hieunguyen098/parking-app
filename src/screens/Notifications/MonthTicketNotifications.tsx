@@ -5,7 +5,9 @@ import NotificationList from './components/NotificationList';
 import { useFetchNotification } from '../../hooks';
 
 const MonthTicketNotifications = () => {
-    const [loading, notifications, lazyLoad] = useFetchNotification(NotificationType.MONTH_TICKET);
+    const [
+        loading,
+      notifications, lazyLoad] = useFetchNotification(NotificationType.MONTH_TICKET);
     return (
         <View>
             <NotificationList loading={loading} lazyLoad={lazyLoad} notifications={notifications} />

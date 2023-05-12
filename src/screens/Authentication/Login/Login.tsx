@@ -24,7 +24,6 @@ const Login = () => {
     const onContinue = async () => {
         setIsLoading(true);
         const response = await login(user.phone, pin);
-        console.log(response);
         if (response.returnCode > 0) {
             if (!response.data) {
                 return;

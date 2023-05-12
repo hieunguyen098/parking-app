@@ -2,13 +2,17 @@ import { AuthMethod } from '../constants';
 import { postData } from './api';
 
 export const discover = async (phone: string) => {
-    const response = await postData('um/user/auth', {
+    const now = Date.now()
+    console.log(now)
+    const data = await postData('um/user/auth', {
         method: AuthMethod.CHECK_PHONE,
         params: {
             phone: phone,
         },
     });
-    return response;
+    console.log(Date.now() - now)
+    console.log(data);
+    return data;
 };
 
 export const login = async (phone: string, pin: string) => {
@@ -19,6 +23,7 @@ export const login = async (phone: string, pin: string) => {
             pin: pin,
         },
     });
+    console.log(data);
     return data;
 };
 
@@ -30,6 +35,7 @@ export const signup = async (signupForm: any) => {
             ...signupForm,
         },
     });
+    console.log(data);
     return data;
 };
 
@@ -41,5 +47,6 @@ export const verifyPhoneNumber = async (phone: string, otp: string) => {
             OTP: otp,
         },
     });
+    console.log(data);
     return data;
 };

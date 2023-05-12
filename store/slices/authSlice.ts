@@ -4,6 +4,7 @@ interface AuthState {
     user?: {
         phone?: string;
         fullName?: string;
+        imageUrl?: string;
     };
     signupForm: {
         fullname: string;
@@ -18,6 +19,7 @@ const initialState: AuthState = {
     user: {
         phone: '',
         fullName: '',
+        imageUrl: '',
     },
     signupForm: {
         fullname: '',

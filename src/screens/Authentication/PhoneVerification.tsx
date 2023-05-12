@@ -8,6 +8,7 @@ import { verifyPhoneNumber } from '../../services/auth.api';
 import { useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCountDown } from '../../hooks';
+import {otpSMS} from "../../utils/mock_otp";
 
 const PhoneVerification = ({ navigation }: any) => {
     const [otp, setOtp] = useState('');
@@ -18,27 +19,35 @@ const PhoneVerification = ({ navigation }: any) => {
 
     const nextStep = async () => {
         const data = await verifyPhoneNumber(user.phone, otp);
-        console.log(data);
         if (data.returnCode > 0) {
             if (!data.data) {
                 return;
             }
-            AsyncStorage.setItem('accessToken', data.data[0].accessToken);
+            await AsyncStorage.setItem('accessToken', data.data[0].accessToken);
             navigation.navigate('TabBarScreen');
         } else {
             setInvalid(true);
             setErrMsg(data.returnMessage);
         }
     };
-    const resend = () => {
+
+    const resendOtpAuth = () => {
         setRemainingTime(30);
+        setTimeout(() => {
+            otpSMS(
+                "OTP Message",
+                "Mock tin nhắn OTP được gửi qua SMS là 11111",
+                () => {}
+            )
+        },3000);
     };
 
     useFocusEffect(
         React.useCallback(() => {
-            setRemainingTime(30);
+            resendOtpAuth()
         }, []),
     );
+
     return (
         <View style={styles.container}>
             <View style={styles.group}>
@@ -48,15 +57,16 @@ const PhoneVerification = ({ navigation }: any) => {
 
                 <PinCodeInput warning={{ show: invalid, message: errMsg }} value={otp} setValue={setOtp} length={6} />
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-                    <Text style={styles.textCenter}>Gửi lại mã sau {remainingTime}s.</Text>
+                    <Text style={styles.textCenter}>Mã xác thực hết hiệu lực sau {remainingTime}s.</Text>
                     {!remainingTime && (
-                        <Pressable onPress={resend}>
+                        <Pressable onPress={resendOtpAuth}>
                             <Text style={styles.resendBtn}> Gửi lại</Text>
                         </Pressable>
                     )}
                 </View>
             </View>
-            <LargeButton onPress={nextStep} title="Tiếp tục" style={styles.continueButton} />
+            <LargeButton onPress={remainingTime? nextStep : () => {}} title="Tiếp tục" style={
+                remainingTime ? styles.continueButton : styles.disableButton} />
         </View>
     );
 };

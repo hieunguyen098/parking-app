@@ -1,161 +1,80 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  RefreshControl,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text, View,
+} from 'react-native';
+import React, {useCallback, useState} from 'react';
 import HistoryItem from './HistoryItem';
+import {useFetchHistory} from "../../../hooks/useFetchHistory";
+import {useSelector} from "react-redux";
+import {HistoryType} from "../../../constants/History";
+import {useFocusEffect} from "@react-navigation/native";
 
-const data = [
-    {
-        id: '0',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '1',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-    {
-        id: '2',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '3',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-    {
-        id: '4',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '5',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-    {
-        id: '6',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '7',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-    {
-        id: '8',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '9',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-    {
-        id: '10',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '11',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-    {
-        id: '12',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '13',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-    {
-        id: '14',
-        type: 'month-ticket',
-        title: 'Mua vé tháng',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '20:20 - 28/11/2022',
-        price: '-50.000đ',
-    },
-    {
-        id: '15',
-        type: 'parking',
-        title: 'Thanh toán phí gửi xe',
-        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
-        time: '17:05 - 27/11/2022',
-        price: '-2.000đ',
-    },
-];
+const HistoryList = ({type}: {type: string}) => {
+  const user = useSelector((state: any) => state.auth.user);
 
-const HistoryList = () => {
-    return (
-        <View style={styles.container}>
-            <FlatList
-                data={data}
-                renderItem={({ item, index }) => {
-                    return (
-                        <HistoryItem item={item} style={index === data.length - 1 ? { borderBottomWidth: 0 } : {}} />
-                    );
-                }}
-                keyExtractor={(item) => item.id}
-                style={styles.contentContainer}
-            />
-        </View>
-    );
+  const [
+    loading,
+    histories,
+    firstLoadHistory,
+    loadOldHistory
+  ] = useFetchHistory(type, user.phone)
+
+  useFocusEffect(
+      useCallback(() => {
+        firstLoadHistory().then();
+      }, [type])
+  )
+
+  return (
+      <View style={styles.container}>
+          <HistoriesList
+              histories={histories}
+              loadOldHistory={loadOldHistory}
+              firstLoadHistory={firstLoadHistory}
+              loading={loading}
+          />
+      </View>
+  );
 };
+
+const HistoriesList = ({histories, loadOldHistory, firstLoadHistory, loading}: any) => {
+  return <FlatList
+      data={histories}
+      renderItem={({item, index}) => {
+        return (
+            <HistoryItem item={item}
+                         style={index === histories.length - 1 ? {borderBottomWidth: 0} : {}}/>
+        );
+      }}
+      keyExtractor={(item, index) => String(index)}
+      onEndReached={loadOldHistory}
+      onRefresh={firstLoadHistory}
+      refreshing={loading}
+      style={styles.contentContainer}
+      ListEmptyComponent={<Text style={styles.emptyContainer}>Không có lịch sử giao dịch</Text>}
+      ListFooterComponent={loading ? <ActivityIndicator size={1}/> : null}
+  />
+}
 
 export default HistoryList;
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#FFFFFF',
-        borderRadius: 8,
-    },
-    contentContainer: { paddingHorizontal: 16, marginBottom: 8 },
+  container: {
+    flex: 1,
+  },
+  contentContainer: {
+    addingHorizontal: 16,
+    marginBottom: 8
+  },
+  emptyContainer: {
+    color: "gray",
+    margin: 20,
+    textAlign: "center",
+    fontSize: 20
+  }
 });

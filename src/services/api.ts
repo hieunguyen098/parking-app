@@ -1,7 +1,6 @@
 import Axios from 'axios';
 import * as Device from 'expo-device';
 import Constants from 'expo-constants';
-import { BACKEND_URL } from '@env';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface BodyData {
@@ -16,12 +15,11 @@ interface Response {
 }
 
 export const deviceInfo = () => {
-    const info = {
+    return {
         device_id: Constants.installationId,
         device_model: Device.modelName,
         app_version: '1.0.0',
     };
-    return info;
 };
 
 const axios = Axios.create({

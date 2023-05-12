@@ -1,11 +1,10 @@
-import { UserMethod } from '../constants';
-import { postData } from '../services/api';
+import {UserMethod} from '../constants';
+import {postData} from './api';
 
 export const getUser = async () => {
-    const response = await postData('um/user/profile', {
+    return await postData('um/user/profile', {
         method: UserMethod.GET_USER,
     });
-    return response;
 };
 
 export const setNewPassword = async (phone: string, newPin: string) => {

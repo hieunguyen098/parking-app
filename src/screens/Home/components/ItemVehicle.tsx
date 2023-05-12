@@ -7,10 +7,16 @@ import { useNavigation } from '@react-navigation/native';
 const ItemVehicle = ({ text, id }: any) => {
     const navigation: any = useNavigation();
     const viewDetail = () => {
-        navigation.navigate('VehicleDetail', { id: id });
+        if (id && id != "") {
+            navigation.navigate('VehicleDetail', { id: id });
+        }
     };
     const checkOut = () => {
-        navigation.navigate('CheckOut');
+        if (id && id != "") {
+            navigation.navigate('CheckOut', {
+                vehicleId: id
+            });
+        }
     };
     return (
         <View>
@@ -18,7 +24,7 @@ const ItemVehicle = ({ text, id }: any) => {
                 <View style={styles.innerContainer}>
                     <Image source={require('../../../../assets/images/motorbikeIcon.png')} style={styles.icon} />
                     <Text style={styles.plateNumber}>{text}</Text>
-                    <SmallButton onPress={checkOut} title="Lấy xe" />
+                    {(id && id != "") && <SmallButton onPress={checkOut} title="Lấy xe" />}
                 </View>
             </Pressable>
         </View>

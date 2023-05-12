@@ -1,9 +1,9 @@
 export enum ParkingMethodId {
     GET_CHECKIN_PARKING_QR = 'check-in',
-    GET_VEHICLE_IS_PARKING = 'get_vehicles',
-    GET_VEHICLE_DETAIL = 'get_vehicle',
-    GET_VOUCHERS = 'get_vouchers',
     GET_CHECKOUT_PARKING_QR = 'check-out',
+    GET_VEHICLE_IS_PARKING = 'get-vehicles',
+    GET_VEHICLE_DETAIL = 'get-vehicle',
+    GET_VOUCHERS = 'get-vouchers',
 }
 
 export enum QRType {

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TextInput, Pressable } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
@@ -26,7 +26,9 @@ const Header = () => {
                     </Pressable>
                     <Image
                         source={{
-                            uri: 'https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/master/pass/bieber-coverstory-square.jpg',
+                            uri: (`${user.imageUrl}` == "") ?
+                                "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2Fdefault-avatar.png?alt=media&token=621d5022-1f49-4428-98c3-80afca549ed9"
+                                : `${user.imageUrl}`,
                         }}
                         style={styles.avatar}
                     />
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     },
     banner: {
         width: '100%',
-        height: 100,
+        height: 180,
         borderRadius: 10,
     },
 });

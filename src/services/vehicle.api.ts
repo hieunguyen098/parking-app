@@ -1,36 +1,47 @@
-import { ParkingMethodId } from '../constants';
-import { postData } from '../services/api';
+import {ParkingMethodId} from '../constants';
+import {postData} from './api';
 
-export const getListVehicle = async () => {
-    const response = await postData('parking', {
+export const getListVehicle = async (phone: string) => {
+    const data = await postData('prc/parking', {
         method: ParkingMethodId.GET_VEHICLE_IS_PARKING,
+        params: {
+            phone: phone
+        }
     });
-    return response;
+    console.log(data);
+    return data;
 };
 
-export const getVehicleDetail = async (id: number | string) => {
-    const response = await postData(`parking`, {
+export const getVehicleDetail = async (vehicleId: number | string) => {
+    const data = await postData(`prc/parking`, {
         method: ParkingMethodId.GET_VEHICLE_DETAIL,
         params: {
-            id: id,
+            vehicle_id: vehicleId,
         },
     });
-    return response;
+    console.log(data);
+    return data;
 };
 
-export const getCheckinParkingQr = async () => {
-    const response = await postData('prc/gen-qr', {
+export const getCheckinParkingQr = async (phone: string) => {
+    const data = await postData('prc/gen-qr', {
         method: ParkingMethodId.GET_CHECKIN_PARKING_QR,
+        params: {
+            phone: phone
+        }
     });
-    return response;
+    console.log(data);
+    return data;
 };
 
-export const getCheckoutParkingQr = async () => {
-    const response = await postData('prc/gen-qr', {
+export const getCheckoutParkingQr = async (vehicleId: string, voucherId: string) => {
+    const data = await postData('prc/gen-qr', {
         method: ParkingMethodId.GET_CHECKOUT_PARKING_QR,
         params: {
-            vehicle_id: '001',
+            vehicle_id: vehicleId,
+            voucher_id_applying: voucherId
         },
     });
-    return response;
+    console.log(data);
+    return data;
 };

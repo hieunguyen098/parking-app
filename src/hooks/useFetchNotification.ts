@@ -17,7 +17,7 @@ export function useFetchNotification(type: string) {
         setLoading(false);
     };
     useEffect(() => {
-        getAllNotification();
+        getAllNotification().then();
     }, []);
 
     return [loading, notifications, lazyLoad];

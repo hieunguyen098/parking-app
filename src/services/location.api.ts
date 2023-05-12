@@ -1,17 +1,29 @@
 import { LocationMethod } from '../constants';
-import { postData } from '../services/api';
+import { postData } from './api';
 
 export const getLocations = async () => {
-    const response = await postData('parking', {
-        method: LocationMethod.GET_LOCATIONS,
-    });
-    return response;
+    // const data = await postData('prc/parking', {
+    //     method: LocationMethod.GET_LOCATIONS,
+    // });
+    // console.log(data);
+    // return data;
+    return {
+        "data": [
+            {
+                "parkingId": "123",
+                "name": "123",
+                "image": "",
+                "address": "123"
+            }
+        ]
+    }
 };
 
 export const getLocationDetail = async (id: number | string) => {
-    const response = await postData('parking', {
+    const data = await postData('prc/parking', {
         method: LocationMethod.GET_LOCATION,
         params: { id },
     });
-    return response;
+    console.log(data);
+    return data;
 };

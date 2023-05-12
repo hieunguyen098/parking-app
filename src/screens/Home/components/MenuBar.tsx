@@ -10,25 +10,33 @@ const menu = [
         title: 'Bãi đỗ xe',
         name: 'place',
         Icon: MaterialIcons,
-        linkTo: '',
+        linkTo: 'Parking',
+        option: {
+            screen: 'ParkingLot'
+        }
     },
     {
         title: 'Vé tháng',
         name: 'ticket',
         Icon: Fontisto,
-        linkTo: '',
+        linkTo: 'Parking',
+        option: {
+            screen: 'MonthTicket'
+        }
     },
     {
         title: 'Bạn bè',
         name: 'users',
         Icon: FontAwesome,
         linkTo: 'Friends',
+        option: {},
     },
     {
         title: 'Thanh toán',
         name: 'payment',
         Icon: MaterialIcons,
-        linkTo: '',
+        linkTo: 'ManagePayment',
+        option: {}
     },
 ];
 
@@ -43,7 +51,7 @@ const MenuBar = () => {
                         name={menuItem.name}
                         Icon={menuItem.Icon}
                         onPress={() => {
-                            navigation.navigate(menuItem.linkTo);
+                            navigation.navigate(menuItem.linkTo, menuItem.option);
                         }}
                         key={menuItem.title}
                     />

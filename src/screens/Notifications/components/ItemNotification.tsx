@@ -8,9 +8,9 @@ import { GlobalStyles } from '../../../constants';
 import { NotificationType } from '../../../constants';
 import moment from 'moment';
 
-const ItemNotification = ({ item, firstItemstyle = null, lastItemStyle = null }: any) => {
+const ItemNotification = ({ item, firstItemStyle = null, lastItemStyle = null }: any) => {
     return (
-        <View key={item.id} style={[styles.container, firstItemstyle, lastItemStyle]}>
+        <View key={item.notificationId} style={[styles.container, firstItemStyle, lastItemStyle]}>
             <View style={styles.iconContainer}>
                 {item.type === NotificationType.PARKING ? (
                     <FontAwesome5 name="parking" size={40} color={GlobalStyles.colors.primaryOrange} />
@@ -22,9 +22,9 @@ const ItemNotification = ({ item, firstItemstyle = null, lastItemStyle = null }:
             </View>
             <View style={styles.mainContainer}>
                 <Text style={styles.title}>{item.title}</Text>
-                {item.extra_info.is_have_api ? (
+                {item.extraInfo.isHaveApi ? (
                     <View style={styles.buttonContainer}>
-                        {item.extra_info.apiList.map((item: any) => {
+                        {item.extraInfo.apiList.map((item: any) => {
                             if (item.api === 'accept') {
                                 return <SmallButton key={item.api} title={item.title}></SmallButton>;
                             } else {
@@ -39,9 +39,9 @@ const ItemNotification = ({ item, firstItemstyle = null, lastItemStyle = null }:
                         })}
                     </View>
                 ) : (
-                    <Text style={styles.desc1}>{item.extra_info.description}</Text>
+                    <Text style={styles.desc1}>{item.extraInfo.description}</Text>
                 )}
-                <Text style={styles.update}>{moment(item.created_at * 1000).fromNow()}</Text>
+                <Text style={styles.update}>{moment(item.createdAt).fromNow()}</Text>
             </View>
         </View>
     );

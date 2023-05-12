@@ -19,13 +19,13 @@ const ListParkingLot = () => {
         queryFn: () => {
             return getLocations();
         },
-        select: (data) => data.data,
+        select: (data) => data.data? data.data : [],
         keepPreviousData: true,
     });
 
     useFocusEffect(
         React.useCallback(() => {
-            queryClient.invalidateQueries('locations');
+            queryClient.fetchQuery('locations').then();
         }, []),
     );
 
@@ -43,12 +43,12 @@ const ListParkingLot = () => {
                             <ParkingLotItem
                                 item={item}
                                 onPress={() => {
-                                    navigation.navigate('ParkingInfo', { id: item.id });
+                                    navigation.navigate('ParkingInfo', { id: item.parkingId });
                                 }}
                             />
                         );
                     }}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.parkingId}
                     style={styles.contentContainer}
                 />
             )}

@@ -15,10 +15,11 @@ const Home = () => {
 
     useFocusEffect(
         React.useCallback(() => {
-            getAccessToken();
+            getAccessToken().then();
             deviceInfo();
         }, []),
     );
+
     return (
         <>
             <SafeAreaView style={styles.container}>
