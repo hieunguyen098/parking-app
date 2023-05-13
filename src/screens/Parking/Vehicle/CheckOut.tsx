@@ -88,7 +88,7 @@ const CheckOut = () => {
                         <Line borderStyle="dashed" color={GlobalStyles.colors.lightGrey} />
                         <FieldValue fieldName="Biển số" value={vehicleDetail.licensePlate} />
                         <FieldValue fieldName="Tổng thời gian" value={`${String(vehicleDetail.duration.hours).padStart(2, '0')} giờ ${String(vehicleDetail.duration.minutes).padStart(2, '0')} phút`} />
-                        <FieldValue fieldName="Chi phí" value={formatCash(vehicleDetail.fee * 1000)} />
+                        <FieldValue fieldName="Chi phí tạm tính" value={formatCash(vehicleDetail.fee * 1000)} />
                     </>}
                 </View>
                 { CPLIST && CPLIST.length > 0 &&
