@@ -7,15 +7,15 @@ export const getListFriends = async (searchKey: string) => {
         "data": [
             {
                 "phone": "0969189947",
-                "avatar": "",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2F1683942244665-0372358493?alt=media&token=fac1bc6d-07ee-4abd-bfac-688fd6080e04",
                 "fullName": "Đặng Hoài Bão",
                 "isFriend": true,
                 "friendRequested": false
             },
             {
                 "phone": "0969189948",
-                "avatar": "",
-                "fullName": "Đặng Hoài Bão",
+                "avatar": "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2F17523016_774532709394454_941232164224933694_n.jpg?alt=media&token=f2a9ac4e-5be6-4a1f-8112-eb9755c78086",
+                "fullName": "Nguyễn Xuân Hiếu",
                 "isFriend": false,
                 "friendRequested": false
             }

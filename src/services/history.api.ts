@@ -262,16 +262,46 @@ const data = [
 
 export const getHistories = async (phone: string, type: string, prevId: string) => {
     console.log(phone, type, prevId);
-    const data = await postData('pyc/history', {
-        method: HistoryMethodId.GET_HISTORIES,
-        params: {
-            phone: phone,
-            type: type,
-            prev_id: prevId
+    if (prevId == "") {
+        return {
+            data: [
+                {
+                    history_id: '14',
+                    type: 'month-ticket',
+                    title: 'Mua vé tháng',
+                    time: '20:20 - 10/05/2023',
+                    extraInfo: {
+                        place: 'Nhà xe GigaMall Thủ Đức',
+                        price: '-50.000đ',
+                    }
+                },
+                {
+                    history_id: '15',
+                    type: 'parking',
+                    title: 'Thanh toán phí gửi xe',
+                    time: '17:05 - 08/05/2023',
+                    extraInfo: {
+                        place: 'Nhà xe Trường Đại học Bách Khoa Tp.HCM',
+                        price: '-4.000đ',
+                    }
+                }
+            ]
         }
-    });
-    console.log(data);
-    return data;
+    } else {
+        return {
+            data: []
+        }
+    }
+    // const data = await postData('pyc/history', {
+    //     method: HistoryMethodId.GET_HISTORIES,
+    //     params: {
+    //         phone: phone,
+    //         type: type,
+    //         prev_id: prevId
+    //     }
+    // });
+    // console.log(data);
+    // return data;
 };
 
 export const getHistoryDetail = async (historyId: number | string) => {

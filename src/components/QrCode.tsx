@@ -7,9 +7,8 @@ import { QRType, TIMEOUT_REFRESH_QR } from '../constants';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import { getCheckinParkingQr, getCheckoutParkingQr } from '../services/vehicle.api';
 import {useSelector} from "react-redux";
-import qrStatusSocket from "../services/socket/qr_status_socket";
 
-const QrCode = ({ qrType, vehicleId = "", voucherApplying = "", callback = () => {} }: { qrType: QRType, vehicleId?: string, voucherApplying?: string, callback?: (...arg: any[]) => void }) => {
+const QrCode = ({ qrType, vehicleId = "", voucherApplying = "", updateRoom = () => {},  callback = () => {} }: { qrType: QRType, vehicleId?: string, voucherApplying?: string, updateRoom?: (...arg: any[]) => void, callback?: (...arg: any[]) => void }) => {
     const user = useSelector((state: any) => state.auth.user);
     const [value, setValue] = useState({
         token: '',
@@ -33,6 +32,7 @@ const QrCode = ({ qrType, vehicleId = "", voucherApplying = "", callback = () =>
         if (!response?.data) {
             return;
         }
+        // updateRoom(response.data[0].roomId);
         setRemainingTime(Math.min(TIMEOUT_REFRESH_QR / 1000, getRemainingSeconds(response.data[0].expiredTime)));
         setValue({
             token: response.data[0].qrToken,

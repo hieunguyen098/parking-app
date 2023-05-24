@@ -10,7 +10,7 @@ const ParkingContent = ({ locationDetail }: any) => {
     return (
         <View style={styles.container}>
             <ParkingInfoHeader
-                id={locationDetail.id}
+                id={locationDetail.parkingId}
                 title={locationDetail.name}
                 address={locationDetail.address}
                 timeStart={locationDetail.timeStart}

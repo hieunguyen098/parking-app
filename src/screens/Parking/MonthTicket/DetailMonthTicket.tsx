@@ -30,13 +30,13 @@ const DetailMonthTicket = () => {
                         <View style={styles.imageContainer}>
                             <Image
                                 source={{
-                                    uri: `https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG`,
+                                    uri: `https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Ftrung-tam-thuong-m-i.jpg?alt=media&token=8190218c-a3ce-4066-bbc5-205e0843302e`,
                                 }}
                                 style={styles.image}
                             />
                         </View>
                         <View style={styles.content}>
-                            <Text style={styles.title}>{'Nhà xe trường đại học Bách Khoa TP. HCM'}</Text>
+                            <Text style={styles.title}>{'Trung tâm thuong mại GigaMall'}</Text>
                             <SmallButton
                                 title={'Tặng'}
                                 style={{ width: 80, marginLeft: 'auto' }}
@@ -45,8 +45,8 @@ const DetailMonthTicket = () => {
                         </View>
                     </View>
                     <FieldValue fieldName="Địa chỉ" value="Dĩ An, Bình Dương" />
-                    <FieldValue fieldName="Ngày mua" value="01/09/2022" />
-                    <FieldValue fieldName="Có giá trị đến hết ngày" value="30/11/2022" />
+                    <FieldValue fieldName="Ngày mua" value="01/09/2023" />
+                    <FieldValue fieldName="Có giá trị đến hết ngày" value="31/12/2023" />
                 </View>
             </View>
             <BottomButton title="Gia hạn" onPress={handleExpandTicket} />

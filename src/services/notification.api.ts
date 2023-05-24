@@ -8,17 +8,52 @@ export const getNotifications = async (type: string) => {
             {
                 "notificationId": "123",
                 "type": "PARKING",
+                "title": "Lấy xe thành công",
+                "extraInfo": {
+                    "isHaveApi": false,
+                    "apiList": [
+                        {
+                            "api": "accept",
+                            "title": ""
+                        }
+                    ],
+                    "description": "Nhà xe Trường Đại học Bách Khoa TP. HCM"
+                },
+                "createdAt": new Date().setHours(new Date().getHours() - 1),
+            },
+            {
+                "notificationId": "234",
+                "type": "PARKING",
+                "title": "Gửi xe thành công",
+                "extraInfo": {
+                    "isHaveApi": false,
+                    "apiList": [
+                        {
+                            "api": "accept",
+                            "title": ""
+                        }
+                    ],
+                    "description": "Nhà xe Trường Đại học Bách Khoa TP. HCM"
+                },
+                "createdAt": new Date().setHours(new Date().getHours() - 3),
+            },
+            {
+                "notificationId": "134",
+                "type": "REQUEST",
+                "title": "Nguyễn Xuân Hiếu gửi yêu cầu kết bạn",
                 "extraInfo": {
                     "isHaveApi": true,
                     "apiList": [
                         {
                             "api": "accept",
-                            "title": "abc"
+                            "title": "Chấp nhận"
+                        }, {
+                            "api": "reject",
+                            "title": "Từ chối"
                         }
                     ],
-                    "description": "any"
                 },
-                "createdAt": Date.now(),
+                "createdAt": new Date().setHours(new Date().getHours() - 3),
             }
         ]
     }

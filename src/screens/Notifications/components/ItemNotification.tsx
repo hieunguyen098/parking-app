@@ -58,11 +58,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         borderBottomColor: '#E8E8E8',
         borderBottomWidth: 1,
+        marginBottom: 3,
     },
     iconContainer: {
-        width: '16%',
+        borderRadius: 10,
+        width: '14%',
         height: '100%',
-        marginRight: 8,
+        marginRight: 10,
+        alignItems: "center",
+
     },
     mainContainer: {
         justifyContent: 'center',

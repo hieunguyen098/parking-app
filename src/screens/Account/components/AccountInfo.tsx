@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View, Pressable, ActivityIndicator } from 'react-native';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { GlobalStyles } from '../../../constants';
@@ -39,7 +39,7 @@ const AccountInfo = () => {
                 <View style={styles.innerContainer}>
                     <Image
                         source={{
-                            uri: 'https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/master/pass/bieber-coverstory-square.jpg',
+                            uri: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2F17523016_774532709394454_941232164224933694_n.jpg?alt=media&token=f2a9ac4e-5be6-4a1f-8112-eb9755c78086',
                         }}
                         style={styles.avatar}
                     />
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     phone: {
-        width: 112,
-        marginRight: 16,
+        width: 130,
+        marginRight: 10,
         fontSize: 16,
     },
     iconContainer: {

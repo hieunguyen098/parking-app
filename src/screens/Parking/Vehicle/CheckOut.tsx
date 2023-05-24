@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useFocusEffect, useIsFocused, useNavigation, useRoute} from '@react-navigation/native';
 import { GlobalStyles } from '../../../constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import Line from '../../../components/Line';
@@ -11,11 +11,13 @@ import CouponUsing from '../../../components/CouponUsing';
 import { QRType } from '../../../constants';
 import {useQuery, useQueryClient} from "react-query";
 import {getVehicleDetail} from "../../../services/vehicle.api";
+import {useSelector} from "react-redux";
+import socket, {joinRoom, leaveRoom, setStatus} from "../../../services/socket/qr_status_socket";
 
 const CheckOut = () => {
     const route: any = useRoute();
     const vehicleId = route?.params?.vehicleId;
-    const navigation = useNavigation();
+    const navigation: any = useNavigation();
     const goBack = () => {
         navigation.goBack();
     };
@@ -69,6 +71,67 @@ const CheckOut = () => {
             voucherId: "3",
         }
     ]
+
+    const user = useSelector((state: any) => state.auth.user);
+    const [roomId, setRoomId] = useState("")
+
+    const [
+        qrStatusSocket,
+        setQrStatusSocket
+    ] = useState(socket)
+
+    const navHome = () => {
+        navigation.navigate('Home')
+    }
+
+    const [
+        statusState,
+        setStatusState
+    ] = useState({
+        status: undefined,
+        statusMessage: undefined
+    })
+
+    const isFocused = useIsFocused();
+
+    useFocusEffect(
+        useCallback(() => {
+            if (isFocused) {
+                console.log("vào trang")
+                setRoomId(user.phone + "_" + Date.now().toString())
+            } else {
+                console.log("rời trang")
+                leaveRoom(roomId)
+                setRoomId("")
+                setStatusState({
+                    status: undefined,
+                    statusMessage: undefined
+                })
+            }
+        }, [isFocused])
+    )
+
+    useFocusEffect(
+        useCallback(() => {
+            if (roomId != "") {
+                console.log("mã phòng", roomId)
+                qrStatusSocket.connect()
+                setTimeout(() => {
+                    joinRoom(roomId)
+                }, 1000)
+                setStatus(setStatusState, roomId)
+            }
+        }, [roomId])
+    )
+
+    useFocusEffect(
+        useCallback(() => {
+            console.log("state", statusState)
+            if (statusState.status == 1) {
+                navHome()
+            }
+        }, [statusState])
+    )
 
     return (
         <>
