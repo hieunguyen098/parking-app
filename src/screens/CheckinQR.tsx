@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Alert, StyleSheet, Text, View} from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {GlobalStyles, QRType} from '../constants';
 import {LinearGradient} from 'expo-linear-gradient';
@@ -11,15 +11,20 @@ import socket, {joinRoom, leaveRoom, setStatus} from "../services/socket/qr_stat
 const Qr = () => {
   const navigation: any = useNavigation();
   const user = useSelector((state: any) => state.auth.user);
-  const [roomId, setRoomId] = useState("")
+  const [roomId, setRoomId] = useState(user.phone + "_" + Date.now().toString())
 
   const [
     qrStatusSocket,
     setQrStatusSocket
   ] = useState(socket)
 
-  const navHome = () => {
-    navigation.navigate('Home')
+  const navHome = (status: any, message: any) => {
+    Alert.alert("Đỗ xe", statusState.statusMessage)
+    navigation.navigate('Home', {
+      showNotify: true,
+      notifyCode: status? status.toString(): "",
+      notifyMessage: message? message.toString(): "",
+    })
   }
 
   const [
@@ -36,7 +41,6 @@ const Qr = () => {
       useCallback(() => {
         if (isFocused) {
           console.log("vào trang")
-          setRoomId(user.phone + "_" + Date.now().toString())
         } else {
           console.log("rời trang")
           leaveRoom(roomId)
@@ -66,7 +70,7 @@ const Qr = () => {
       useCallback(() => {
         console.log("state", statusState)
         if (statusState.status == 1) {
-          navHome()
+          navHome(statusState.status, statusState.statusMessage)
         }
       }, [statusState])
   )
@@ -79,7 +83,7 @@ const Qr = () => {
           end={[0.5, 1]}
       >
         <View style={styles.qrContainer}>
-          <QrCode qrType={QRType.CHECK_IN}/>
+          <QrCode qrType={QRType.CHECK_IN} socketKey={roomId}/>
           <Line borderStyle="dashed" color={GlobalStyles.colors.lightGrey}/>
           <Text style={styles.title}>Quét mã để gửi xe</Text>
         </View>

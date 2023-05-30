@@ -23,10 +23,11 @@ export const getVehicleDetail = async (vehicleId: number | string) => {
     return data;
 };
 
-export const getCheckinParkingQr = async (phone: string) => {
+export const getCheckinParkingQr = async (socketKey: string, phone: string) => {
     const data = await postData('prc/gen-qr', {
         method: ParkingMethodId.GET_CHECKIN_PARKING_QR,
         params: {
+            socket_key: socketKey,
             phone: phone
         }
     });
@@ -34,10 +35,12 @@ export const getCheckinParkingQr = async (phone: string) => {
     return data;
 };
 
-export const getCheckoutParkingQr = async (vehicleId: string, voucherId: string) => {
+export const getCheckoutParkingQr = async (socketKey: string, phone: string, vehicleId: string, voucherId: string) => {
     const data = await postData('prc/gen-qr', {
         method: ParkingMethodId.GET_CHECKOUT_PARKING_QR,
         params: {
+            socket_key: socketKey,
+            phone: phone,
             vehicle_id: vehicleId,
             voucher_id_applying: voucherId
         },

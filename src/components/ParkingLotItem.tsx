@@ -13,15 +13,15 @@ const ParkingLotItem = ({ item, onPress }: any) => {
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: (`${item.image}` == '') ?
+                            uri: (`${item.imageUrl}` == '') ?
                             "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Fdefault.jpeg?alt=media&token=5a4190b2-24cc-485e-8d71-1673ccf4560b"
-                            : `${item.image}`,
+                            : `${item.imageUrl}`,
                         }}
                         style={styles.image}
                     />
                 </View>
                 <View style={styles.content}>
-                    <Text style={styles.title}>{item.name}</Text>
+                    <Text style={styles.title}>{item.locationName}</Text>
                     <View style={styles.descContainer}>
                         <MaterialIcons name="place" size={16} style={styles.icon} />
                         {/* <Text style={[styles.desc1, styles.desc]}>{item.distance}</Text> */}
@@ -30,7 +30,11 @@ const ParkingLotItem = ({ item, onPress }: any) => {
                 </View>
             </Pressable>
             <Entypo
-                onPress={() => navigation.navigate('Maps')}
+                onPress={() => {
+                    if (item.mapUrl && item.mapUrl != "") {
+                        window.open(item.mapUrl)
+                    }
+                }}
                 name="direction"
                 size={28}
                 color={GlobalStyles.colors.primaryOrange}

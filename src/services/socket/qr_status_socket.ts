@@ -1,6 +1,7 @@
 import {io, Socket} from "socket.io-client";
 import {ManagerOptions} from "socket.io-client/build/esm/manager";
 import {SocketOptions} from "socket.io-client/build/esm/socket";
+import {Alert} from "react-native";
 
 export const options: Partial<ManagerOptions & SocketOptions> = {
   path: "/prc/socket.io",

@@ -10,15 +10,17 @@ export const getLocations = async () => {
     return {
         "data": [
             {
-                "parkingId": "123",
-                "name": "Trung tâm thương mại GigaMall",
-                "image": "",
-                "address": "Phạm Văn Đồng, Thủ Đức, Tp Hồ Chí Minh"
+                "locationId": "123",
+                "locationName": "Trung tâm thương mại GigaMall",
+                "imageUrl": "",
+                "address": "Phạm Văn Đồng, Thủ Đức, Tp Hồ Chí Minh",
+                "mapUrl": ""
             }, {
-                "parkingId": "234",
-                "name": "Trường Đại Học Bách Khoa TP.HCM",
-                "image": "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Fnhaxebachkhoa.png?alt=media&token=e04a91ab-14e9-4c57-b4ff-1bfe434af704",
-                "address": "Dĩ An, Bình Dương"
+                "locationId": "234",
+                "locationName": "Trường Đại Học Bách Khoa TP.HCM",
+                "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Fnhaxebachkhoa.png?alt=media&token=e04a91ab-14e9-4c57-b4ff-1bfe434af704",
+                "address": "Dĩ An, Bình Dương",
+                "mapUrl": ""
             }
         ]
     }

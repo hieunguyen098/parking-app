@@ -43,12 +43,12 @@ const ListParkingLot = () => {
                             <ParkingLotItem
                                 item={item}
                                 onPress={() => {
-                                    navigation.navigate('ParkingInfo', { id: item.parkingId });
+                                    navigation.navigate('ParkingInfo', { id: item.locationId });
                                 }}
                             />
                         );
                     }}
-                    keyExtractor={(item) => item.parkingId}
+                    keyExtractor={(item) => item.locationId}
                     style={styles.contentContainer}
                 />
             )}

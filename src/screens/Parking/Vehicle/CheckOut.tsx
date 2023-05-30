@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import {StyleSheet, Text, View, ScrollView, Alert} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import {useFocusEffect, useIsFocused, useNavigation, useRoute} from '@react-navigation/native';
@@ -73,15 +73,20 @@ const CheckOut = () => {
     ]
 
     const user = useSelector((state: any) => state.auth.user);
-    const [roomId, setRoomId] = useState("")
+    const [roomId, setRoomId] = useState(user.phone + "_" + Date.now().toString())
 
     const [
         qrStatusSocket,
         setQrStatusSocket
     ] = useState(socket)
 
-    const navHome = () => {
-        navigation.navigate('Home')
+    const navHome = (status: any, message: any) => {
+        Alert.alert("Lấy xe", statusState.statusMessage)
+        navigation.navigate('Home', {
+            showNotify: true,
+            notifyCode: status? status.toString(): "",
+            notifyMessage: message? message.toString(): "",
+        })
     }
 
     const [
@@ -98,7 +103,6 @@ const CheckOut = () => {
         useCallback(() => {
             if (isFocused) {
                 console.log("vào trang")
-                setRoomId(user.phone + "_" + Date.now().toString())
             } else {
                 console.log("rời trang")
                 leaveRoom(roomId)
@@ -128,7 +132,7 @@ const CheckOut = () => {
         useCallback(() => {
             console.log("state", statusState)
             if (statusState.status == 1) {
-                navHome()
+                navHome(statusState.status, statusState.statusMessage)
             }
         }, [statusState])
     )
@@ -144,6 +148,7 @@ const CheckOut = () => {
                 <Text style={styles.title}>Quét mã để lấy xe</Text>
                 <View style={styles.qrContainer}>
                     <QrCode qrType={QRType.CHECK_OUT}
+                            socketKey={roomId}
                             vehicleId={vehicleId}
                             voucherApplying={couponApplying}
                             callback={refreshQR}/>

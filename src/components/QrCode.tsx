@@ -8,7 +8,7 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import { getCheckinParkingQr, getCheckoutParkingQr } from '../services/vehicle.api';
 import {useSelector} from "react-redux";
 
-const QrCode = ({ qrType, vehicleId = "", voucherApplying = "", updateRoom = () => {},  callback = () => {} }: { qrType: QRType, vehicleId?: string, voucherApplying?: string, updateRoom?: (...arg: any[]) => void, callback?: (...arg: any[]) => void }) => {
+const QrCode = ({ qrType, socketKey, vehicleId = "", voucherApplying = "", updateRoom = () => {},  callback = () => {} }: { qrType: QRType, socketKey: string, vehicleId?: string, voucherApplying?: string, updateRoom?: (...arg: any[]) => void, callback?: (...arg: any[]) => void }) => {
     const user = useSelector((state: any) => state.auth.user);
     const [value, setValue] = useState({
         token: '',
@@ -25,9 +25,9 @@ const QrCode = ({ qrType, vehicleId = "", voucherApplying = "", updateRoom = () 
         });
         let response;
         if (qrType === QRType.CHECK_IN) {
-            response = await getCheckinParkingQr(user.phone);
+            response = await getCheckinParkingQr(socketKey, user.phone);
         } else if (qrType === QRType.CHECK_OUT) {
-            response = await getCheckoutParkingQr(vehicleId, voucherApplying);
+            response = await getCheckoutParkingQr(socketKey, user.phone, vehicleId, voucherApplying);
         }
         if (!response?.data) {
             return;

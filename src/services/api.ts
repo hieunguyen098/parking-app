@@ -11,6 +11,7 @@ interface BodyData {
 interface Response {
     returnCode: number;
     returnMessage: string;
+    newAccessToken: string;
     data: null | any[];
 }
 

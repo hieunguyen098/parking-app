@@ -1,70 +1,15 @@
 import {LIMIT_NUMBER_OLD_NOTIFICATION, NotificationMethodId} from '../constants';
 import {postData} from './api';
 
-export const getNotifications = async (type: string) => {
+export const getNotifications = async (phone: string, type: string) => {
     console.log(type)
-    return {
-        "data": [
-            {
-                "notificationId": "123",
-                "type": "PARKING",
-                "title": "Lấy xe thành công",
-                "extraInfo": {
-                    "isHaveApi": false,
-                    "apiList": [
-                        {
-                            "api": "accept",
-                            "title": ""
-                        }
-                    ],
-                    "description": "Nhà xe Trường Đại học Bách Khoa TP. HCM"
-                },
-                "createdAt": new Date().setHours(new Date().getHours() - 1),
-            },
-            {
-                "notificationId": "234",
-                "type": "PARKING",
-                "title": "Gửi xe thành công",
-                "extraInfo": {
-                    "isHaveApi": false,
-                    "apiList": [
-                        {
-                            "api": "accept",
-                            "title": ""
-                        }
-                    ],
-                    "description": "Nhà xe Trường Đại học Bách Khoa TP. HCM"
-                },
-                "createdAt": new Date().setHours(new Date().getHours() - 3),
-            },
-            {
-                "notificationId": "134",
-                "type": "REQUEST",
-                "title": "Nguyễn Xuân Hiếu gửi yêu cầu kết bạn",
-                "extraInfo": {
-                    "isHaveApi": true,
-                    "apiList": [
-                        {
-                            "api": "accept",
-                            "title": "Chấp nhận"
-                        }, {
-                            "api": "reject",
-                            "title": "Từ chối"
-                        }
-                    ],
-                },
-                "createdAt": new Date().setHours(new Date().getHours() - 3),
-            }
-        ]
-    }
-    // const newest_id = 'abc';
-    // return await postData('notification', {
-    //     method: NotificationMethodId.GET_NEW_NOTIFICATIONS,
-    //     params: {
-    //         type,
-    //         newest_id,
-    //     },
-    // });
+    return await postData('prc/notify', {
+        method: NotificationMethodId.GET_NOTIFICATIONS,
+        params: {
+            phone,
+            type,
+        },
+    });
 };
 
 export const getOldNotifications = async (type: string) => {
