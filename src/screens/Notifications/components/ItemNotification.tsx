@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import SmallButton from '../../../components/Buttons/SmallButton';
 
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -9,6 +9,7 @@ import { NotificationType } from '../../../constants';
 import moment from 'moment';
 
 const ItemNotification = ({ item, firstItemStyle = null, lastItemStyle = null }: any) => {
+    const [message, setMessage] = useState("");
     return (
         <View key={item.notificationId} style={[styles.container, firstItemStyle, lastItemStyle]}>
             <View style={styles.iconContainer}>
@@ -22,21 +23,24 @@ const ItemNotification = ({ item, firstItemStyle = null, lastItemStyle = null }:
             </View>
             <View style={styles.mainContainer}>
                 <Text style={styles.title}>{item.title}</Text>
-                {item.extraInfo.isHaveApi ? (
+                {item.extraInfo.haveApi ? (
                     <View style={styles.buttonContainer}>
-                        {item.extraInfo.apiList.map((item: any) => {
-                            if (item.api === 'accept') {
-                                return <SmallButton key={item.api} title={item.title}></SmallButton>;
+                        {message == "" && item.extraInfo.apiList.map((apiItem: any) => {
+                            if (apiItem.title === 'Chấp nhận') {
+                                return <SmallButton key={apiItem.api} onPress={() => setMessage("Đã chấp nhận")} api={apiItem.api} title={apiItem.title}></SmallButton>;
                             } else {
                                 return (
                                     <SmallButton
-                                        key={item.api}
+                                        key={apiItem.api}
+                                        api={apiItem.api}
                                         title="Từ chối"
+                                        onPress={() => setMessage("Đã từ chối")}
                                         style={styles.negativeButton}
                                     ></SmallButton>
                                 );
                             }
                         })}
+                        {message != "" && <Text>   {message}</Text>}
                     </View>
                 ) : (
                     <Text style={styles.desc1}>{item.extraInfo.description}</Text>

@@ -5,7 +5,7 @@ import DateInput from '../../components/DateInput';
 import Select from '../../components/Select';
 import BottomButton from '../../components/Buttons/BottomButton';
 import { useQuery, useQueryClient } from 'react-query';
-import { useFocusEffect } from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import { getUser } from '../../services/user.api';
 
 const genders = [
@@ -32,6 +32,7 @@ const EditProfile = () => {
     const [email, setEmail] = useState('');
     const [gender, setGender] = useState(-1);
     const queryClient = useQueryClient();
+    const navigation: any = useNavigation();
     const {
         data: userInfo,
         isLoading,
@@ -58,6 +59,7 @@ const EditProfile = () => {
 
     const updateProfile = () => {
         console.log(birthday);
+        navigation.navigate('Account')
     };
     return (
         <>

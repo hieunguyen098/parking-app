@@ -5,8 +5,10 @@ export const getUser = async () => {
     return {
         data: [
             {
-                name: "Nguyễn Xuân Hiếu",
-                phone: "0969189947"
+                name: "Đặng Hoài Bão",
+                phone: "0969189947",
+                birthDay: "21/11/2001",
+                email: "hoaibaobtx@gmail.com"
             }
         ]
     }

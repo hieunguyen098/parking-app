@@ -65,14 +65,14 @@ const ModalExtendMonthTicket = ({ expandTicket, setExpandTicket }: any) => {
                         <View style={styles.imageContainer}>
                             <Image
                                 source={{
-                                    uri: `https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG`,
+                                    uri: `https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Ftrung-tam-thuong-m-i.jpg?alt=media&token=8190218c-a3ce-4066-bbc5-205e0843302e&_gl=1*1wpszmj*_ga*ODAyODIyNzUuMTY4MzE3ODk2Mw..*_ga_CW55HF8NVT*MTY4NTQ1NTk1MC44LjEuMTY4NTQ1NTk1Ni4wLjAuMA..`,
                                 }}
                                 style={styles.image}
                             />
                         </View>
                         <View style={styles.content}>
                             <Text style={{ fontSize: 16, fontWeight: '500', color: GlobalStyles.colors.lightBlack }}>
-                                {'Nhà xe trường đại học Bách Khoa TP. HCM'}
+                                {'Trung tâm thương mại GigaMall'}
                             </Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
                                 <Text style={{ marginRight: 12 }}>Số tháng</Text>

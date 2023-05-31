@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import {Image, Linking, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -32,7 +32,7 @@ const ParkingLotItem = ({ item, onPress }: any) => {
             <Entypo
                 onPress={() => {
                     if (item.mapUrl && item.mapUrl != "") {
-                        window.open(item.mapUrl)
+                        Linking.openURL(item.mapUrl)
                     }
                 }}
                 name="direction"

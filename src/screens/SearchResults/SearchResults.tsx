@@ -9,9 +9,7 @@ const SearchResults = () => {
     return (
         <View style={styles.container}>
             <View style={styles.searchInputContainer}>
-                <SearchInput placeholder="Tìm kiếm nhà xe" />
-
-                <Text style={styles.cancelText}>Hủy</Text>
+                <Text style={styles.cancelText}></Text>
             </View>
             <SearchResultList />
         </View>

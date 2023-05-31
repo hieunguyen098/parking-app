@@ -36,7 +36,7 @@ const DetailMonthTicket = () => {
                             />
                         </View>
                         <View style={styles.content}>
-                            <Text style={styles.title}>{'Trung tâm thuong mại GigaMall'}</Text>
+                            <Text style={styles.title}>{'Trung tâm thương mại GigaMall'}</Text>
                             <SmallButton
                                 title={'Tặng'}
                                 style={{ width: 80, marginLeft: 'auto' }}
@@ -44,9 +44,9 @@ const DetailMonthTicket = () => {
                             />
                         </View>
                     </View>
-                    <FieldValue fieldName="Địa chỉ" value="Dĩ An, Bình Dương" />
-                    <FieldValue fieldName="Ngày mua" value="01/09/2023" />
-                    <FieldValue fieldName="Có giá trị đến hết ngày" value="31/12/2023" />
+                    <FieldValue fieldName="Địa chỉ" value="Phạm Văn Đồng, Thủ Đức, TP. HCM" />
+                    <FieldValue fieldName="Ngày mua" value="26/05/2023" />
+                    <FieldValue fieldName="Có giá trị đến hết ngày" value="26/06/2023" />
                 </View>
             </View>
             <BottomButton title="Gia hạn" onPress={handleExpandTicket} />

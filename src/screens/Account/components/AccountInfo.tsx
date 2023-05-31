@@ -39,7 +39,7 @@ const AccountInfo = () => {
                 <View style={styles.innerContainer}>
                     <Image
                         source={{
-                            uri: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2F17523016_774532709394454_941232164224933694_n.jpg?alt=media&token=f2a9ac4e-5be6-4a1f-8112-eb9755c78086',
+                            uri: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2Favatar.jpeg?alt=media&token=3607beec-a976-4f4a-8281-914df282be47&_gl=1*gapg9j*_ga*ODAyODIyNzUuMTY4MzE3ODk2Mw..*_ga_CW55HF8NVT*MTY4NTQ1Mzk5OC43LjEuMTY4NTQ1NDAyOC4wLjAuMA..',
                         }}
                         style={styles.avatar}
                     />
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     phone: {
-        width: 130,
+        width: 135,
         marginRight: 10,
         fontSize: 16,
     },

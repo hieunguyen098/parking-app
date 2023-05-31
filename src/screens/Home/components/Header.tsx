@@ -22,7 +22,7 @@ const Header = () => {
                         }}
                     >
                         <Ionicons name="notifications-circle" size={38} color="rgba(0,0,0,0.3)" />
-                        <Text style={styles.badge}>3</Text>
+                        {/*<Text style={styles.badge}>3</Text>*/}
                     </Pressable>
                     <Image
                         source={{

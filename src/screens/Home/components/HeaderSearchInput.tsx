@@ -12,7 +12,7 @@ const HeaderSearchInput = () => {
         navigation.navigate('SearchResults');
     };
 
-    return <SearchInput placeholder="Tìm kiếm bãi đỗ" onSearch={handleSearch} />;
+    return <SearchInput placeholder="Tìm kiếm" onSearch={handleSearch} />;
 };
 
 export default HeaderSearchInput;

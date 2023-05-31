@@ -17,7 +17,7 @@ const Parking = () => {
                 tabBarInactiveTintColor: GlobalStyles.colors.secondary,
                 tabBarScrollEnabled: true,
                 tabBarItemStyle: {
-                    width: (1 / 3) * width,
+                    width: (1 / 2) * width,
                 },
                 tabBarPressColor: GlobalStyles.colors.primaryOrange,
                 lazy: true,
@@ -38,13 +38,6 @@ const Parking = () => {
                 component={MonthTicket}
                 options={{
                     title: 'Vé tháng',
-                }}
-            />
-            <Tab.Screen
-                name="Vehicle"
-                component={Vehicle}
-                options={{
-                    title: 'Xe gửi',
                 }}
             />
         </Tab.Navigator>

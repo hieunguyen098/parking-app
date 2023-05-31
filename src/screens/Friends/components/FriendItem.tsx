@@ -1,18 +1,19 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import { AntDesign } from '@expo/vector-icons';
 
 const FriendItem = ({ item, section, handleFriendRequest }: any) => {
+    const [requested, setRequested] = useState(false)
     return (
         <View style={styles.container}>
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
-                        uri: `${item.avatar}` == '' ?
+                        uri: `${item.imageUrl}` == '' ?
                         "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2Fdefault-avatar.png?alt=media&token=621d5022-1f49-4428-98c3-80afca549ed9"
-                        : `${item.avatar}`,
+                        : `${item.imageUrl}`,
                     }}
                     style={styles.avatar}
                 />
@@ -28,10 +29,13 @@ const FriendItem = ({ item, section, handleFriendRequest }: any) => {
                     style={styles.seeMoreIcon}
                 />
             ) : (
-                <SmallButton title={item.friendRequested ? "Đã gửi lời mời" : "Kết bạn"}
-                             style={item.friendRequested ? {backgroundColor: "gray"} : {}}
-                             onPress={item.friendRequested ? () => {}
-                                 : () => handleFriendRequest(item.phone) }/>
+                <SmallButton title={requested ? "Đã gửi lời mời" : "Kết bạn"}
+                             style={requested ? {backgroundColor: "gray"} : {}}
+                             onPress={requested ? () => {}
+                                 : () => {
+                                 handleFriendRequest(item.userId);
+                                 setRequested(true);
+                                 } }/>
             )}
         </View>
     );

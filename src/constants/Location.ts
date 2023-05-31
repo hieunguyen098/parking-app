@@ -1,4 +1,4 @@
 export enum LocationMethod {
-    GET_LOCATIONS = 'get_locations',
-    GET_LOCATION = 'get_location',
+    GET_LOCATIONS = 'get-locations',
+    GET_LOCATION = 'get-location-detail',
 }

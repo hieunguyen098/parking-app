@@ -1,5 +1,5 @@
-import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import {Alert, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
 
 import ImageCarousel from './components/ImageCarousel';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -23,18 +23,34 @@ const MonthTicketSubscribe = () => {
             return getLocationDetail(idLocation);
         },
         retry: false,
-        select: (data) => data.data,
+        select: (data) => data.data? data.data[0] : null,
     });
 
+    const [subscribed, setSubscribed] = useState(false);
+
+    const [number, setNumber] = React.useState('');
+
+
+    const handleSubscribe = () => {
+        if (!subscribed) {
+            if (number == '') {
+                Alert.alert("", "Chưa nhập số tháng");
+                setSubscribed(false)
+            } else {
+                setSubscribed(true)
+
+            }
+        }
+    }
     return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
             {!isLoading && locationDetail && (
                 <ScrollView style={{ flex: 1 }}>
-                    <ImageCarousel images={locationDetail.images} />
-                    <TicketSubscribeContent locationDetail={locationDetail} />
+                    <ImageCarousel images={[locationDetail.imageUrl]} />
+                    <TicketSubscribeContent locationDetail={locationDetail} number={number} setNumber={setNumber}/>
                 </ScrollView>
             )}
-            <BottomButton title="Đăng ký" onPress={() => {}} />
+            <BottomButton title={ subscribed? "Đã gửi đăng ký" : "Đăng ký" } onPress={handleSubscribe} />
         </KeyboardAvoidingView>
     );
 };
