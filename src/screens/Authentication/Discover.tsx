@@ -11,6 +11,7 @@ import { validatePhoneNumber } from '../../utils/validation';
 import { discover } from '../../services/auth.api';
 import * as SecureStore from 'expo-secure-store';
 import { getAccount, removeAccount } from '../../utils/account.helper';
+import { generalActions } from '../../../store/slices/generalSlice';
 
 const Discover = () => {
     const [phone, setPhone] = useState('');

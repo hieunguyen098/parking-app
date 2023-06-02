@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View, ScrollView, Alert} from 'react-native';
-import React, {useCallback, useEffect, useState} from 'react';
+import { StyleSheet, Text, View, ScrollView, Alert } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
-import {useFocusEffect, useIsFocused, useNavigation, useRoute} from '@react-navigation/native';
+import { useFocusEffect, useIsFocused, useNavigation, useRoute } from '@react-navigation/native';
 import { GlobalStyles } from '../../../constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import Line from '../../../components/Line';
@@ -9,10 +9,11 @@ import QrCode from '../../../components/QrCode';
 import FieldValue from '../../../components/FieldValue';
 import CouponUsing from '../../../components/CouponUsing';
 import { QRType } from '../../../constants';
-import {useQuery, useQueryClient} from "react-query";
-import {getVehicleDetail} from "../../../services/vehicle.api";
-import {useSelector} from "react-redux";
-import socket, {joinRoom, leaveRoom, setStatus} from "../../../services/socket/qr_status_socket";
+import { useQuery, useQueryClient } from 'react-query';
+import { getVehicleDetail } from '../../../services/vehicle.api';
+import { useDispatch, useSelector } from 'react-redux';
+import socket, { joinRoom, leaveRoom, setStatus } from '../../../services/socket/qr_status_socket';
+import { generalActions } from '../../../../store/slices/generalSlice';
 
 const CheckOut = () => {
     const route: any = useRoute();
@@ -21,26 +22,25 @@ const CheckOut = () => {
     const goBack = () => {
         navigation.goBack();
     };
+    const dispatch = useDispatch();
+
     const [value, setValue] = useState('');
     const [loading, setLoading] = useState(false);
     const queryClient = useQueryClient();
 
-    const {
-        data: vehicleDetail,
-        refetch
-    } = useQuery({
+    const { data: vehicleDetail, refetch } = useQuery({
         queryKey: ['vehicleCheckOut', vehicleId],
         queryFn: () => {
             return getVehicleDetail(vehicleId);
         },
-        retry: failureCount => (failureCount < 3),
+        retry: (failureCount) => failureCount < 3,
         select: (data) => {
-            return (data.data && data.data.length > 0) ? data.data[0] : null;
+            return data.data && data.data.length > 0 ? data.data[0] : null;
         },
     });
 
     const refreshQR = () => {
-        refetch().then()
+        refetch().then();
         setLoading(true);
         const today = new Date();
         setValue(today.toISOString());
@@ -48,12 +48,17 @@ const CheckOut = () => {
     };
 
     const formatCash = (str: any) => {
-        return String(str).split('').reverse().reduce((prev, next, index) => {
-            return ((index % 3) ? next : (next + ',')) + prev
-        }) + " vnđ"
-    }
+        return (
+            String(str)
+                .split('')
+                .reverse()
+                .reduce((prev, next, index) => {
+                    return (index % 3 ? next : next + ',') + prev;
+                }) + ' vnđ'
+        );
+    };
 
-    const [couponApplying, setCouponApplying] = useState("")
+    const [couponApplying, setCouponApplying] = useState('');
 
     useEffect(() => {
         refreshQR();
@@ -62,80 +67,81 @@ const CheckOut = () => {
     // TODO
     const CPLIST = [
         {
-            voucherId: "1",
+            voucherId: '1',
         },
         {
-            voucherId: "2",
+            voucherId: '2',
         },
         {
-            voucherId: "3",
-        }
-    ]
+            voucherId: '3',
+        },
+    ];
 
     const user = useSelector((state: any) => state.auth.user);
-    const [roomId, setRoomId] = useState(user.phone + "_" + Date.now().toString())
+    const [roomId, setRoomId] = useState(user.phone + '_' + Date.now().toString());
 
-    const [
-        qrStatusSocket,
-        setQrStatusSocket
-    ] = useState(socket)
+    const [qrStatusSocket, setQrStatusSocket] = useState(socket);
 
     const navHome = (status: any, message: any) => {
-        Alert.alert("Lấy xe", statusState.statusMessage)
+        // Alert.alert("Lấy xe", statusState.statusMessage)
+        dispatch(
+            generalActions.showAlert({
+                isSuccess: true,
+                title: 'Lấy xe',
+                description: 'Chúc mừng bạn đã lấy xe thành công',
+            }),
+        );
         navigation.navigate('Home', {
             showNotify: true,
-            notifyCode: status? status.toString(): "",
-            notifyMessage: message? message.toString(): "",
-        })
-    }
+            notifyCode: status ? status.toString() : '',
+            notifyMessage: message ? message.toString() : '',
+        });
+    };
 
-    const [
-        statusState,
-        setStatusState
-    ] = useState({
+    const [statusState, setStatusState] = useState({
         status: undefined,
-        statusMessage: undefined
-    })
+        statusMessage: undefined,
+    });
 
     const isFocused = useIsFocused();
 
     useFocusEffect(
         useCallback(() => {
             if (isFocused) {
-                console.log("vào trang")
+                console.log('vào trang');
             } else {
-                console.log("rời trang")
-                leaveRoom(roomId)
-                setRoomId("")
+                console.log('rời trang');
+                leaveRoom(roomId);
+                setRoomId('');
                 setStatusState({
                     status: undefined,
-                    statusMessage: undefined
-                })
+                    statusMessage: undefined,
+                });
             }
-        }, [isFocused])
-    )
+        }, [isFocused]),
+    );
 
     useFocusEffect(
         useCallback(() => {
-            if (roomId != "") {
-                console.log("mã phòng", roomId)
-                qrStatusSocket.connect()
+            if (roomId != '') {
+                console.log('mã phòng', roomId);
+                qrStatusSocket.connect();
                 setTimeout(() => {
-                    joinRoom(roomId)
-                }, 1000)
-                setStatus(setStatusState, roomId)
+                    joinRoom(roomId);
+                }, 1000);
+                setStatus(setStatusState, roomId);
             }
-        }, [roomId])
-    )
+        }, [roomId]),
+    );
 
     useFocusEffect(
         useCallback(() => {
-            console.log("state", statusState)
+            console.log('state', statusState);
             if (statusState.status == 1) {
-                navHome(statusState.status, statusState.statusMessage)
+                navHome(statusState.status, statusState.statusMessage);
             }
-        }, [statusState])
-    )
+        }, [statusState]),
+    );
 
     return (
         <>
@@ -147,17 +153,26 @@ const CheckOut = () => {
             >
                 <Text style={styles.title}>Quét mã để lấy xe</Text>
                 <View style={styles.qrContainer}>
-                    <QrCode qrType={QRType.CHECK_OUT}
-                            socketKey={roomId}
-                            vehicleId={vehicleId}
-                            voucherApplying={couponApplying}
-                            callback={refreshQR}/>
-                    { vehicleDetail && <>
-                        <Line borderStyle="dashed" color={GlobalStyles.colors.lightGrey} />
-                        <FieldValue fieldName="Biển số" value={vehicleDetail.licensePlate} />
-                        <FieldValue fieldName="Tổng thời gian" value={`${String(vehicleDetail.duration.hours).padStart(2, '0')} giờ ${String(vehicleDetail.duration.minutes).padStart(2, '0')} phút`} />
-                        <FieldValue fieldName="Chi phí tạm tính" value={"0 vnđ (Đã đăng ký vé tháng)"} />
-                    </>}
+                    <QrCode
+                        qrType={QRType.CHECK_OUT}
+                        socketKey={roomId}
+                        vehicleId={vehicleId}
+                        voucherApplying={couponApplying}
+                        callback={refreshQR}
+                    />
+                    {vehicleDetail && (
+                        <>
+                            <Line borderStyle="dashed" color={GlobalStyles.colors.lightGrey} />
+                            <FieldValue fieldName="Biển số" value={vehicleDetail.licensePlate} />
+                            <FieldValue
+                                fieldName="Tổng thời gian"
+                                value={`${String(vehicleDetail.duration.hours).padStart(2, '0')} giờ ${String(
+                                    vehicleDetail.duration.minutes,
+                                ).padStart(2, '0')} phút`}
+                            />
+                            <FieldValue fieldName="Chi phí tạm tính" value={'0 vnđ (Đã đăng ký vé tháng)'} />
+                        </>
+                    )}
                 </View>
                 {/*{ CPLIST && CPLIST.length > 0 &&*/}
                 {/*    <>*/}
@@ -178,7 +193,6 @@ const CheckOut = () => {
                 {/*    </View>*/}
                 {/*    </>*/}
                 {/*}*/}
-
             </LinearGradient>
             <BottomButton onPress={goBack} style={styles.bottomButton} type="secondary" title="Quay lại" />
         </>

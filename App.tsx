@@ -24,6 +24,7 @@ import DetailMonthTicket from './src/screens/Parking/MonthTicket/DetailMonthTick
 import MonthTicketSubscribe from './src/screens/ParkingInfo/MonthTicketSubscribe';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyles } from './src/constants';
+import PopupStatus from './src/screens/PopupStatus';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,7 @@ export default function App() {
             <QueryClientProvider client={queryClient}>
                 <Provider store={store}>
                     <StatusBar style="dark" />
+                    <PopupStatus isSuccess={true} title="Thành công" description="Chúc mừng bạn đã đỗ xe thành công!" />
                     {loading ? (
                         <Loading />
                     ) : (
