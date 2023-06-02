@@ -1,18 +1,26 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import { GlobalStyles } from '../constants';
 import Line from './Line';
 
-const CouponUsing = () => {
+const CouponUsing = ({id, isApplying = false, setApplying = () => {}}: { id: string, isApplying?: boolean, setApplying?: (...arg: any[]) => void }) => {
     return (
-        <View style={styles.container}>
+        <View key={id} style={styles.container}>
             <View style={styles.detail}>
                 <Text style={styles.title}>Giảm 100%</Text>
                 <Text style={styles.duedate}>HSD: 10/12/2023</Text>
             </View>
             <Line type="vertical" borderStyle="dashed" color={GlobalStyles.colors.lightGrey} />
-            <Pressable android_ripple={{ color: '#d3d3d3' }}>
-                <Text style={styles.useButton}>Dùng</Text>
+            <Pressable android_ripple={{ color: '#d3d3d3' }} onPress={
+                () => {
+                    if (isApplying) {
+                        setApplying("")
+                    } else {
+                        setApplying(id)
+                    }
+                }
+            }>
+                <Text style={styles.useButton}>{isApplying ? "Đang áp dụng" : "Áp dụng"}</Text>
             </Pressable>
         </View>
     );
@@ -25,7 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 20,
         flexDirection: 'row',
-        width: 180,
+        minWidth: 100,
         paddingVertical: 15,
         justifyContent: 'space-evenly',
         alignItems: 'center',
@@ -46,6 +54,7 @@ const styles = StyleSheet.create({
         fontSize: 13,
     },
     detail: {
-        paddingLeft: 10,
+        paddingLeft: 15,
+        paddingRight: 10,
     },
 });

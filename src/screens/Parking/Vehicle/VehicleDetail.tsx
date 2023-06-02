@@ -1,9 +1,8 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { GlobalStyles } from '../../../constants';
 import { LinearGradient } from 'expo-linear-gradient';
-import LargeButton from '../../../components/Buttons/LargeButton';
-import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import FieldValue from '../../../components/FieldValue';
 import moment from 'moment';
@@ -24,15 +23,19 @@ const VehicleDetail = () => {
             return getVehicleDetail(idItem);
         },
         retry: false,
-        select: (data) => (data.data ? data.data[0] : null),
+        select: (data) => {
+            return (data.data && data.data.length > 0) ? data.data[0] : null;
+        },
     });
 
     const formattedDate = (dateString: string) => {
-        return moment(dateString).format('HH:mm DD/MM/YYYY ');
+        return moment(dateString).format('HH:mm DD/MM/YYYY');
     };
     const navigation: any = useNavigation();
     const checkOut = () => {
-        navigation.navigate('CheckOut');
+        navigation.navigate('CheckOut', {
+            vehicleId: idItem
+        });
     };
 
     if (error)
@@ -59,15 +62,17 @@ const VehicleDetail = () => {
                             <View style={[styles.elementOne, styles.rounded]} />
                         </LinearGradient>
                         <View style={[styles.elementTwo, styles.rounded]} />
-                        <Text style={styles.timer}>
-                            {vehicleDetail.time_parked.hours}h : {vehicleDetail.time_parked.minutes}p
-                        </Text>
+                        <CounterTimer
+                            hours={vehicleDetail.duration.hours}
+                            minutes={vehicleDetail.duration.minutes}
+                            seconds={vehicleDetail.duration.seconds}
+                        />
                     </View>
                     <View style={styles.detailParking}>
-                        <FieldValue fieldName="Bãi đỗ xe" value={vehicleDetail.location.name} />
+                        <FieldValue fieldName="Bãi đỗ xe" value={vehicleDetail.location.locationName} />
                         <FieldValue fieldName="Địa chỉ" value={vehicleDetail.location.address} />
-                        <FieldValue fieldName="Biển số" value={vehicleDetail.license_plates} />
-                        <FieldValue fieldName="Thời gian vào" value={formattedDate(vehicleDetail.time_in)} />
+                        <FieldValue fieldName="Biển số" value={vehicleDetail.licensePlate} />
+                        <FieldValue fieldName="Thời gian vào" value={formattedDate(vehicleDetail.entryTime)} />
                     </View>
                 </View>
             )}
@@ -75,6 +80,40 @@ const VehicleDetail = () => {
         </View>
     );
 };
+
+const CounterTimer = ({hours, minutes, seconds}: any) => {
+    const [duration, setDuration] = useState({
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+    })
+
+    useEffect(() => {
+        const timerId = setInterval((duration) => {
+            try {
+                const seconds = (duration.seconds + 1) % 60
+                const minutes = (duration.minutes +
+                    Math.floor((duration.seconds + 1)/60)) % 60
+                const hours = duration.hours +
+                    Math.floor((duration.minutes +
+                        Math.floor((duration.seconds + 1)/60))/60)
+                setDuration({
+                    hours: hours,
+                    minutes: minutes,
+                    seconds: seconds,
+                })
+            } catch (e) {
+                clearInterval(timerId);
+            }
+        }, 1000, duration);
+        return () => {
+            clearInterval(timerId);
+        };
+    }, [duration]);
+    return <Text style={styles.timer}>
+        {String(duration.hours).padStart(2,'0')}h : {String(duration.minutes).padStart(2,'0')}p : {String(duration.seconds).padStart(2,'0')}s
+    </Text>
+}
 
 export default VehicleDetail;
 
@@ -110,7 +149,7 @@ const styles = StyleSheet.create({
     timer: {
         position: 'absolute',
         zIndex: 2,
-        fontSize: 40,
+        fontSize: 25,
         fontWeight: '600',
         color: GlobalStyles.colors.lightBlack,
     },

@@ -1,80 +1,14 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import MonthTicketItem from '../../../components/MonthTicketItem';
 
 const data = [
     {
-        key: '0',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Trường Đại học Bách Khoa TP.HCM',
-        duedate: '31/12/2023',
-    },
-    {
         key: '1',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão 2',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '2',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '3',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão 2',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '4',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '5',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão 2',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '6',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '7',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão 2',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '8',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '9',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão 2',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '10',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão',
-        duedate: '31/12/2023',
-    },
-    {
-        key: '11',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Blue_Disc_Parking_Area_Markings_Blue_Paint.JPG',
-        name: 'Nhà xe Hoài Bão 2',
-        duedate: '31/12/2023',
-    },
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Ftrung-tam-thuong-m-i.jpg?alt=media&token=8190218c-a3ce-4066-bbc5-205e0843302e',
+        name: 'Trung tâm thuong mại GigaMall',
+        duedate: '26/06/2023',
+    }
 ];
 
 const ListMonthTicket = () => {
@@ -89,6 +23,13 @@ const ListMonthTicket = () => {
         />
     );
 };
+
+const Test = () => {
+    useEffect(() => {
+
+    },[])
+    return <Text>Hello</Text>
+}
 
 export default ListMonthTicket;
 

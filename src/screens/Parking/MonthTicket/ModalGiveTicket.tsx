@@ -149,12 +149,10 @@ const result = {
     data: [
         {
             id: '0',
-            name: 'Cao Thanh Bình',
+            name: 'Nguyễn Xuân Hiếu',
+            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2F17523016_774532709394454_941232164224933694_n.jpg?alt=media&token=f2a9ac4e-5be6-4a1f-8112-eb9755c78086'
         },
-        {
-            id: '1',
-            name: 'Đặng Hoài Bão',
-        },
+
         // {
         //     id: '2',
         //     name: 'Cao Thanh Bình'
@@ -183,12 +181,13 @@ const result = {
 };
 
 const FriendItem = ({ item }: any) => {
+    const [color, setColor] = useState("white");
     return (
-        <View style={styles.itemContainer}>
+        <View style={[styles.itemContainer, {backgroundColor: color}]}>
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
-                        uri: `${item.avatar}`,
+                        uri: `${item.imageUrl}`,
                     }}
                     style={styles.avatar}
                 />
@@ -198,6 +197,7 @@ const FriendItem = ({ item }: any) => {
             </View>
             {true ? (
                 <AntDesign
+                    onPress={() => setColor("#e7dbbb")}
                     name="doubleright"
                     size={12}
                     color={GlobalStyles.colors.primaryOrange}

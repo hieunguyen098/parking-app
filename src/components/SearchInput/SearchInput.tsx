@@ -1,13 +1,15 @@
 import { StyleSheet, View, TextInput } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import React from 'react';
+import React, {useState} from 'react';
 import { GlobalStyles } from '../../constants';
 
-const SearchInput = ({ placeholder, style, onSearch }: any) => {
+const SearchInput = ({ placeholder, style, onSearch, setSearchKey = (key: any) => {} }: any) => {
     const handleSearch = () => {
         onSearch();
     };
+
+    const [value, setValue] = useState('')
 
     return (
         <View style={styles.searchContainer}>
@@ -16,6 +18,26 @@ const SearchInput = ({ placeholder, style, onSearch }: any) => {
                 style={[styles.inputSearch, style]}
                 placeholder={placeholder}
                 placeholderTextColor={GlobalStyles.colors.primaryOrange}
+                blurOnSubmit={true}
+                defaultValue={''}
+                onChangeText={
+                    (text) => {
+                        setSearchKey(text)
+                        setValue(text)
+                    }
+                }
+                onSubmitEditing={
+                    (e) => {
+                        console.log(e.nativeEvent.text)
+                        handleSearch()
+                    }
+                }
+                onBlur={
+                    () => {
+                        setValue('')
+                    }
+                }
+                value={value}
             />
         </View>
     );

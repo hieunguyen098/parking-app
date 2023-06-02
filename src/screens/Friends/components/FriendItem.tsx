@@ -1,22 +1,25 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import { AntDesign } from '@expo/vector-icons';
 
-const FriendItem = ({ item, section }: any) => {
+const FriendItem = ({ item, section, handleFriendRequest }: any) => {
+    const [requested, setRequested] = useState(false)
     return (
         <View style={styles.container}>
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
-                        uri: `${item.avatar}`,
+                        uri: `${item.imageUrl}` == '' ?
+                        "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2Fdefault-avatar.png?alt=media&token=621d5022-1f49-4428-98c3-80afca549ed9"
+                        : `${item.imageUrl}`,
                     }}
                     style={styles.avatar}
                 />
             </View>
             <View style={styles.contentContainer}>
-                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.name}>{item.fullName}</Text>
             </View>
             {section === 'Bạn bè' ? (
                 <AntDesign
@@ -26,7 +29,13 @@ const FriendItem = ({ item, section }: any) => {
                     style={styles.seeMoreIcon}
                 />
             ) : (
-                <SmallButton title="Kết bạn" />
+                <SmallButton title={requested ? "Đã gửi lời mời" : "Kết bạn"}
+                             style={requested ? {backgroundColor: "gray"} : {}}
+                             onPress={requested ? () => {}
+                                 : () => {
+                                 handleFriendRequest(item.userId);
+                                 setRequested(true);
+                                 } }/>
             )}
         </View>
     );

@@ -14,7 +14,7 @@ const OnboardingItem = ({ item }: { item: ItemProps }) => {
     return (
         <View style={[styles.container, { width }]}>
             <View style={[styles.image, { width }]}>
-                <Image style={{ width, resizeMode: 'contain' }} source={item.image} />
+                <Image style={{ borderRadius: 10, width: 300, height: 300, resizeMode: 'contain' }} source={item.image} />
             </View>
             <View style={{ flex: 0.3 }}>
                 <Text style={styles.title}>{item.title}</Text>
@@ -27,6 +27,8 @@ const OnboardingItem = ({ item }: { item: ItemProps }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        display: "flex",
+        flexDirection: "column",
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: StatusBar.currentHeight,
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: '800',
-        fontSize: 28,
+        fontSize: 35,
         marginBottom: 10,
         color: GlobalStyles.colors.primaryOrange,
         textAlign: 'center',

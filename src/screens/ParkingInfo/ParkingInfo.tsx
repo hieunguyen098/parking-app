@@ -21,7 +21,7 @@ const ParkingInfo = () => {
             return getLocationDetail(idLocation);
         },
         retry: false,
-        select: (data) => data.data,
+        select: (data) => (data.data && data.data.length > 0) ? data.data[0] : null,
     });
 
     return (
@@ -31,7 +31,7 @@ const ParkingInfo = () => {
                     <ActivityIndicator size="large" />
                 </View>
             )}
-            {!isLoading && locationDetail.images.length > 0 && <ImageCarousel images={locationDetail.images} />}
+            {!isLoading && locationDetail && locationDetail.imageUrl.length > 0 && <ImageCarousel images={[locationDetail.imageUrl]} />}
             {!isLoading && locationDetail && <ParkingContent locationDetail={locationDetail} />}
         </ScrollView>
     );

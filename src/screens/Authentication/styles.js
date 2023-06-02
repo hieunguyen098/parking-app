@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
         marginBottom: 24,
         borderRadius: 100,
     },
+    disableButton: {
+        marginBottom: 24,
+        borderRadius: 100,
+        backgroundColor: "#939393"
+    },
     avatar: {
         width: 150,
         height: 150,

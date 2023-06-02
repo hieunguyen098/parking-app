@@ -26,8 +26,6 @@ const CreatePassword = () => {
         });
         if (data.returnCode > 0) {
             navigation.navigate('PhoneVerification');
-        } else {
-            console.log(data);
         }
     };
     return (

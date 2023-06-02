@@ -10,7 +10,7 @@ const TicketSubscribeHeader = ({ locationDetail }: any) => {
         <>
             <View style={styles.container}>
                 <View style={styles.leftContainer}>
-                    <Text style={styles.title}>{locationDetail.name}</Text>
+                    <Text style={styles.title}>{locationDetail.locationName}</Text>
                     <Text style={styles.subText}>{locationDetail.address}</Text>
                 </View>
             </View>

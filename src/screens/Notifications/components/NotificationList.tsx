@@ -12,7 +12,7 @@ const NotificationList = ({ notifications, lazyLoad, loading }: any) => {
                     if (index === 0)
                         return (
                             <ItemNotification
-                                key={item.id}
+                                key={item.notificationId}
                                 item={item}
                                 firstItemstyle={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
                             />
@@ -20,14 +20,14 @@ const NotificationList = ({ notifications, lazyLoad, loading }: any) => {
                     else if (index === notifications.length - 1)
                         return (
                             <ItemNotification
-                                key={item.id}
+                                key={item.notificationId}
                                 item={item}
                                 lastItemStyle={{ borderBottomLeftRadius: 8, borderBottomRightRadius: 8 }}
                             />
                         );
-                    else return <ItemNotification key={item.id} item={item} />;
+                    else return <ItemNotification key={item.notificationId} item={item} />;
                 }}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.notificationId}
                 style={styles.innerContainer}
                 contentContainerStyle={styles.contentContainer}
                 onEndReached={lazyLoad}

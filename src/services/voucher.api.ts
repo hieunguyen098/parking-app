@@ -1,9 +1,10 @@
-import { ParkingMethodId } from '../constants';
-import { postData } from '../services/api';
+import {ParkingMethodId} from '../constants';
+import {postData} from './api';
 
 export const getListVouchers = async () => {
-    const response = await postData('vouchers', {
+    const data = await postData('prc/voucher', {
         method: ParkingMethodId.GET_VOUCHERS,
     });
-    return response;
+    console.log(data)
+    return data;
 };

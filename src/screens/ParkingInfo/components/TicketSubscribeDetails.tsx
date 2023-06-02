@@ -5,8 +5,7 @@ import { GlobalStyles } from '../../../constants';
 import FieldInput from '../../../components/FieldInput';
 import BottomButton from '../../../components/Buttons/BottomButton';
 
-const TicketSubscribeDetails = ({ locationDetail }: any) => {
-    const [number, setNumber] = React.useState('');
+const TicketSubscribeDetails = ({ locationDetail, number, setNumber }: any) => {
 
     return (
         <View style={styles.container}>
@@ -21,13 +20,13 @@ const TicketSubscribeDetails = ({ locationDetail }: any) => {
                 placeHolder="Nhập số tháng muốn đăng ký"
                 keyboardType="numeric"
             />
-            <View style={styles.dateWrapper}>
-                <Text style={styles.title}>Thời hạn sử dụng:</Text>
-                <Text style={styles.info}>
-                    Từ ngày <Text style={styles.date}>01/01/2023</Text> đến hết ngày{' '}
-                    <Text style={styles.date}>31/03/2023.</Text>
-                </Text>
-            </View>
+            {/*<View style={styles.dateWrapper}>*/}
+            {/*    <Text style={styles.title}>Thời hạn sử dụng: 1 tháng</Text>*/}
+            {/*    <Text style={styles.info}>*/}
+            {/*        Từ ngày <Text style={styles.date}>01/01/2023</Text> đến hết ngày{' '}*/}
+            {/*        <Text style={styles.date}>31/03/2023.</Text>*/}
+            {/*    </Text>*/}
+            {/*</View>*/}
         </View>
     );
 };

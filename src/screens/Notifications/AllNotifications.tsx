@@ -3,9 +3,15 @@ import React from 'react';
 import NotificationList from './components/NotificationList';
 import { NotificationType } from '../../constants';
 import { useFetchNotification } from '../../hooks';
+import {useSelector} from "react-redux";
 
 const AllNotifications = () => {
-    const [loading, notifications, lazyLoad] = useFetchNotification(NotificationType.ALL);
+    const [
+        loading,
+        notifications,
+        lazyLoad
+    ]
+        = useFetchNotification(NotificationType.ALL);
 
     return (
         <View style={styles.container}>

@@ -3,11 +3,11 @@ import React from 'react';
 import TicketSubscribeHeader from './TicketSubscribeHeader';
 import TicketSubscribeDetails from './TicketSubscribeDetails';
 
-const TicketSubscribeContent = ({ locationDetail }: any) => {
+const TicketSubscribeContent = ({ locationDetail, number, setNumber }: any) => {
     return (
         <View style={styles.container}>
             <TicketSubscribeHeader locationDetail={locationDetail} />
-            <TicketSubscribeDetails locationDetail={locationDetail} />
+            <TicketSubscribeDetails locationDetail={locationDetail} number={number} setNumber={setNumber}/>
         </View>
     );
 };

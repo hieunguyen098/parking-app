@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import ParkingInfoHeader from './ParkingInfoHeader';
 import ParkingInfoDetail from './ParkingInfoDetail';
@@ -10,21 +10,22 @@ const ParkingContent = ({ locationDetail }: any) => {
     return (
         <View style={styles.container}>
             <ParkingInfoHeader
-                id={locationDetail.id}
-                title={locationDetail.name}
+                id={locationDetail.locationId}
+                title={locationDetail.locationName}
                 address={locationDetail.address}
                 timeStart={locationDetail.timeStart}
                 timeEnd={locationDetail.timeEnd}
             />
             <ExpandableItem title="Thông tin chi tiết">
+                <Text style={{fontSize: 15, fontWeight: "bold"}}>{`Trạng thái nhà xe: ${locationDetail.currentSlot}  / ${locationDetail.maxSlot}`}</Text>
                 <ParkingInfoDetail description={locationDetail.description as string} />
             </ExpandableItem>
             <ExpandableItem title={'Giá vé'}>
                 <ParkingTicketPrice priceTicket={locationDetail.priceTicket} />
             </ExpandableItem>
-            <ExpandableItem title={'Biểu đồ hoạt động theo giờ'}>
-                <ParkingWorking dataChart={locationDetail.hourChart} />
-            </ExpandableItem>
+            {/*<ExpandableItem title={'Biểu đồ hoạt động theo giờ'}>*/}
+            {/*    <ParkingWorking dataChart={locationDetail.hourChart} />*/}
+            {/*</ExpandableItem>*/}
         </View>
     );
 };

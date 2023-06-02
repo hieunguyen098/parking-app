@@ -12,14 +12,14 @@ import { authActions } from '../../../../store/slices/authSlice';
 const MenuAccount = () => {
     const dispatch = useDispatch();
     const navigation: any = useNavigation();
-    const onSignout = async () => {
+    const onSignOut = async () => {
         try {
             dispatch(authActions.reset());
             navigation.navigate('Discover');
         } catch (e) {
             // remove error
         }
-        console.log('signed out');
+        console.log('Signed out');
     };
     return (
         <View style={styles.container}>
@@ -47,7 +47,7 @@ const MenuAccount = () => {
             />
 
             <MenuItem
-                onPress={() => onAlert('Đăng xuất', 'Đăng xuất tài khoản?', onSignout)}
+                onPress={() => onAlert('Đăng xuất', 'Đăng xuất tài khoản?', onSignOut)}
                 title="Đăng xuất"
                 Icon={Feather}
                 iconName="log-out"

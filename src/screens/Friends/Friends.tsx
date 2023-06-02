@@ -1,14 +1,16 @@
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import FriendList from './components/FriendList';
 
 const Friends = () => {
+    const [searchKey, setSearchKey] = useState("")
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.innerContainer}>
-                <SearchInput placeholder="Tìm kiếm người dùng" />
-                <FriendList />
+                <SearchInput placeholder="Tìm kiếm người dùng" setSearchKey={setSearchKey}/>
+                <FriendList searchKey={searchKey}/>
             </View>
         </SafeAreaView>
     );

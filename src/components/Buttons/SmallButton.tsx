@@ -1,10 +1,17 @@
 import { Button, Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { GlobalStyles } from '../../constants';
+import {useNavigation} from "@react-navigation/native";
 
-const SmallButton = ({ title, style, textStyle, onPress = () => {} }: any) => {
+const SmallButton = ({ title, style, api, textStyle, onPress = () => {} }: any) => {
+    const onSend = () => {
+        console.log("send friend request " + api)
+        fetch(api).then(res => {
+        })
+        onPress();
+    }
     return (
-        <Pressable style={[styles.button, style]} onPress={onPress} android_ripple={{ color: 'white' }}>
+        <Pressable style={[styles.button, style]} onPress={api ? onSend : onPress} android_ripple={{ color: 'white' }}>
             <Text style={[styles.text, textStyle]}>{title}</Text>
         </Pressable>
     );

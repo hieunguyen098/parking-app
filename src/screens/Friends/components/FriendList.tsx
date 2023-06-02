@@ -2,145 +2,123 @@ import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import FriendItem from './FriendItem';
 import { useQuery, useQueryClient } from 'react-query';
-import { getListFriends } from '../../../services/friends.api';
+import {getListFriends, getUnknownUser, sendFriendRequest} from '../../../services/friends.api';
 import { useFocusEffect } from '@react-navigation/native';
+import {useSelector} from "react-redux";
 
-const FriendList = () => {
-    const result = {
-        title: 'Kết quả tìm kiếm',
-        data: [
-            {
-                id: '1',
-                name: 'Thanh Bình',
-                isFriend: false,
-            },
-            {
-                id: '2',
-                name: 'Thanh Bình',
-                isFriend: false,
-            },
-        ],
-    };
-    const [DATA, setData] = useState([
-        {
-            title: 'Kết quả tìm kiếm',
-            data: [
-                {
-                    id: '1',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-                {
-                    id: '2',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-                {
-                    id: '3',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-                {
-                    id: '4',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-                {
-                    id: '5',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-                {
-                    id: '6',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-                {
-                    id: '7',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-                {
-                    id: '8',
-                    name: 'Thanh Bình',
-                    isFriend: false,
-                },
-            ],
-        },
-        {
-            title: 'Bạn bè',
-            data: [
-                {
-                    id: '3',
-                    name: 'Nguyễn Xuân Hiếu',
-                    isFriend: true,
-                },
-                {
-                    id: '4',
-                    name: 'Đặng Hoài Bão',
-                    isFriend: true,
-                },
-                {
-                    id: '5',
-                    name: 'Nguyễn Xuân Hiếu',
-                    isFriend: true,
-                },
-                {
-                    id: '6',
-                    name: 'Đặng Hoài Bão',
-                    isFriend: true,
-                },
-                {
-                    id: '7',
-                    name: 'Nguyễn Xuân Hiếu',
-                    isFriend: true,
-                },
-                {
-                    id: '8',
-                    name: 'Đặng Hoài Bão',
-                    isFriend: true,
-                },
-                {
-                    id: '9',
-                    name: 'Nguyễn Xuân Hiếu',
-                    isFriend: true,
-                },
-                {
-                    id: '10',
-                    name: 'Đặng Hoài Bão',
-                    isFriend: true,
-                },
-            ],
-        },
-    ]);
+interface friendType {
+  userId: string,
+  phone: string,
+  imageUrl: string,
+  fullName: string,
+}
+
+interface dataType {
+  title: string,
+  data: friendType[];
+}
+
+const FriendList = ({searchKey}: any) => {
+    const user = useSelector((state: any) => state.auth.user);
+    const [ping, setPing] = useState('')
+
+    const [unknownUserData, setUnknownUserData]
+        = useState<dataType[]>(
+        [{
+          title: 'Kết quả tìm kiếm',
+          data: [],
+        }]
+    )
+    const [friendsData, setFriendData]
+        = useState<dataType[]>(
+        [{
+          title: 'Bạn bè',
+          data: [],
+        }]
+    )
 
     const queryClient = useQueryClient();
-    const { data, isLoading } = useQuery({
+    const {
+      data: friends,
+    } = useQuery({
         queryKey: ['friends'],
         queryFn: () => {
-            return getListFriends();
+            return getListFriends(user.phone, searchKey);
         },
         onSuccess: (data) => {
-            setData((prev) => {
-                return [prev[0], { title: 'Bạn bè', data: data.friends }];
+            setFriendData(() => {
+              const users = data.data ? data.data : [];
+              const friendUsers: friendType[]  = []
+              users.forEach((user) => {
+                  friendUsers.push(user)
+              })
+                return [{
+                    title: 'Bạn bè',
+                    data: friendUsers,
+                  }];
             });
         },
     });
 
+  const {
+    data,
+  } = useQuery({
+    queryKey: ['unknownUser'],
+    queryFn: () => {
+      return getUnknownUser(user.phone, searchKey);
+    },
+    onSuccess: (data) => {
+      setUnknownUserData(() => {
+        const users = data.data ? data.data : [];
+        const unknownUsers: friendType[]  = []
+        users.forEach((user) => {
+          unknownUsers.push(user)
+        })
+        return [{
+          title: 'Kết quả tìm kiếm',
+          data: unknownUsers,
+        }];
+      });
+    },
+  });
+
     useFocusEffect(
         useCallback(() => {
-            queryClient.invalidateQueries('friends');
-        }, []),
+            queryClient.fetchQuery('friends').then();
+            queryClient.fetchQuery('unknownUser').then();
+        }, [searchKey, ping]),
     );
+
+    const handleFriendRequest = (userId: string) => {
+      sendFriendRequest(user.phone, userId).then(r => {
+        if (r.returnCode == 1) {
+          setPing(userId)
+        } else {
+          console.log("Lỗi khi gửi lời mời kết bạn")
+        }
+      });
+    }
 
     return (
         <View style={styles.container}>
-            <SectionList
-                sections={DATA}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item, section }) => <FriendItem item={item} section={section.title} />}
+            {unknownUserData && unknownUserData[0].data
+                && unknownUserData[0].data.length > 0 &&
+                <SectionList
+                sections={unknownUserData}
+                keyExtractor={(item) => item.phone}
+                renderItem={({ item, section }) =>
+                    <FriendItem item={item} section={section.title} handleFriendRequest={handleFriendRequest}/>}
                 renderSectionHeader={({ section: { title } }) => <Text style={styles.header}>{title}</Text>}
-            ></SectionList>
+            ></SectionList>}
+            {friendsData && friendsData[0].data
+                && friendsData[0].data.length > 0 &&
+                <SectionList
+                    sections={friendsData}
+                    keyExtractor={(item) => item.phone}
+                    renderItem={({ item, section }) =>
+                        <FriendItem item={item} section={section.title} handleFriendRequest={handleFriendRequest}/>}
+                    renderSectionHeader={({ section: { title } }) => <Text style={styles.header}>{title}</Text>}
+                ></SectionList>}
         </View>
     );
 };
@@ -161,5 +139,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '600',
         marginBottom: 8,
+        borderBottomColor: "gray",
+        borderBottomWidth: 0.5,
+        borderStyle: "dashed"
     },
 });
