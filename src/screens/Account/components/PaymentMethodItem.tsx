@@ -4,7 +4,7 @@ import { GlobalStyles } from '../../../constants';
 import { MaterialIcons } from '@expo/vector-icons';
 import { color } from 'react-native-reanimated';
 
-const PaymentMethod = ({ source, disabled, name, onPress, onDelete }: any) => {
+const PaymentMethodItem = ({ source, disabled, name, onPress, onDelete }: any) => {
     return (
         <Pressable
             onPress={onPress}
@@ -20,7 +20,7 @@ const PaymentMethod = ({ source, disabled, name, onPress, onDelete }: any) => {
     );
 };
 
-export default PaymentMethod;
+export default PaymentMethodItem;
 
 const styles = StyleSheet.create({
     container: {
