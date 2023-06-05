@@ -1,12 +1,12 @@
-import {ParkingMethodId} from '../constants';
-import {postData} from './api';
+import { ParkingMethodId } from '../constants';
+import { postData } from './api';
 
 export const getListVehicle = async (phone: string) => {
     const data = await postData('prc/parking', {
         method: ParkingMethodId.GET_VEHICLE_IS_PARKING,
         params: {
-            phone: phone
-        }
+            phone: phone,
+        },
     });
     console.log(data);
     return data;
@@ -19,7 +19,20 @@ export const getVehicleDetail = async (vehicleId: number | string) => {
             vehicle_id: vehicleId,
         },
     });
-    console.log(data);
+    // if (!data) {
+    //     const mockData = {
+    //         data: [{
+    //             duration: { hours: 1, minutes: 1, seconds: 1 },
+    //             location: {
+    //                 locationName: "abc",
+    //                 address: "abc"
+    //             },
+    //             licensePlate: "12",
+    //             entryTime: "17/12/2001"
+    //         }]
+    //     }
+    //     return mockData
+    // }
     return data;
 };
 
@@ -28,8 +41,8 @@ export const getCheckinParkingQr = async (socketKey: string, phone: string) => {
         method: ParkingMethodId.GET_CHECKIN_PARKING_QR,
         params: {
             socket_key: socketKey,
-            phone: phone
-        }
+            phone: phone,
+        },
     });
     console.log(data);
     return data;
@@ -42,7 +55,7 @@ export const getCheckoutParkingQr = async (socketKey: string, phone: string, veh
             socket_key: socketKey,
             phone: phone,
             vehicle_id: vehicleId,
-            voucher_id_applying: voucherId
+            voucher_id_applying: voucherId,
         },
     });
     console.log(data);

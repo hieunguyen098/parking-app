@@ -42,10 +42,10 @@ const ModalExtendMonthTicket = ({ expandTicket, setExpandTicket }: any) => {
                 <TouchableOpacity
                     style={{
                         width: '90%',
-                        marginLeft: 12,
-                        marginRight: 12,
+                        marginLeft: 20,
+                        marginRight: 20,
                         paddingHorizontal: 8,
-                        paddingVertical: 12,
+                        paddingVertical: 20,
                         backgroundColor: '#FFFFFF',
                         borderRadius: 16,
                     }}
