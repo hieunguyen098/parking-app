@@ -90,13 +90,13 @@ export default function App() {
                                     />
                                 )}
 
-                                {/* <Stack.Screen
+                                <Stack.Screen
                                     name="Authentication"
                                     component={Authentication}
                                     options={{
                                         headerShown: false,
                                     }}
-                                /> */}
+                                />
                                 <Stack.Screen
                                     name="TabBarScreen"
                                     component={TabBarBottom}
