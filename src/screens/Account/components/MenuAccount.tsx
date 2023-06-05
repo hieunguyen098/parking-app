@@ -45,7 +45,13 @@ const MenuAccount = () => {
                 iconName="settings"
                 color="black"
             />
-
+            <MenuItem
+                onPress={() => navigation.navigate('DetailTransaction')}
+                title="Chi tiết giao dịch "
+                Icon={Feather}
+                iconName="log-out"
+                color="red"
+            />
             <MenuItem
                 onPress={() => onAlert('Đăng xuất', 'Đăng xuất tài khoản?', onSignOut)}
                 title="Đăng xuất"

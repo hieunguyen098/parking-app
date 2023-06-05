@@ -25,6 +25,7 @@ import MonthTicketSubscribe from './src/screens/ParkingInfo/MonthTicketSubscribe
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { GlobalStyles } from './src/constants';
 import PopupStatus from './src/screens/PopupStatus';
+import DetailTransaction from './src/screens/DetailTransaction/DetailTransaction';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +39,7 @@ const Loading = () => {
 
 export default function App() {
     const queryClient = new QueryClient();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [viewedOnboarding, setViewedOnboarding] = useState(true);
 
     const checkOnboarding = async () => {
@@ -89,13 +90,13 @@ export default function App() {
                                     />
                                 )}
 
-                                <Stack.Screen
+                                {/* <Stack.Screen
                                     name="Authentication"
                                     component={Authentication}
                                     options={{
                                         headerShown: false,
                                     }}
-                                />
+                                /> */}
                                 <Stack.Screen
                                     name="TabBarScreen"
                                     component={TabBarBottom}
@@ -169,6 +170,13 @@ export default function App() {
                                     component={ManagePayment}
                                     options={{
                                         title: 'Thanh toán',
+                                    }}
+                                />
+                                <Stack.Screen
+                                    name="DetailTransaction"
+                                    component={DetailTransaction}
+                                    options={{
+                                        title: 'Chi tiết giao dịch',
                                     }}
                                 />
                                 <Stack.Screen
