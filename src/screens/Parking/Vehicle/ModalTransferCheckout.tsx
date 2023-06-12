@@ -227,10 +227,17 @@ const styles = StyleSheet.create({
 });
 
 const FriendItem = ({ item, selected, onSelected }: any) => {
-    const [color, setColor] = useState(selected != item.userId ? 'white' : '#e7dbbb');
-
     return (
-        <Pressable style={[styles.itemContainer, { backgroundColor: color }]} onPress={() => onSelected(item.userId)}>
+        <Pressable
+            style={[styles.itemContainer, { backgroundColor: selected != item.userId ? 'white' : '#e7dbbb' }]}
+            onPress={() => {
+                if (selected != item.userId) {
+                    onSelected(item.userId);
+                } else {
+                    onSelected("");
+                }
+            }}
+        >
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
@@ -242,14 +249,12 @@ const FriendItem = ({ item, selected, onSelected }: any) => {
             <View style={styles.contentContainer}>
                 <Text style={styles.name}>{item.fullName}</Text>
             </View>
-            {
-                <AntDesign
-                    name="doubleright"
-                    size={12}
-                    color={GlobalStyles.colors.primaryOrange}
-                    style={styles.seeMoreIcon}
-                />
-            }
+            <AntDesign
+                name="doubleright"
+                size={12}
+                color={GlobalStyles.colors.primaryOrange}
+                style={styles.seeMoreIcon}
+            />
         </Pressable>
     );
 };

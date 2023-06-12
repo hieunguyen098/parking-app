@@ -229,13 +229,17 @@ const FriendItem = ({ item, selected, onSelected }: any) => {
         <Pressable
             style={[styles.itemContainer, { backgroundColor: selected != item.userId ? 'white' : '#e7dbbb' }]}
             onPress={() => {
-                onSelected(item.userId);
+                if (selected != item.userId) {
+                    onSelected(item.userId);
+                } else {
+                    onSelected("");
+                }
             }}
         >
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
-                        uri: `${item.imageUrl}`,
+                        uri: (`${item.imageUrl}` == null || `${item.imageUrl}` == '' ) ? '' : `${item.imageUrl}`,
                     }}
                     style={styles.avatar}
                 />
