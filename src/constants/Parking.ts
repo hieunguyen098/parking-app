@@ -4,6 +4,7 @@ export enum ParkingMethodId {
     GET_VEHICLE_IS_PARKING = 'get-vehicles',
     GET_VEHICLE_DETAIL = 'get-vehicle',
     GET_VOUCHERS = 'get-vouchers',
+    ASSIGN_PARKING = 'assign-parking',
 }
 
 export enum QRType {

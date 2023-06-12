@@ -47,3 +47,15 @@ export const getCheckoutParkingQr = async (socketKey: string, phone: string, veh
     console.log(data);
     return data;
 };
+
+export const assignParking = async (parkingId: string, userId: string) => {
+    const data = await postData('prc/parking', {
+        method: ParkingMethodId.ASSIGN_PARKING,
+        params: {
+            parking_id: parkingId,
+            user_id: userId,
+        },
+    });
+    console.log(data);
+    return data;
+};

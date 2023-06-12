@@ -19,6 +19,7 @@ import {useQuery, useQueryClient} from "react-query";
 import {getListFriends} from "../../../services/friends.api";
 import {giftMonthCard} from "../../../services/month-card.api";
 import {useFocusEffect} from "@react-navigation/native";
+import {assignParking} from "../../../services/vehicle.api";
 
 interface friendType {
     userId: string,
@@ -32,7 +33,7 @@ interface dataType {
     data: friendType[];
 }
 
-const ModalTransferCheckout = ({ isOpen, setIsOpen }: any) => {
+const ModalTransferCheckout = ({ item, isOpen, setIsOpen }: any) => {
     const [selectedItem, setSelectedItem] = useState("");
 
     const [searchKey, setSearchKey] = useState("")
@@ -74,8 +75,16 @@ const ModalTransferCheckout = ({ isOpen, setIsOpen }: any) => {
 
     const submitAssignParking = () => {
         if (selectedItem != null && selectedItem != "") {
-            setIsOpen(false);
-            // mock
+            assignParking(item.vehicleId, selectedItem).then(
+                res => {
+                    if (res.returnCode == 1) {
+                        Alert.alert("", "Uỷ quyền lấy xe thành công")
+                    } else {
+                        Alert.alert("", "Uỷ quyền lấy xe thất bại")
+                    }
+                    setIsOpen(false);
+                }
+            )
         } else {
             Alert.alert("", "Chưa chọn người nhận")
         }

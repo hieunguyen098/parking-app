@@ -48,7 +48,7 @@ const VehicleDetail = () => {
         );
     return (
         <View style={styles.container}>
-            <ModalTransferCheckout isOpen={isOpen} setIsOpen={setIsOpen} />
+            <ModalTransferCheckout item={vehicleDetail} isOpen={isOpen} setIsOpen={setIsOpen} />
             {isLoading && (
                 <View style={{ marginTop: 8 }}>
                     <ActivityIndicator size="large" />
