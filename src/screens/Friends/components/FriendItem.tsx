@@ -11,7 +11,7 @@ const FriendItem = ({ item, section, handleFriendRequest }: any) => {
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
-                        uri: `${item.imageUrl}` == '' ?
+                        uri: (`${item.imageUrl}` == null || `${item.imageUrl}` == '') ?
                         "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2Fdefault-avatar.png?alt=media&token=621d5022-1f49-4428-98c3-80afca549ed9"
                         : `${item.imageUrl}`,
                     }}

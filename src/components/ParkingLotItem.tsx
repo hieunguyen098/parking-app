@@ -13,7 +13,7 @@ const ParkingLotItem = ({ item, onPress }: any) => {
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: (`${item.imageUrl}` == '') ?
+                            uri: (`${item.imageUrl}` == null || `${item.imageUrl}` == '') ?
                             "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Fdefault.jpeg?alt=media&token=5a4190b2-24cc-485e-8d71-1673ccf4560b"
                             : `${item.imageUrl}`,
                         }}

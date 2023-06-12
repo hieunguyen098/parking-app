@@ -26,7 +26,7 @@ const Header = () => {
                     </Pressable>
                     <Image
                         source={{
-                            uri: (`${user.imageUrl}` == "") ?
+                            uri: (`${user.imageUrl}` == null || `${user.imageUrl}` == "") ?
                                 "https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2Fdefault-avatar.png?alt=media&token=621d5022-1f49-4428-98c3-80afca549ed9"
                                 : `${user.imageUrl}`,
                         }}

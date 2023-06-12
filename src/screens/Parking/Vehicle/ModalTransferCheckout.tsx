@@ -234,7 +234,7 @@ const FriendItem = ({ item, selected, onSelected }: any) => {
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
-                        uri: `${item.imageUrl}`,
+                        uri: (`${item.imageUrl}` == null || `${item.imageUrl}` == '' ) ? '' : `${item.imageUrl}`,
                     }}
                     style={styles.avatar}
                 />

@@ -11,7 +11,7 @@ const SearchResultItem = ({ item }: any) => {
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: `${item.imageUrl}`,
+                            uri: (`${item.imageUrl}` == null || `${item.imageUrl}` == '') ? '' : `${item.imageUrl}`,
                         }}
                         style={styles.image}
                     />

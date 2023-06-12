@@ -41,7 +41,7 @@ const AccountInfo = () => {
                 <View style={styles.innerContainer}>
                     <Image
                         source={{
-                            uri: `${userInfo[0].imageUrl}`,
+                            uri: (`${userInfo[0].imageUrl}` == null || `${userInfo[0].imageUrl}` == '') ? '' : `${userInfo[0].imageUrl}`,
                         }}
                         style={styles.avatar}
                     />

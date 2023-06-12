@@ -27,7 +27,7 @@ const MonthTicketItem = ({ item }: any) => {
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: `${item.locationImageUrl}`,
+                            uri: (`${item.locationImageUrl}` == null || `${item.locationImageUrl}` == '' ) ? '' : `${item.locationImageUrl}`,
                         }}
                         style={styles.image}
                     />
