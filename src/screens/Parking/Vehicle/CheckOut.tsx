@@ -171,7 +171,7 @@ const CheckOut = () => {
                                 ).padStart(2, '0')} phút`}
                             />
                             <FieldValue fieldName="Chi phí tạm tính" value={(vehicleDetail.fee != 0 && vehicleDetail.fee != "0.0" && vehicleDetail.fee != "0")
-                                ? '0 vnđ (Đã đăng ký vé tháng)' : formatCash(vehicleDetail.fee)
+                                ? formatCash(vehicleDetail.fee * 1000) : '0 vnđ (Đã đăng ký vé tháng)'
                             } />
                         </>
                     )}
