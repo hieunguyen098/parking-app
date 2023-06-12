@@ -1,20 +1,13 @@
 import {UserMethod} from '../constants';
 import {postData} from './api';
 
-export const getUser = async () => {
-    return {
-        data: [
-            {
-                name: "Đặng Hoài Bão",
-                phone: "0969189947",
-                birthDay: "21/11/2001",
-                email: "hoaibaobtx@gmail.com"
-            }
-        ]
-    }
-    // return await postData('um/user/profile', {
-    //     method: UserMethod.GET_USER,
-    // });
+export const getUser = async (phone: string) => {
+    return await postData('um/user/profile', {
+        method: UserMethod.GET_USER,
+        params: {
+            phone: phone
+        }
+    });
 };
 
 export const setNewPassword = async (phone: string, newPin: string) => {

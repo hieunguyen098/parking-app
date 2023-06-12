@@ -7,6 +7,7 @@ import BottomButton from '../../components/Buttons/BottomButton';
 import { useQuery, useQueryClient } from 'react-query';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import { getUser } from '../../services/user.api';
+import {useSelector} from "react-redux";
 
 const genders = [
     {
@@ -33,6 +34,7 @@ const EditProfile = () => {
     const [gender, setGender] = useState(-1);
     const queryClient = useQueryClient();
     const navigation: any = useNavigation();
+    const user = useSelector((state: any) => state.auth.user);
     const {
         data: userInfo,
         isLoading,
@@ -40,7 +42,7 @@ const EditProfile = () => {
     } = useQuery({
         queryKey: ['userInfo'],
         queryFn: () => {
-            return getUser();
+            return getUser(user.phone);
         },
         retry: false,
         select: (data) => (data.data ? data.data[0] : null),

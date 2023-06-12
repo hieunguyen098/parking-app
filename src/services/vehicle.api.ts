@@ -19,20 +19,6 @@ export const getVehicleDetail = async (vehicleId: number | string) => {
             vehicle_id: vehicleId,
         },
     });
-    // if (!data) {
-    //     const mockData = {
-    //         data: [{
-    //             duration: { hours: 1, minutes: 1, seconds: 1 },
-    //             location: {
-    //                 locationName: "abc",
-    //                 address: "abc"
-    //             },
-    //             licensePlate: "12",
-    //             entryTime: "17/12/2001"
-    //         }]
-    //     }
-    //     return mockData
-    // }
     return data;
 };
 

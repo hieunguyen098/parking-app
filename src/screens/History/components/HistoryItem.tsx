@@ -22,7 +22,7 @@ const HistoryItem = ({ item, style = null }: any) => {
             </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.place}>{item.extraInfo.place}</Text>
+                <Text style={styles.place}>{item.extraInfo.description}</Text>
                 <Text style={styles.time}>{item.time}</Text>
             </View>
             <View style={styles.priceContainer}>

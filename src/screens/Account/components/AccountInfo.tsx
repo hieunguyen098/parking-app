@@ -6,10 +6,12 @@ import { GlobalStyles } from '../../../constants';
 import { useQuery, useQueryClient } from 'react-query';
 import { getUser } from '../../../services/user.api';
 import { useFocusEffect } from '@react-navigation/native';
+import {useSelector} from "react-redux";
 
 const AccountInfo = () => {
     const [isMasked, setIsMasked] = useState<boolean>(true);
     const queryClient = useQueryClient();
+    const user = useSelector((state: any) => state.auth.user);
     const {
         data: userInfo,
         isLoading,
@@ -17,7 +19,7 @@ const AccountInfo = () => {
     } = useQuery({
         queryKey: ['userInfo'],
         queryFn: () => {
-            return getUser();
+            return getUser(user.phone);
         },
         retry: false,
         select: (data) => data.data,
