@@ -172,13 +172,13 @@ export default function App() {
                                         title: 'Thanh toán',
                                     }}
                                 />
-                                <Stack.Screen
-                                    name="DetailTransaction"
-                                    component={DetailTransaction}
-                                    options={{
-                                        title: 'Chi tiết giao dịch',
-                                    }}
-                                />
+                                {/*<Stack.Screen*/}
+                                {/*    name="DetailTransaction"*/}
+                                {/*    component={DetailTransaction}*/}
+                                {/*    options={{*/}
+                                {/*        title: 'Chi tiết giao dịch',*/}
+                                {/*    }}*/}
+                                {/*/>*/}
                                 <Stack.Screen
                                     name="Settings"
                                     component={Settings}
