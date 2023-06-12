@@ -1,13 +1,92 @@
-import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
+import {
+    Alert,
+    Image,
+    Modal,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View
+} from 'react-native';
+import React, {useCallback, useState} from 'react';
 import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import SearchInput from '../../../components/SearchInput/SearchInput';
 import { AntDesign } from '@expo/vector-icons';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import {useSelector} from "react-redux";
+import {useQuery, useQueryClient} from "react-query";
+import {getListFriends} from "../../../services/friends.api";
+import {giftMonthCard} from "../../../services/month-card.api";
+import {useFocusEffect} from "@react-navigation/native";
+
+interface friendType {
+    userId: string,
+    phone: string,
+    imageUrl: string,
+    fullName: string,
+}
+
+interface dataType {
+    title: string,
+    data: friendType[];
+}
 
 const ModalTransferCheckout = ({ isOpen, setIsOpen }: any) => {
-    const [selectedItem, setSelectedItem] = useState();
+    const [selectedItem, setSelectedItem] = useState("");
+
+    const [searchKey, setSearchKey] = useState("")
+    const user = useSelector((state: any) => state.auth.user);
+    const [friendsData, setFriendData]
+        = useState<dataType[]>(
+        [{
+            title: 'Bạn bè',
+            data: [],
+        }]
+    )
+
+    const queryClient = useQueryClient();
+    const {
+        data: friends,
+    } = useQuery({
+        queryKey: ['promote-friends'],
+        queryFn: () => {
+            return getListFriends(user.phone, '');
+        },
+        onSuccess: (data) => {
+            setFriendData(() => {
+                const users = data.data ? data.data : [];
+                const friendUsers: friendType[]  = []
+                users.forEach((user) => {
+                    friendUsers.push(user)
+                })
+                return [{
+                    title: 'Bạn bè',
+                    data: friendUsers,
+                }];
+            });
+        },
+    });
+
+    const handleSelectFriend = (userId: string) => {
+        setSelectedItem(userId);
+    }
+
+    const submitAssignParking = () => {
+        if (selectedItem != null && selectedItem != "") {
+            setIsOpen(false);
+            // mock
+        } else {
+            Alert.alert("", "Chưa chọn người nhận")
+        }
+    }
+
+    useFocusEffect(
+        useCallback(() => {
+            queryClient.fetchQuery('promote-friends').then();
+        }, [searchKey]),
+    );
+
 
     return (
         <Modal
@@ -49,12 +128,12 @@ const ModalTransferCheckout = ({ isOpen, setIsOpen }: any) => {
                         }}
                     >
                         <View style={styles.container}>
-                            <SearchInput placeholder="Tìm kiếm người dùng" onSearch={() => {}} />
+                            <SearchInput placeholder="Tìm kiếm người dùng" setSearchKey={searchKey} />
 
                             <FlatList
                                 data={result.data}
                                 renderItem={({ item, index }) => {
-                                    return <FriendItem item={item} />;
+                                    return <FriendItem item={item} onSelected={handleSelectFriend}/>;
                                 }}
                                 keyExtractor={(item) => item.id}
                                 style={styles.itemFriend}
@@ -70,7 +149,7 @@ const ModalTransferCheckout = ({ isOpen, setIsOpen }: any) => {
                                 setIsOpen(false);
                             }}
                         />
-                        <SmallButton title="Xác nhận" style={{ paddingVertical: 12 }} onPress={() => {}} />
+                        <SmallButton title="Xác nhận" style={{ paddingVertical: 12 }} onPress={submitAssignParking} />
                     </View>
                 </TouchableOpacity>
             </TouchableOpacity>

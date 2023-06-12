@@ -94,7 +94,7 @@ const ModalGiveTicket = ({ item, giveTicket, setGiveTicket }: any) => {
 
     useFocusEffect(
         useCallback(() => {
-            queryClient.fetchQuery('friends').then();
+            queryClient.fetchQuery('gift-friends').then();
         }, [searchKey]),
     );
 
