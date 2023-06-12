@@ -143,7 +143,7 @@ const ModalGiveTicket = ({ item, giveTicket, setGiveTicket }: any) => {
                             <FlatList
                                 data={friendsData[0].data}
                                 renderItem={({ item, index }) => {
-                                    return <FriendItem item={item} onSelected={handleSelectFriend}/>;
+                                    return <FriendItem item={item} selected={selectedItem} onSelected={handleSelectFriend}/>;
                                 }}
                                 keyExtractor={(item) => item.userId}
                                 style={styles.itemFriend}
@@ -234,10 +234,10 @@ const styles = StyleSheet.create({
     itemFriend: { marginBottom: 8, maxHeight: 300 },
 });
 
-const FriendItem = ({ item, onSelected }: any) => {
-    const [color, setColor] = useState("white");
+const FriendItem = ({ item, selected, onSelected }: any) => {
+
     return (
-        <View style={[styles.itemContainer, {backgroundColor: color}]}>
+        <View style={[styles.itemContainer, {backgroundColor: (selected != item.userId) ? "white" : '#e7dbbb'}]}>
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
@@ -247,11 +247,10 @@ const FriendItem = ({ item, onSelected }: any) => {
                 />
             </View>
             <View style={styles.contentContainer}>
-                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.name}>{item.fullName}</Text>
             </View>
             <AntDesign
                 onPress={() => {
-                    setColor("#e7dbbb")
                     onSelected(item.userId)
                 }}
                 name="doubleright"

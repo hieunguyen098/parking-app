@@ -34,7 +34,7 @@ const HistoryList = ({type}: {type: string}) => {
       <View style={styles.container}>
           <HistoriesList
               histories={histories}
-              loadOldHistory={loadOldHistory}
+              loadOldHistory={() => {}}
               firstLoadHistory={firstLoadHistory}
               loading={loading}
           />

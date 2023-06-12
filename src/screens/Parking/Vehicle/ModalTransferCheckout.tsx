@@ -140,11 +140,11 @@ const ModalTransferCheckout = ({ item, isOpen, setIsOpen }: any) => {
                             <SearchInput placeholder="Tìm kiếm người dùng" setSearchKey={searchKey} />
 
                             <FlatList
-                                data={result.data}
+                                data={friendsData[0].data}
                                 renderItem={({ item, index }) => {
-                                    return <FriendItem item={item} onSelected={handleSelectFriend}/>;
+                                    return <FriendItem item={item} selected={selectedItem} onSelected={handleSelectFriend}/>;
                                 }}
-                                keyExtractor={(item) => item.id}
+                                keyExtractor={(item) => item.userId}
                                 style={styles.itemFriend}
                             />
                         </View>
@@ -233,44 +233,9 @@ const styles = StyleSheet.create({
     itemFriend: { marginBottom: 8, maxHeight: 300 },
 });
 
-const result = {
-    data: [
-        {
-            id: '0',
-            name: 'Nguyễn Xuân Hiếu',
-            imageUrl:
-                'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2F17523016_774532709394454_941232164224933694_n.jpg?alt=media&token=f2a9ac4e-5be6-4a1f-8112-eb9755c78086',
-        },
+const FriendItem = ({ item, selected, onSelected }: any) => {
+    const [color, setColor] = useState( (selected != item.userId) ? "white" : '#e7dbbb');
 
-        // {
-        //     id: '2',
-        //     name: 'Cao Thanh Bình'
-        // },
-        // {
-        //     id: '3',
-        //     name: 'Đặng Hoài Bão',
-        // },
-        // {
-        //     id: '4',
-        //     name: 'Cao Thanh Bình'
-        // },
-        // {
-        //     id: '5',
-        //     name: 'Đặng Hoài Bão',
-        // },
-        // {
-        //     id: '6',
-        //     name: 'Cao Thanh Bình'
-        // },
-        // {
-        //     id: '7',
-        //     name: 'Đặng Hoài Bão',
-        // },
-    ],
-};
-
-const FriendItem = ({ item }: any) => {
-    const [color, setColor] = useState('white');
     return (
         <View style={[styles.itemContainer, { backgroundColor: color }]}>
             <View style={styles.avatarContainer}>
@@ -282,18 +247,18 @@ const FriendItem = ({ item }: any) => {
                 />
             </View>
             <View style={styles.contentContainer}>
-                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.name}>{item.fullName}</Text>
             </View>
-            {true ? (
+            {(
                 <AntDesign
-                    onPress={() => setColor('#e7dbbb')}
+                    onPress={() => {
+                        onSelected(item.userId)
+                    }}
                     name="doubleright"
                     size={12}
                     color={GlobalStyles.colors.primaryOrange}
                     style={styles.seeMoreIcon}
                 />
-            ) : (
-                <SmallButton title="Kết bạn" />
             )}
         </View>
     );

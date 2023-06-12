@@ -60,6 +60,7 @@ const ManagePayment = () => {
                 {unlinkedPayments.map((item) => {
                     return (
                         <PaymentMethodItem
+                            key={item.id}
                             onPress={() =>
                                 onAlert('Liên kết ví', `Bạn có chắc muốn liên kết ví ${item.name}?`, () =>
                                     onAccept(item),

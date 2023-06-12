@@ -41,13 +41,13 @@ const AccountInfo = () => {
                 <View style={styles.innerContainer}>
                     <Image
                         source={{
-                            uri: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2Favatar.jpeg?alt=media&token=3607beec-a976-4f4a-8281-914df282be47&_gl=1*gapg9j*_ga*ODAyODIyNzUuMTY4MzE3ODk2Mw..*_ga_CW55HF8NVT*MTY4NTQ1Mzk5OC43LjEuMTY4NTQ1NDAyOC4wLjAuMA..',
+                            uri: `${userInfo[0].imageUrl}`,
                         }}
                         style={styles.avatar}
                     />
                     <Text style={styles.name}>{userInfo[0].name}</Text>
                     <View style={styles.phoneContainer}>
-                        {isMasked === false ? (
+                        {!isMasked ? (
                             <Text style={styles.phone}>SĐT: **********</Text>
                         ) : (
                             <Text style={styles.phone}>SĐT: {userInfo[0].phone}</Text>
