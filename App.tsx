@@ -43,9 +43,10 @@ export default function App() {
     const [viewedOnboarding, setViewedOnboarding] = useState(true);
 
     const checkOnboarding = async () => {
+        setLoading(true);
         try {
             const value = await AsyncStorage.getItem('@viewedOnboarding');
-            if (value === null) {
+            if (!value) {
                 setViewedOnboarding(false);
             }
         } catch (err) {
