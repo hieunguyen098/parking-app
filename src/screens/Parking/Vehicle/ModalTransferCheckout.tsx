@@ -1,55 +1,43 @@
-import {
-    Alert,
-    Image,
-    Modal,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View
-} from 'react-native';
-import React, {useCallback, useState} from 'react';
+import { Alert, Image, Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useCallback, useState } from 'react';
 import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import SearchInput from '../../../components/SearchInput/SearchInput';
 import { AntDesign } from '@expo/vector-icons';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
-import {useSelector} from "react-redux";
-import {useQuery, useQueryClient} from "react-query";
-import {getListFriends} from "../../../services/friends.api";
-import {giftMonthCard} from "../../../services/month-card.api";
-import {useFocusEffect} from "@react-navigation/native";
-import {assignParking} from "../../../services/vehicle.api";
+import { useSelector } from 'react-redux';
+import { useQuery, useQueryClient } from 'react-query';
+import { getListFriends } from '../../../services/friends.api';
+import { giftMonthCard } from '../../../services/month-card.api';
+import { useFocusEffect } from '@react-navigation/native';
+import { assignParking } from '../../../services/vehicle.api';
 
 interface friendType {
-    userId: string,
-    phone: string,
-    imageUrl: string,
-    fullName: string,
+    userId: string;
+    phone: string;
+    imageUrl: string;
+    fullName: string;
 }
 
 interface dataType {
-    title: string,
+    title: string;
     data: friendType[];
 }
 
 const ModalTransferCheckout = ({ item, isOpen, setIsOpen }: any) => {
-    const [selectedItem, setSelectedItem] = useState("");
+    const [selectedItem, setSelectedItem] = useState('');
 
-    const [searchKey, setSearchKey] = useState("")
+    const [searchKey, setSearchKey] = useState('');
     const user = useSelector((state: any) => state.auth.user);
-    const [friendsData, setFriendData]
-        = useState<dataType[]>(
-        [{
+    const [friendsData, setFriendData] = useState<dataType[]>([
+        {
             title: 'Bạn bè',
             data: [],
-        }]
-    )
+        },
+    ]);
 
     const queryClient = useQueryClient();
-    const {
-        data: friends,
-    } = useQuery({
+    const { data: friends } = useQuery({
         queryKey: ['promote-friends'],
         queryFn: () => {
             return getListFriends(user.phone, '');
@@ -57,45 +45,44 @@ const ModalTransferCheckout = ({ item, isOpen, setIsOpen }: any) => {
         onSuccess: (data) => {
             setFriendData(() => {
                 const users = data.data ? data.data : [];
-                const friendUsers: friendType[]  = []
+                const friendUsers: friendType[] = [];
                 users.forEach((user) => {
-                    friendUsers.push(user)
-                })
-                return [{
-                    title: 'Bạn bè',
-                    data: friendUsers,
-                }];
+                    friendUsers.push(user);
+                });
+                return [
+                    {
+                        title: 'Bạn bè',
+                        data: friendUsers,
+                    },
+                ];
             });
         },
     });
 
     const handleSelectFriend = (userId: string) => {
         setSelectedItem(userId);
-    }
+    };
 
     const submitAssignParking = () => {
-        if (selectedItem != null && selectedItem != "") {
-            assignParking(item.vehicleId, selectedItem).then(
-                res => {
-                    if (res.returnCode == 1) {
-                        Alert.alert("", "Uỷ quyền lấy xe thành công")
-                    } else {
-                        Alert.alert("", "Uỷ quyền lấy xe thất bại")
-                    }
-                    setIsOpen(false);
+        if (selectedItem != null && selectedItem != '') {
+            assignParking(item.vehicleId, selectedItem).then((res) => {
+                if (res.returnCode == 1) {
+                    Alert.alert('', 'Uỷ quyền lấy xe thành công');
+                } else {
+                    Alert.alert('', 'Uỷ quyền lấy xe thất bại');
                 }
-            )
+                setIsOpen(false);
+            });
         } else {
-            Alert.alert("", "Chưa chọn người nhận")
+            Alert.alert('', 'Chưa chọn người nhận');
         }
-    }
+    };
 
     useFocusEffect(
         useCallback(() => {
             queryClient.fetchQuery('promote-friends').then();
         }, [searchKey]),
     );
-
 
     return (
         <Modal
@@ -142,7 +129,13 @@ const ModalTransferCheckout = ({ item, isOpen, setIsOpen }: any) => {
                             <FlatList
                                 data={friendsData[0].data}
                                 renderItem={({ item, index }) => {
-                                    return <FriendItem item={item} selected={selectedItem} onSelected={handleSelectFriend}/>;
+                                    return (
+                                        <FriendItem
+                                            item={item}
+                                            selected={selectedItem}
+                                            onSelected={handleSelectFriend}
+                                        />
+                                    );
                                 }}
                                 keyExtractor={(item) => item.userId}
                                 style={styles.itemFriend}
@@ -234,10 +227,10 @@ const styles = StyleSheet.create({
 });
 
 const FriendItem = ({ item, selected, onSelected }: any) => {
-    const [color, setColor] = useState( (selected != item.userId) ? "white" : '#e7dbbb');
+    const [color, setColor] = useState(selected != item.userId ? 'white' : '#e7dbbb');
 
     return (
-        <View style={[styles.itemContainer, { backgroundColor: color }]}>
+        <Pressable style={[styles.itemContainer, { backgroundColor: color }]} onPress={() => onSelected(item.userId)}>
             <View style={styles.avatarContainer}>
                 <Image
                     source={{
@@ -249,17 +242,14 @@ const FriendItem = ({ item, selected, onSelected }: any) => {
             <View style={styles.contentContainer}>
                 <Text style={styles.name}>{item.fullName}</Text>
             </View>
-            {(
+            {
                 <AntDesign
-                    onPress={() => {
-                        onSelected(item.userId)
-                    }}
                     name="doubleright"
                     size={12}
                     color={GlobalStyles.colors.primaryOrange}
                     style={styles.seeMoreIcon}
                 />
-            )}
-        </View>
+            }
+        </Pressable>
     );
 };
