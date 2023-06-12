@@ -1,35 +1,44 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, {useEffect} from 'react';
 import MonthTicketItem from '../../../components/MonthTicketItem';
-
-const data = [
-    {
-        key: '1',
-        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Ftrung-tam-thuong-m-i.jpg?alt=media&token=8190218c-a3ce-4066-bbc5-205e0843302e',
-        name: 'Trung tâm thuong mại GigaMall',
-        duedate: '26/06/2023',
-    }
-];
+import {useQuery, useQueryClient} from "react-query";
+import {getLocations} from "../../../services/location.api";
+import {useFocusEffect} from "@react-navigation/native";
+import {getMonthCards} from "../../../services/month-card.api";
+import {useSelector} from "react-redux";
 
 const ListMonthTicket = () => {
+    const user = useSelector((state: any) => state.auth.user);
+
+    const queryClient = useQueryClient();
+
+    const {
+        data,
+    } = useQuery({
+        queryKey: ['month-cards'],
+        queryFn: () => {
+            return getMonthCards(user.phone);
+        },
+        select: (data) => data.data? data.data : [],
+    });
+
+    useFocusEffect(
+        React.useCallback(() => {
+            queryClient.fetchQuery('month-cards').then();
+        }, []),
+    );
+
     return (
         <FlatList
             data={data}
             renderItem={({ item }) => {
                 return <MonthTicketItem item={item} />;
             }}
-            keyExtractor={(item) => item.key}
+            keyExtractor={(item) => item.monthCardId}
             style={styles.contentContainer}
         />
     );
 };
-
-const Test = () => {
-    useEffect(() => {
-
-    },[])
-    return <Text>Hello</Text>
-}
 
 export default ListMonthTicket;
 

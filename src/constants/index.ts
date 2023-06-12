@@ -11,3 +11,4 @@ export * from './style';
 export * from './User';
 export * from './Vehicle';
 export * from './Voucher';
+export * from './MonthCard';

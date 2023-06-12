@@ -1,13 +1,102 @@
-import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
+import {
+    Alert,
+    Image,
+    Modal,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View
+} from 'react-native';
+import React, {useCallback, useState} from 'react';
 import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import SearchInput from '../../../components/SearchInput/SearchInput';
 import { AntDesign } from '@expo/vector-icons';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import {useQuery, useQueryClient} from "react-query";
+import {getListFriends} from "../../../services/friends.api";
+import {useSelector} from "react-redux";
+import {useFocusEffect} from "@react-navigation/native";
+import {giftMonthCard} from "../../../services/month-card.api";
 
-const ModalGiveTicket = ({ giveTicket, setGiveTicket }: any) => {
-    const [selectedItem, setSelectedItem] = useState();
+interface friendType {
+    userId: string,
+    phone: string,
+    imageUrl: string,
+    fullName: string,
+}
+
+interface dataType {
+    title: string,
+    data: friendType[];
+}
+
+const ModalGiveTicket = ({ item, giveTicket, setGiveTicket }: any) => {
+    const [selectedItem, setSelectedItem] = useState("");
+    const [searchKey, setSearchKey] = useState("")
+    const user = useSelector((state: any) => state.auth.user);
+    const [friendsData, setFriendData]
+        = useState<dataType[]>(
+        [{
+            title: 'Bạn bè',
+            data: [],
+        }]
+    )
+
+    const queryClient = useQueryClient();
+    const {
+        data: friends,
+    } = useQuery({
+        queryKey: ['gift-friends'],
+        queryFn: () => {
+            return getListFriends(user.phone, '');
+        },
+        onSuccess: (data) => {
+            setFriendData(() => {
+                const users = data.data ? data.data : [];
+                const friendUsers: friendType[]  = []
+                users.forEach((user) => {
+                    friendUsers.push(user)
+                })
+                return [{
+                    title: 'Bạn bè',
+                    data: friendUsers,
+                }];
+            });
+        },
+    });
+
+    const handleSelectFriend = (userId: string) => {
+        setSelectedItem(userId);
+    }
+
+    const submitGiftMonthCard = () => {
+        if (selectedItem != null && selectedItem != "") {
+            giftMonthCard(
+                item.monthCardId,
+                user.phone,
+                item.locationId,
+                item.price,
+                selectedItem
+            ).then(res => {
+                if (res.returnCode == 1) {
+                    Alert.alert("", "Đã tặng thành công")
+                } else {
+                    Alert.alert("", "Tặng thất bại")
+                }
+                setGiveTicket(false)
+            })
+        } else {
+            Alert.alert("", "Chưa chọn người nhận")
+        }
+    }
+
+    useFocusEffect(
+        useCallback(() => {
+            queryClient.fetchQuery('friends').then();
+        }, [searchKey]),
+    );
 
     return (
         <Modal
@@ -49,14 +138,14 @@ const ModalGiveTicket = ({ giveTicket, setGiveTicket }: any) => {
                         }}
                     >
                         <View style={styles.container}>
-                            <SearchInput placeholder="Tìm kiếm người dùng" onSearch={() => {}} />
+                            <SearchInput placeholder="Tìm kiếm người dùng" setSearchKey={searchKey} />
 
                             <FlatList
-                                data={result.data}
+                                data={friendsData[0].data}
                                 renderItem={({ item, index }) => {
-                                    return <FriendItem item={item} />;
+                                    return <FriendItem item={item} onSelected={handleSelectFriend}/>;
                                 }}
-                                keyExtractor={(item) => item.id}
+                                keyExtractor={(item) => item.userId}
                                 style={styles.itemFriend}
                             />
                         </View>
@@ -70,7 +159,7 @@ const ModalGiveTicket = ({ giveTicket, setGiveTicket }: any) => {
                                 setGiveTicket(false);
                             }}
                         />
-                        <SmallButton title="Xác nhận" style={{ paddingVertical: 12 }} onPress={() => {}} />
+                        <SmallButton title="Xác nhận" style={{ paddingVertical: 12 }} onPress={submitGiftMonthCard} />
                     </View>
                 </TouchableOpacity>
             </TouchableOpacity>
@@ -145,42 +234,7 @@ const styles = StyleSheet.create({
     itemFriend: { marginBottom: 8, maxHeight: 300 },
 });
 
-const result = {
-    data: [
-        {
-            id: '0',
-            name: 'Nguyễn Xuân Hiếu',
-            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/avatar%2F17523016_774532709394454_941232164224933694_n.jpg?alt=media&token=f2a9ac4e-5be6-4a1f-8112-eb9755c78086'
-        },
-
-        // {
-        //     id: '2',
-        //     name: 'Cao Thanh Bình'
-        // },
-        // {
-        //     id: '3',
-        //     name: 'Đặng Hoài Bão',
-        // },
-        // {
-        //     id: '4',
-        //     name: 'Cao Thanh Bình'
-        // },
-        // {
-        //     id: '5',
-        //     name: 'Đặng Hoài Bão',
-        // },
-        // {
-        //     id: '6',
-        //     name: 'Cao Thanh Bình'
-        // },
-        // {
-        //     id: '7',
-        //     name: 'Đặng Hoài Bão',
-        // },
-    ],
-};
-
-const FriendItem = ({ item }: any) => {
+const FriendItem = ({ item, onSelected }: any) => {
     const [color, setColor] = useState("white");
     return (
         <View style={[styles.itemContainer, {backgroundColor: color}]}>
@@ -195,17 +249,16 @@ const FriendItem = ({ item }: any) => {
             <View style={styles.contentContainer}>
                 <Text style={styles.name}>{item.name}</Text>
             </View>
-            {true ? (
-                <AntDesign
-                    onPress={() => setColor("#e7dbbb")}
-                    name="doubleright"
-                    size={12}
-                    color={GlobalStyles.colors.primaryOrange}
-                    style={styles.seeMoreIcon}
-                />
-            ) : (
-                <SmallButton title="Kết bạn" />
-            )}
+            <AntDesign
+                onPress={() => {
+                    setColor("#e7dbbb")
+                    onSelected(item.userId)
+                }}
+                name="doubleright"
+                size={12}
+                color={GlobalStyles.colors.primaryOrange}
+                style={styles.seeMoreIcon}
+            />
         </View>
     );
 };

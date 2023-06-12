@@ -2,13 +2,15 @@ import { StyleSheet, Text, View, Image, Modal, TouchableOpacity, Button, TextInp
 import React, { useState } from 'react';
 import BottomButton from '../../../components/Buttons/BottomButton';
 import FieldValue from '../../../components/FieldValue';
-import Line from '../../../components/Line';
 import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
 import ModalExtendMonthTicket from './ModalExtendMonthTicket';
 import ModalGiveTicket from './ModalGiveTicket';
+import moment from "moment";
 
-const DetailMonthTicket = () => {
+const DetailMonthTicket = ({route} : any) => {
+    const { item } = route.params;
+    const [extendNumber, setExtendNumber] = useState(0);
     const [expandTicket, setExpandTicket] = useState(false);
     const [giveTicket, setGiveTicket] = useState(false);
 
@@ -20,23 +22,32 @@ const DetailMonthTicket = () => {
         setExpandTicket(true);
         console.log('Expand ticket');
     };
+
+    const convertDueDate = (numOfMonth: string, startDate: string) => {
+        if (!isNaN(parseInt(numOfMonth))) {
+            return moment(startDate).add(parseInt(numOfMonth), "month").format("DD/MM/YYYY");
+        } else {
+            return "NaN"
+        }
+    }
+
     return (
         <>
-            <ModalExtendMonthTicket expandTicket={expandTicket} setExpandTicket={setExpandTicket} />
-            <ModalGiveTicket giveTicket={giveTicket} setGiveTicket={setGiveTicket} />
+            <ModalExtendMonthTicket item = {item} expandTicket={expandTicket} setExpandTicket={setExpandTicket} extendNumber={extendNumber} setExtendNumber={setExtendNumber}/>
+            <ModalGiveTicket item={item} giveTicket={giveTicket} setGiveTicket={setGiveTicket} />
             <View style={styles.container}>
                 <View style={styles.boxContent}>
                     <View style={styles.top}>
                         <View style={styles.imageContainer}>
                             <Image
                                 source={{
-                                    uri: `https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Ftrung-tam-thuong-m-i.jpg?alt=media&token=8190218c-a3ce-4066-bbc5-205e0843302e`,
+                                    uri: item.locationImageUrl ? item.locationImageUrl : "",
                                 }}
                                 style={styles.image}
                             />
                         </View>
                         <View style={styles.content}>
-                            <Text style={styles.title}>{'Trung tâm thương mại GigaMall'}</Text>
+                            <Text style={styles.title}>{item.locationName}</Text>
                             <SmallButton
                                 title={'Tặng'}
                                 style={{ width: 80, marginLeft: 'auto' }}
@@ -44,9 +55,10 @@ const DetailMonthTicket = () => {
                             />
                         </View>
                     </View>
-                    <FieldValue fieldName="Địa chỉ" value="Phạm Văn Đồng, Thủ Đức, TP. HCM" />
-                    <FieldValue fieldName="Ngày mua" value="26/05/2023" />
-                    <FieldValue fieldName="Có giá trị đến hết ngày" value="26/06/2023" />
+                    <FieldValue fieldName="Số tháng đã mua" value={parseInt(item.number) + extendNumber} />
+                    <FieldValue fieldName="Địa chỉ" value={item.locationAddress} />
+                    <FieldValue fieldName="Ngày mua" value={moment(item.startDate).format("DD/MM/YYYY")} />
+                    <FieldValue fieldName="Có giá trị đến hết ngày" value={convertDueDate(item.number, item.startDate)} />
                 </View>
             </View>
             <BottomButton title="Gia hạn" onPress={handleExpandTicket} />

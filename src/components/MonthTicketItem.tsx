@@ -2,27 +2,39 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { GlobalStyles } from '../constants';
 import { useNavigation } from '@react-navigation/native';
+import moment from "moment";
 
 const MonthTicketItem = ({ item }: any) => {
     const navigation: any = useNavigation();
+
+    const convertDueDate = (numOfMonth: string, startDate: string) => {
+        if (!isNaN(parseInt(numOfMonth))) {
+            return moment(startDate).add(parseInt(numOfMonth), "month").format("DD/MM/YYYY");
+        } else {
+            return "NaN"
+        }
+    }
+
     return (
         <View style={styles.container}>
             <Pressable
                 style={styles.innerContainer}
-                onPress={() => navigation.navigate('DetailMonthTicket')}
+                onPress={() => navigation.navigate('DetailMonthTicket', {
+                    item: item
+                })}
                 android_ripple={{ color: GlobalStyles.colors.lightGrey100 }}
             >
                 <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: `${item.imageUrl}`,
+                            uri: `${item.locationImageUrl}`,
                         }}
                         style={styles.image}
                     />
                 </View>
                 <View style={styles.content}>
-                    <Text style={styles.title}>{item.name}</Text>
-                    <Text style={[styles.duedate, styles.desc]}>Có giá trị đến hết ngày {item.duedate}</Text>
+                    <Text style={styles.title}>{item.locationName}</Text>
+                    <Text style={[styles.duedate, styles.desc]}>Có giá trị đến hết ngày {convertDueDate(item.number, item.startDate)}</Text>
                 </View>
             </Pressable>
         </View>

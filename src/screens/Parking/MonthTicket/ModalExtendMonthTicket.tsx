@@ -1,9 +1,21 @@
-import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  Alert,
+  Image,
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import React, { useState } from 'react';
 import { GlobalStyles } from '../../../constants';
 import SmallButton from '../../../components/Buttons/SmallButton';
+import {extendMonthCard} from "../../../services/month-card.api";
+import {useSelector} from "react-redux";
 
-const ModalExtendMonthTicket = ({ expandTicket, setExpandTicket }: any) => {
+const ModalExtendMonthTicket = ({ item, expandTicket, setExpandTicket, extendNumber, setExtendNumber }: any) => {
+    const user = useSelector((state: any) => state.auth.user);
     const [monthValue, setMonthValue] = useState('1');
     const handleIncrement = () => {
         setMonthValue((Number(monthValue) + 1).toString());
@@ -21,6 +33,25 @@ const ModalExtendMonthTicket = ({ expandTicket, setExpandTicket }: any) => {
             setMonthValue(Number(newValue).toString());
         }
     };
+
+    const submitUpdate = () => {
+      extendMonthCard(
+          item.monthCardId,
+          user.phone,
+          item.locationId,
+          item.price,
+          monthValue
+      ).then( res => {
+        if (res.returnCode == 1) {
+          Alert.alert("", "Gia hạn thành công");
+          setExtendNumber(extendNumber + parseInt(monthValue));
+        } else {
+          Alert.alert("", "Gia hạn không thành công");
+        }
+        setExpandTicket(false)
+      })
+    }
+
     return (
         <Modal
             animationType="fade"
@@ -65,7 +96,7 @@ const ModalExtendMonthTicket = ({ expandTicket, setExpandTicket }: any) => {
                         <View style={styles.imageContainer}>
                             <Image
                                 source={{
-                                    uri: `https://firebasestorage.googleapis.com/v0/b/sparking-app.appspot.com/o/parking%2Ftrung-tam-thuong-m-i.jpg?alt=media&token=8190218c-a3ce-4066-bbc5-205e0843302e&_gl=1*1wpszmj*_ga*ODAyODIyNzUuMTY4MzE3ODk2Mw..*_ga_CW55HF8NVT*MTY4NTQ1NTk1MC44LjEuMTY4NTQ1NTk1Ni4wLjAuMA..`,
+                                    uri: item.locationImageUrl ? item.locationImageUrl : "",
                                 }}
                                 style={styles.image}
                             />
@@ -131,7 +162,7 @@ const ModalExtendMonthTicket = ({ expandTicket, setExpandTicket }: any) => {
                                 setExpandTicket(false);
                             }}
                         />
-                        <SmallButton title="Xác nhận" style={{ paddingVertical: 12 }} onPress={() => {}} />
+                        <SmallButton title="Xác nhận" style={{ paddingVertical: 12 }} onPress={submitUpdate} />
                     </View>
                 </TouchableOpacity>
             </TouchableOpacity>

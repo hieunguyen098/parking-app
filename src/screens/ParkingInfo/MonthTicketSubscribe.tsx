@@ -9,10 +9,13 @@ import BottomButton from '../../components/Buttons/BottomButton';
 import { useRoute } from '@react-navigation/native';
 import { useQuery } from 'react-query';
 import { getLocationDetail } from '../../services/location.api';
+import {submitMonthCard} from "../../services/month-card.api";
+import {useSelector} from "react-redux";
 
 const MonthTicketSubscribe = () => {
     const route: any = useRoute();
     const idLocation = route?.params?.id;
+
     const {
         data: locationDetail,
         isLoading,
@@ -30,6 +33,7 @@ const MonthTicketSubscribe = () => {
 
     const [number, setNumber] = React.useState('');
 
+    const user = useSelector((state: any) => state.auth.user);
 
     const handleSubscribe = () => {
         if (!subscribed) {
@@ -37,8 +41,20 @@ const MonthTicketSubscribe = () => {
                 Alert.alert("", "Chưa nhập số tháng");
                 setSubscribed(false)
             } else {
-                setSubscribed(true)
-
+                submitMonthCard(
+                    user.phone,
+                    idLocation,
+                    locationDetail.monthTicket,
+                    number
+                ).then( res => {
+                    if (res.returnCode == 1) {
+                        Alert.alert("", "Đăng ký thành công");
+                        setSubscribed(true)
+                    } else {
+                        Alert.alert("", "Đăng ký thất bại");
+                        setSubscribed(false)
+                    }
+                });
             }
         }
     }
@@ -50,7 +66,9 @@ const MonthTicketSubscribe = () => {
                     <TicketSubscribeContent locationDetail={locationDetail} number={number} setNumber={setNumber}/>
                 </ScrollView>
             )}
-            <BottomButton title={ subscribed? "Đã gửi đăng ký" : "Đăng ký" } onPress={handleSubscribe} />
+            <BottomButton title={ subscribed? "Đã gửi đăng ký" : "Đăng ký" } onPress={subscribed ? () => {
+                Alert.alert("", "Đã gửi đăng ký vé tháng");
+            } : handleSubscribe} />
         </KeyboardAvoidingView>
     );
 };
